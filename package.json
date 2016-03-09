@@ -1,0 +1,23 @@
+{
+  "name": "webapp",
+  "version": "1.0.0",
+  "description": "This is my node webapp first try",
+  "main": "nodeserver.js",
+  "dependencies": {
+    "express": "^4.13.4",
+    "jade": "^1.11.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "Test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "personalserver"
+  },
+  "keywords": [
+    "WebApp"
+  ],
+  "author": "Nathan Lafferty",
+  "license": "ISC"
+}
