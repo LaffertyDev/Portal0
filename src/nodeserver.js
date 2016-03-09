@@ -18,3 +18,4 @@ app.listen(port, function() {
 
 app.use('/static', express.static(__dirname + '/Client/Content'));
 app.set('views', __dirname + '/Client/Views');
+
