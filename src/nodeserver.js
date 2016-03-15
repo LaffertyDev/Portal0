@@ -2,20 +2,31 @@
 
 const port = 13082;
 
-var express = require('express');
-var jade = require('jade');
-var app = express();
-
-app.set('view engine', 'jade')
+//dependencies
+var express = require('express'),
+    app = express(),
+    sass = require('node-sass'),
+    path = require('path'),
+    sass_middleware = require('node-sass-middleware');
+//end dependencies
 
 app.get('/', function(req, res) {
-    res.render('index', {title: 'Portal0', message: 'Hello World'});
+    res.sendFile(__dirname + '/Client/Views/index.html');
+    console.log('Index Hit :)');
 });
 
 app.listen(port, function() {
     console.log('Webserver started');
 });
 
-app.use('/static', express.static(__dirname + '/Client/Content'));
-app.set('views', __dirname + '/Client/Views');
+//for some reason, we can't register the SASS directly under content (because it's included in the app.use)
+app.use(sass_middleware({
+    src: __dirname + '/sass',
+    dest: __dirname + '/Client/Content/css',
+    prefix: '/css',
+    debug: true
+}));
 
+console.log('DirName: ' + __dirname);
+
+app.use(express.static(__dirname + '/Client/Content'));

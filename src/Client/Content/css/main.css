@@ -1,0 +1,46 @@
+.navbar {
+  color: blue;
+  background: gray;
+  height: 90px;
+  line-height: 90px; }
+  .navbar .logo {
+    display: inline;
+    margin: 0px;
+    margin-left: 20px; }
+
+.button {
+  appearance: button;
+  -moz-appearance: button;
+  -webkit-appearance: button;
+  text-decoration: none;
+  font: menu;
+  display: inline-block;
+  padding: 2px 8px; }
+
+.title {
+  margin-top: 0; }
+
+.pull-left {
+  float: left; }
+
+.pull-right {
+  float: right; }
+
+.btn-primary {
+  background-color: #74c4c4;
+  border-color: #74c4c4; }
+
+.sidebar {
+  float: left;
+  width: 20%;
+  height: 100%;
+  background-color: gray; }
+
+.content {
+  height: 100%; }
+
+div {
+  color: black; }
+
+body {
+  margin: 0px; }
