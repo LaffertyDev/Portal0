@@ -12,18 +12,18 @@ This is my personal NodeJs webserver. In particular, I wanted to host a few thin
 
 ## Design Considerations
 
-1.) Mobile friendly
-2.) Try to use as few packages as possible*
-3.) Attempt to design and build website without using a template
-4.) Attempt to build things using my new core paradigms, good coding styles, and clean html/css
-5.) Maintain documentation and workflows as I build the website, instead of pushing them off
+1. Mobile friendly
+2. Try to use as few packages as possible*
+3. Attempt to design and build website without using a template
+4. Attempt to build things using my new core paradigms, good coding styles, and clean html/css
+5. Maintain documentation and workflows as I build the website, instead of pushing them off
 
 > Notable Exceptions are MongoDb, Express, Angular, and Nodejs (MEAN)
 
 ## Reasoning
 
-1.) So I can learn more fundamentals of web technologies first and foremost
-2.) Improve my design skills with hands-on experience
+1. So I can learn more fundamentals of web technologies first and foremost
+2. Improve my design skills with hands-on experience
 
 ## Installed Packages
 
