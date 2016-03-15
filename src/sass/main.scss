@@ -1,14 +1,24 @@
+.header {
+    border-top: 5px solid #74c4c4;
+    border-color: #74c4c4;
+}
+
 .navbar {
-    color: blue;
-    background: gray;
-    height: 90px;
-    line-height: 90px;
+    text-align: center;
     
-    .logo {
-        display: inline;
-        margin: 0px;
-        margin-left: 20px;
+    a {
+        margin: 0 20;
     }
+}
+
+div {
+    width: 100%;
+}
+
+.logo {
+    line-height: 60px;
+    margin: 0px;
+    margin-left: 60px;
 }
 
 .button {
