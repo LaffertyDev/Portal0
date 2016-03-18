@@ -1,24 +1,53 @@
-.header {
-    border-top: 5px solid #74c4c4;
+.site-header {
+    border: 5px solid #74c4c4;
+    border-left: 0;
+    border-right: 0;
+    border-color: #74c4c4;
+    margin-bottom: 1em;
+    line-height: 3em;
+}
+
+.site-footer {
+    border: 5px solid #74c4c4;
+    border-left: 0;
+    border-right: 0;
     border-color: #74c4c4;
 }
 
+.site-body {
+    margin: 0 2em;
+    height: 87.5%;
+}
+
+.video {
+    width: 320px;
+    height: 200px;
+}
+
 .navbar {
-    text-align: center;
-    
-    a {
-        margin: 0 20;
+    margin: 0em;
+    padding: 0em;
+    list-style: none;
+        
+    li {
+        display: inline-block;
+        margin-left: -4px;
+        border-right: 1px #74c4c4 solid;
+        background: black;
+        
+        a {
+            color: #74c4c4;
+            display: block;
+            padding: 0 20;
+            text-decoration: none;
+        }
     }
 }
 
-div {
-    width: auto;
-}
-
 .logo {
-    line-height: 60px;
     margin: 0px;
-    margin-left: 60px;
+    margin-left: 1em;
+    display: inline;
 }
 
 .button {
