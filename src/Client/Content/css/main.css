@@ -10,11 +10,13 @@
   border: 5px solid #74c4c4;
   border-left: 0;
   border-right: 0;
-  border-color: #74c4c4; }
+  border-color: #74c4c4;
+  height: 4em; }
 
 .site-body {
-  margin: 0 2em;
-  height: 87.5%; }
+  margin: 0 1rem;
+  min-height: 100%;
+  margin-bottom: -4em; }
 
 .navbar {
   margin: 0em;
@@ -33,8 +35,8 @@
 
 .logo {
   margin: 0px;
-  margin-left: 1em;
-  display: inline; }
+  display: inline;
+  margin-left: 1rem; }
 
 .title {
   margin-top: 0; }
@@ -50,9 +52,6 @@
   width: 20%;
   height: 100%;
   background-color: gray; }
-
-.content {
-  height: 100%; }
 
 .btn-primary {
   background-color: #74c4c4;
@@ -75,4 +74,4 @@ div {
   color: black; }
 
 body {
-  margin: 0px; }
+  margin: 0em; }

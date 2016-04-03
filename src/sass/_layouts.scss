@@ -14,11 +14,13 @@
     border-left: 0;
     border-right: 0;
     border-color: $primary-colour;
+    height: 4em;
 }
 
 .site-body {
-    margin: 0 2em;
-    height: 87.5%;
+    margin: 0 1rem;
+    min-height: 100%;
+    margin-bottom: -4em;
 }
 
 
@@ -44,8 +46,8 @@
 
 .logo {
     margin: 0px;
-    margin-left: 1em;
     display: inline;
+    margin-left: 1rem;
 }
 
 .title {
@@ -68,5 +70,5 @@
 }
 
 .content {
-    height: 100%;
+    
 }
