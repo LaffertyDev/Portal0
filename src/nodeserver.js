@@ -27,6 +27,4 @@ app.use(sass_middleware({
     debug: true
 }));
 
-console.log('DirName: ' + __dirname);
-
 app.use(express.static(__dirname + '/Client/Content'));

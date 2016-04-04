@@ -1,5 +1,6 @@
 @import 'layouts';
 @import 'components';
+
 html {
     //font-size: 16px; Don't set a default font size, this way users can specify what size they want instead :)
     //poor ux as a result of this is on the user. The App should handle "normal" font sizes gracefully, but absurd 

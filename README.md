@@ -31,3 +31,9 @@ This is my personal NodeJs webserver. In particular, I wanted to host a few thin
 - AngularJs
 - Express
 - Sass
+
+
+## How it all Works
+
+ExpressJS acts as the actual webserver, allowing me to dynamically serve content (static files, webapi, etc.).
+
