@@ -28,3 +28,4 @@ app.use(sass_middleware({
 }));
 
 app.use(express.static(__dirname + '/Client/Content'));
+app.use('/App', express.static(__dirname + '/Client/App'));
