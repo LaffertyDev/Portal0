@@ -51,6 +51,7 @@ ExpressJS acts as the actual webserver, allowing me to dynamically serve content
 10. Verify mobile page works & flows
 11. Setup auto-deploy
 12. Setup separate git project for DnD worldbuilder & how to auto import it when changes are made
+13. Figure out how to auto commit / sync using Visual Studio Code w/ Github
 
 ## School Projects to import:
 Write project for Senior Design
