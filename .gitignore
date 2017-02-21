@@ -1,6 +1,6 @@
 # Custom Git Ignore files
 src/Client/Content/
-
+.DS_Store
 
 # ALL GIT IGNORE FILES BELOW ARE FROM NODE .GITIGNORE GITHUB/GITIGNORE PROJECT
 
