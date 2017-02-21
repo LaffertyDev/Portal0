@@ -1,6 +1,6 @@
 @import '_scssconstants';
 
-.site-header {
+.#{$namespace}-site-header {
     border: 5px solid $primary-colour;
     border-left: 0;
     border-right: 0;
@@ -9,7 +9,7 @@
     line-height: 3em;
 }
 
-.site-footer {
+.#{$namespace}-site-footer {
     border: 5px solid $primary-colour;
     border-left: 0;
     border-right: 0;
@@ -17,14 +17,14 @@
     height: 4em;
 }
 
-.site-body {
+.#{$namespace}-site-body {
     margin: 0 1rem;
     min-height: 100%;
     margin-bottom: -4em;
 }
 
 
-.navbar {
+.#{$namespace}-navbar {
     margin: 0em;
     padding: 0em;
     list-style: none;
@@ -44,13 +44,13 @@
     }
 }
 
-.logo {
+.#{$namespace}-logo {
     margin: 0px;
     display: inline;
     margin-left: 1rem;
 }
 
-.title {
+.#{$namespace}-title {
     margin-top: 0;
 }
 
@@ -62,13 +62,13 @@
     float: right;
 }
 
-.sidebar {
+.#{$namespace}-sidebar {
     float: left;
     width: 20%;
     height: 100%;
     background-color: gray;
 }
 
-.content {
+.#{$namespace}-content {
     
 }

@@ -24,11 +24,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Ha1fDead/Portal0.git"
+    "url": "git+https://github.com/Ha1fDead/Portal0.git"
   },
   "keywords": [
     "WebApp"
   ],
   "author": "Nathan Lafferty",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ha1fDead/Portal0/issues"
+  },
+  "homepage": "https://github.com/Ha1fDead/Portal0#readme"
 }
