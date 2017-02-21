@@ -9,10 +9,21 @@ var express = require('express'),
     path = require('path'),
     sass_middleware = require('node-sass-middleware');
 //end dependencies
+app.set('view engine', 'vash');
 
 app.get('/', function(req, res) {
     res.sendFile(__dirname + '/Client/Views/index.html');
-    console.log('Index Hit :)');
+    console.log('Index Hit');
+});
+
+app.get('/resume', function(req, res) {
+    res.sendFile(__dirname + '/Client/Views/resume.html');
+    console.log('Resume Hit');
+});
+
+app.get('/worldbuilder', function(req, res) {
+    res.sendFile(__dirname + '/Client/Views/worldbuilder.html');
+    console.log('Worldbuilder Hit');
 });
 
 app.listen(port, function() {
