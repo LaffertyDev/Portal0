@@ -15,12 +15,16 @@
     border-right: 0;
     border-color: $primary-colour;
     height: 4em;
+
+    .#{$namespace}-footer-text {
+        line-height: 4em;
+        margin-left: 1rem;
+    }
 }
 
 .#{$namespace}-site-body {
     margin: 0 1rem;
     min-height: 100%;
-    margin-bottom: -4em;
 }
 
 
