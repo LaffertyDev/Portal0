@@ -1,3 +1,9 @@
+# Custom Git Ignore files
+src/Client/Content/
+
+
+# ALL GIT IGNORE FILES BELOW ARE FROM NODE .GITIGNORE GITHUB/GITIGNORE PROJECT
+
 # Logs
 logs
 *.log
