@@ -17,9 +17,7 @@
   "scripts": {
     "start": "concurrently \"npm run tsc:w\" \"node ./src/nodeserver.js\" ",
     "tsc": "tsc",
-    "tsc:w": "tsc -w",
-    "typings": "typings",
-    "postinstall": "typings install"
+    "tsc:w": "tsc -w"
   },
   "repository": {
     "type": "git",
