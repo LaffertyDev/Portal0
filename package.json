@@ -12,8 +12,7 @@
   "devDependencies": {
     "concurrently": "^2.0.0",
     "gulp": "^3.9.1",
-    "typescript": "^1.8.9",
-    "typings": "^0.7.11"
+    "typescript": "^1.8.9"
   },
   "scripts": {
     "start": "concurrently \"npm run tsc:w\" \"node ./src/nodeserver.js\" ",
