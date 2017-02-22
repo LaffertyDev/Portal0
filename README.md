@@ -58,3 +58,9 @@ Fix ai project
 Write project for Graphics interpolation project
 Fix graphics interpolation project
 Write project for Graphics 
+
+## Responsive Todo
+
+1. Learn what the meta viewport property does cross-browser
+2. Wrap the header float'd list in a div so it wraps properly
+3. fix the footer so it wraps intelligently
