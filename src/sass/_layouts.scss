@@ -1,56 +1,7 @@
 @import '_scssconstants';
 
-.#{$namespace}-site-header {
-    border: 5px solid $primary-colour;
-    border-left: 0;
-    border-right: 0;
-    border-color: $primary-colour;
-    margin-bottom: 1em;
-    line-height: 3em;
-}
-
-.#{$namespace}-site-footer {
-    border: 5px solid $primary-colour;
-    border-left: 0;
-    border-right: 0;
-    border-color: $primary-colour;
-    height: 4em;
-
-    //Set the footer to "Flow" as you would expect
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-
-    .#{$namespace}-footer-content {
-        line-height: 4em;
-        margin-left: 1rem;
-    }
-}
-
 .#{$namespace}-site-body {
     margin: 0 1rem;
-}
-
-
-.#{$namespace}-navbar {
-    margin: 0em;
-    padding: 0em;
-    list-style: none;
-        
-    li {
-        display: inline-block;
-        margin-left: -4px;
-        border-right: 1px $primary-colour solid;
-        background: black;
-        
-        a {
-            color: $primary-colour;
-            display: block;
-            padding: 0 20;
-            text-decoration: none;
-        }
-    }
 }
 
 .#{$namespace}-logo {
