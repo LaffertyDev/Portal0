@@ -12,5 +12,7 @@ div {
 }
 
 body {
+    position: relative;
     margin: 0em;
+    padding-bottom: 74px; //the exact size of the footer!
 }
