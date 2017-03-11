@@ -43,7 +43,6 @@ ExpressJS acts as the actual webserver, allowing me to dynamically serve content
 2. Build out DnD Worldbuilder
 3. Further flesh out site design & layout
 4. Import & fix all of my old school projects
-5. Fix the damned footer for when the page size goes beyond it
 6. Cleanup resume page
 7. Get the girlfriend to design me a logo
 8. Include a picture of me
@@ -60,3 +59,9 @@ Fix ai project
 Write project for Graphics interpolation project
 Fix graphics interpolation project
 Write project for Graphics 
+
+## Responsive Todo
+
+1. Learn what the meta viewport property does cross-browser
+2. Wrap the header float'd list in a div so it wraps properly
+3. fix the footer so it wraps intelligently

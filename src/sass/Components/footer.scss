@@ -1,0 +1,19 @@
+
+.#{$namespace}-site-footer {
+    border: 5px solid $primary-colour;
+    border-left: 0;
+    border-right: 0;
+    border-color: $primary-colour;
+    height: 4em;
+
+    //Set the footer to "Flow" as you would expect
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    .#{$namespace}-footer-content {
+        line-height: 4em;
+        margin-left: 1rem;
+    }
+}
