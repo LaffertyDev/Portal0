@@ -31,26 +31,29 @@ This is my personal NodeJs webserver. In particular, I wanted to host a few thin
 - AngularJs
 - Express
 - Sass
-
+- Handlebars (HBS)
 
 ## How it all Works
 
 ExpressJS acts as the actual webserver, allowing me to dynamically serve content (static files, webapi, etc.).
 
+When a request hits one of my endpoints, the app will compile the handlebars code and send it as an html file to the client.
+
+On dev, I have SCSS middleware which will automatically compile whenever my routes are hit
+
 # Todo
 
-1. Build out template engine (so I can remove boilerplate)
-2. Build out DnD Worldbuilder
-3. Further flesh out site design & layout
-4. Import & fix all of my old school projects
-6. Cleanup resume page
-7. Get the girlfriend to design me a logo
-8. Include a picture of me
-9. Setup TLS
-10. Verify mobile page works & flows
-11. Setup auto-deploy
-12. Setup separate git project for DnD worldbuilder & how to auto import it when changes are made
-13. Figure out how to auto commit / sync using Visual Studio Code w/ Github
+1. Build out DnD Worldbuilder
+1. Further flesh out site design & layout
+1. Import & fix all of my old school projects
+1. Cleanup resume page
+1. Get the girlfriend to design me a logo
+1. Include a picture of me
+1. Setup TLS
+1. Verify mobile page works & flows
+1. Setup auto-deploy
+1. Setup separate git project for DnD worldbuilder & how to auto import it when changes are made
+1. Figure out how to auto commit / sync using Visual Studio Code w/ Github
 
 ## School Projects to import:
 Write project for Senior Design
