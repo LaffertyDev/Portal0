@@ -43,7 +43,6 @@ On dev, I have SCSS middleware which will automatically compile whenever my rout
 
 # Todo
 
-1. Build out DnD Worldbuilder
 1. Further flesh out site design & layout
 1. Import & fix all of my old school projects
 1. Cleanup resume page
@@ -68,3 +67,11 @@ Write project for Graphics
 1. Learn what the meta viewport property does cross-browser
 2. Wrap the header float'd list in a div so it wraps properly
 3. fix the footer so it wraps intelligently
+
+## Worldbuilder todo:
+
+1. setup binding application (contenders: ang2 / react)
+2. setup frontend for visualizing results
+3. add customization options for constant values
+4. improve model support for non-Parisian towns/cities
+5. build name generator
