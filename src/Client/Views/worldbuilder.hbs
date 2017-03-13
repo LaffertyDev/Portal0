@@ -24,30 +24,20 @@
     </form>
 </div>
 
+<script src="https://unpkg.com/react@15/dist/react.js"></script>
+<script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+<script src="/worldbuilder/Region.js"></script>
+<script src="/worldbuilder/Service.js"></script>
+<script src="/worldbuilder/Settlement.js"></script>
+
 <script type="text/javascript">
-    //dev with ECMASCRIPT2015
-
-    //eventually, move this to angular or react maybe
-
-    //but for now, I want to try and learn native JS
-
-    /**
-
-    30-120 people per square mile of fully-developed land
-
-    1 sq mile of agriculture can support 180 people
-
-    livestock count is 2.2 times the human population of the region
-
-    */
-
     function formsubmit() {
-        var cityPop = document.getElementById('cityPop').value;
-        var regionPop = document.getElementById('regionPop').value;
-        var regionAgeYears = document.getElementById('regionAgeYears').value;
-        var regionAreaAcres = document.getElementById('regionAreaAcres').value;
-        var city = new City(Number(cityPop));
-        var region = new Region(Number(regionPop), regionAgeYears, regionAreaAcres);
+        let cityPop = document.getElementById('cityPop').value;
+        let regionPop = document.getElementById('regionPop').value;
+        let regionAgeYears = document.getElementById('regionAgeYears').value;
+        let regionAreaAcres = document.getElementById('regionAreaAcres').value;
+        let city = new City(Number(cityPop));
+        let region = new Region(Number(regionPop), regionAgeYears, regionAreaAcres);
         console.log(city);
         console.log(region);
         return false;
@@ -55,180 +45,10 @@
 
     const PEOPLE_PER_ACRE_FARM = 180;
     const REGION_POPULATION_DENSITY = 30; //30 - 120
-    var regionPopulation = 9999999; //input parameter
 
-    class Region {
-        constructor(regionPopulation, regionAgeYears, regionAreaAcres) {
-            const LIVESTOCK_PER_PERSON = 2.2;
-            const PEOPLE_PER_CASTLE = 50000;
-            const PEOPLE_PER_RUINEDCASTLE = 5000000;
-            const FOWL_PERCENTAGE = 0.68;
-            const OUTSKIRT_CASTLE_PERCENTAGE = 0.25;
-
-            this.Population = regionPopulation;
-            this.AreaAcres = regionAreaAcres;
-            this.Age = regionAgeYears;
-
-            this.TotalLivestock = regionPopulation * LIVESTOCK_PER_PERSON;
-            this.Fowl = this.TotalLivestock * FOWL_PERCENTAGE;
-            this.BurdenBeasts = this.TotalLivestock - this.Fowl;
-
-            this.RuinedCastles = regionPopulation * Math.sqrt(regionAgeYears) / (PEOPLE_PER_RUINEDCASTLE);
-            this.ActiveCastles = regionPopulation / PEOPLE_PER_CASTLE;
-            this.TotalCastles = this.RuinedCastles + this.ActiveCastles;
-
-            var castlesInOutskirts = this.TotalCastles * OUTSKIRT_CASTLE_PERCENTAGE;
-            var castlesInCivilization = this.TotalCastles - castlesInOutskirts;
-
-            this.Cities = [];
-            this.Towns = [];
-            this.Villages = [];
-
-            var totalCityPopulation = 0;
-            var lastCityPopulation = Math.sqrt(regionPopulation) * 14; //2d4+10
-            totalCityPopulation += lastCityPopulation;
-            this.Cities.push(new City(lastCityPopulation));
-            
-            lastCityPopulation = getRandomArbitrary(0.2, 0.8) * lastCityPopulation;
-            totalCityPopulation += lastCityPopulation;
-            this.Cities.push(new City(lastCityPopulation));
-            while(lastCityPopulation > 8000) {
-                var populationReduction = getRandomArbitrary(0.1, 0.4);
-                lastCityPopulation = lastCityPopulation * populationReduction;
-                this.Cities.push(new City(lastCityPopulation));
-                totalCityPopulation += lastCityPopulation;
-            }
-
-            var totalTownPopulation = 0;
-            var numTowns = this.Cities.length * 8; //2d8
-            this.Towns = [];
-            
-            while(this.Towns.length < numTowns && (totalTownPopulation + totalCityPopulation) < regionPopulation) {
-                var townPopulation = getRandomArbitrary(1000, 8000); //town minimum, town maximum
-                if(townPopulation + totalCityPopulation + totalTownPopulation > regionPopulation) {
-                    townPopulation = regionPopulation - totalTownPopulation - totalCityPopulation;
-                }
-
-                this.Towns.push(new City(townPopulation));
-                totalTownPopulation += townPopulation;
-            }
-
-            var totalVillagePopulation = regionPopulation - (totalCityPopulation + totalTownPopulation);
-            this.Villages = [];
-            var numVillages = totalVillagePopulation / 175; //average village population (20 - 1000, or 50 - 300)
-            for(var x = 0; x < numVillages; x++) {
-                this.Villages.push(new City(totalVillagePopulation / numVillages));
-            }
-
-            console.log('Region: ' + regionPopulation + ' Town/City/Village: ' + (totalTownPopulation + totalCityPopulation + totalVillagePopulation))
-        }
-    }
 
     function getRandomArbitrary(min, max) {
         return Math.random() * (max - min) + min;
-    }
-
-    class City {
-        constructor(cityPopulation) {
-            const PEOPLE_PER_NOBLEFAMILY = 200;
-            const PEOPLE_PER_OFFICER = 150;
-            const PEOPLE_PER_CLERGY = 40;
-            const CLERGY_PER_PRIEST = 25; //25-30
-            const HOUSEHOLD_SIZE = 5; //5-6
-            const WAREHOUSES_PER_BUILDING = 1.4; //1.0 - 1.4 for warehouses, docks, etc..)
-            const CITY_PEOPLE_PER_ACRE = 61; //61 people per acre
-            const CITY_COUNTRYSIDE_RATIO = (PEOPLE_PER_ACRE_FARM - REGION_POPULATION_DENSITY);
-
-            this.TotalPopulation = cityPopulation;
-
-            this.CountrysidePopulation = cityPopulation / CITY_COUNTRYSIDE_RATIO;
-            this.CountrysideAcres = this.CountrysidePopulation / REGION_POPULATION_DENSITY;
-            this.CityAcres = cityPopulation / CITY_PEOPLE_PER_ACRE;
-
-            //people stats
-            this.NobleFamilies = cityPopulation / PEOPLE_PER_NOBLEFAMILY;
-            this.LawOfficers = cityPopulation / PEOPLE_PER_OFFICER;
-            this.Clergy = cityPopulation / PEOPLE_PER_CLERGY;
-            this.Priests = this.Clergy / CLERGY_PER_PRIEST;
-            
-            //building stats
-            this.TotalBuildings = cityPopulation / HOUSEHOLD_SIZE * WAREHOUSES_PER_BUILDING;
-            this.Services = [];
-
-            var potentialServices = Service.GetServices();
-            for(var x = 0; x < potentialServices.length; x++) {
-                var numServices = this.TotalPopulation / potentialServices[x].SupportValue;
-                for(var y = 1; y < numServices; y++) {
-                    this.Services.push(new Service(potentialServices[x].Name, potentialServices[x].SupportValue));
-                }
-            }
-        }
-    }
-
-
-    class Service {
-        constructor(name, supportValue) {
-            this.Name = name;
-            this.SupportValue = supportValue;
-        }
-
-        static GetServices() {
-            var potentialServices = [];
-            potentialServices.push(new Service("Showmakers", 150));
-            potentialServices.push(new Service("Furriers", 250));
-            potentialServices.push(new Service("Maidservants", 250));
-            potentialServices.push(new Service("Tailors", 250));
-            potentialServices.push(new Service("Barbers", 350));
-            potentialServices.push(new Service("Jewelers", 400));
-            potentialServices.push(new Service("Taverns/Restaurants", 400));
-            potentialServices.push(new Service("Old-Clothes", 400));
-            potentialServices.push(new Service("Pastrycooks", 500));
-            potentialServices.push(new Service("Masons", 500));
-            potentialServices.push(new Service("Weavers", 600));
-            potentialServices.push(new Service("Chandlers", 700));
-            potentialServices.push(new Service("Mercers", 700));
-            potentialServices.push(new Service("Coopers", 700));
-            potentialServices.push(new Service("Bakers", 800));
-            potentialServices.push(new Service("Watercarriers", 850));
-            potentialServices.push(new Service("Scabbardmakers", 850));
-            potentialServices.push(new Service("Wine-Sellers", 900));
-            potentialServices.push(new Service("Hatmakers", 950));
-            potentialServices.push(new Service("Saddlers", 1000));
-            potentialServices.push(new Service("Chicken Butchers", 1000));
-            potentialServices.push(new Service("Pursemakers", 1100));
-            potentialServices.push(new Service("Woodsellers", 2400));
-            potentialServices.push(new Service("Magic-Shops", 2800));
-            potentialServices.push(new Service("Bookbinders", 3000));
-
-            potentialServices.push(new Service("Butchers", 1200));
-            potentialServices.push(new Service("Fishmongers", 1200));
-            potentialServices.push(new Service("Beer-Sellers", 1400));
-            potentialServices.push(new Service("Buckle Makers", 1400));
-            potentialServices.push(new Service("Plasterers", 1400));
-            potentialServices.push(new Service("Spice Merchants", 1400));
-            potentialServices.push(new Service("Blacksmiths", 1500));
-            potentialServices.push(new Service("Painters", 1500));
-            potentialServices.push(new Service("Unlicensed Doctors", 350));
-            potentialServices.push(new Service("Licensed Doctors", 1700));
-            potentialServices.push(new Service("Roofers", 1800));
-            potentialServices.push(new Service("Locksmiths", 1900));
-            potentialServices.push(new Service("Bathers", 1900));
-            potentialServices.push(new Service("Ropemakers", 1900));
-            potentialServices.push(new Service("Inns", 2000));
-            potentialServices.push(new Service("Tanners", 2000));
-            potentialServices.push(new Service("Copyists", 2000));
-            potentialServices.push(new Service("Sculptors", 2000));
-            potentialServices.push(new Service("Rugmakers", 2000));
-            potentialServices.push(new Service("Harness-Makers", 2000));
-            potentialServices.push(new Service("Bleachers", 2100));
-            potentialServices.push(new Service("Hay Merchants", 2300));
-            potentialServices.push(new Service("Cutlers", 2300));
-            potentialServices.push(new Service("Glovemakers", 2400));
-            potentialServices.push(new Service("Woodcarvers", 2400));
-            potentialServices.push(new Service("Booksellers", 6300));
-            potentialServices.push(new Service("Illuminators", 3900));
-            return potentialServices;
-        }
     }
 
 </script>
