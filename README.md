@@ -81,6 +81,7 @@ Write project for Graphics
 
 1. setup typings (fix intellisense errors)
 2. setup frontend for visualizing results
+1. setup auto webpack bundling on npm start/debug
 3. add customization options for constant values
 4. improve model support for non-Parisian towns/cities
 5. build name generator
