@@ -2,53 +2,9 @@
     <h1 class="laff-title">World Builder</h1>
     <p>This is my World Builder! (or at least, here is where it should exist)</p>
 
-    <form action="javascript:void(0);" onsubmit="return formsubmit()">
-        <div>
-            <label for="cityPop">City Population</label>
-            <input id="cityPop" type="number" value="1000"/>
-        </div>
-        <hr/>
-        <div>
-            <label for="regionPop">Region Pop Population</label>
-            <input id="regionPop" type="number" value="10000000" />
-        </div>  
-        <div>
-            <label for="regionAgeYears">Region Age Years (older -> more castles)</label>
-            <input id="regionAgeYears" type="number" value="1000" />
-        </div>  
-        <div>
-            <label for="regionAreaAcres">Region Area Acres</label>
-            <input id="regionAreaAcres" type="number" value="1000000" />
-        </div>  
-        <button type="submit">Submit</button> (see dev console for details)
-    </form>
+    <div id="reactApp"></div>
 </div>
 
 <script src="https://unpkg.com/react@15/dist/react.js"></script>
 <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
-<script src="/worldbuilder/Region.js"></script>
-<script src="/worldbuilder/Service.js"></script>
-<script src="/worldbuilder/Settlement.js"></script>
-
-<script type="text/javascript">
-    function formsubmit() {
-        let cityPop = document.getElementById('cityPop').value;
-        let regionPop = document.getElementById('regionPop').value;
-        let regionAgeYears = document.getElementById('regionAgeYears').value;
-        let regionAreaAcres = document.getElementById('regionAreaAcres').value;
-        let city = new City(Number(cityPop));
-        let region = new Region(Number(regionPop), regionAgeYears, regionAreaAcres);
-        console.log(city);
-        console.log(region);
-        return false;
-    }
-
-    const PEOPLE_PER_ACRE_FARM = 180;
-    const REGION_POPULATION_DENSITY = 30; //30 - 120
-
-
-    function getRandomArbitrary(min, max) {
-        return Math.random() * (max - min) + min;
-    }
-
-</script>
+<script src="/scripts/bundle.js"></script>

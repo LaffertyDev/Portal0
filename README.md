@@ -41,6 +41,15 @@ When a request hits one of my endpoints, the app will compile the handlebars cod
 
 On dev, I have SCSS middleware which will automatically compile whenever my routes are hit
 
+### Setting up React & Typescript
+
+WHY DO I NEED SO MANY DEPENDENCIES TO RUN TS REACT?!?!?!
+
+1. Install react/react-dom dependencies
+2. Convert all files to .ts/.tsx
+3. Install webpack dependency (ts react will NOT work without it)
+4. Install awesome-typescript-loader (again, ts react will NOT work without it)
+
 # Todo
 
 1. Further flesh out site design & layout
@@ -70,7 +79,7 @@ Write project for Graphics
 
 ## Worldbuilder todo:
 
-1. setup binding application (contenders: ang2 / react)
+1. setup typings (fix intellisense errors)
 2. setup frontend for visualizing results
 3. add customization options for constant values
 4. improve model support for non-Parisian towns/cities

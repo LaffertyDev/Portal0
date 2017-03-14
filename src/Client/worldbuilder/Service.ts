@@ -1,5 +1,8 @@
 
-class Service {
+export default class Service {
+    Name: string;
+    SupportValue: number;
+    
     constructor(name, supportValue) {
         this.Name = name;
         this.SupportValue = supportValue;
