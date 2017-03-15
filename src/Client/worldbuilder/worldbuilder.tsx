@@ -3,7 +3,10 @@ import * as ReactDOM from "react-dom";
 import Region from "./Region";
 import Settlement from "./Settlement";
 
-interface RegionFormProps {};
+interface RegionRenderProps extends React.Props<RegionRender> {
+    region: Region;
+}
+
 interface RegionFormState { 
     cityPop: number, 
     regionPop : number, 
@@ -11,7 +14,37 @@ interface RegionFormState {
     regionAgeYears : number 
 };
 
-class RegionForm extends React.Component<RegionFormProps, RegionFormState> {
+class RegionRender extends React.Component<RegionRenderProps, void> {
+    render() {
+        return (
+            <div>
+                <div>
+                    <h3>Region Info</h3>
+                    <p>Age (Years): {this.props.region.Age.toString()}</p>
+                    <p>Area (Acres): {this.props.region.AreaAcres.toString()}</p>
+                    <p>Population: {this.props.region.Population.toString()}</p>
+                    <p>LiveStock: {this.props.region.TotalLivestock.toString()}</p>
+                    <p>Fowl: {this.props.region.Fowl.toString()}</p>
+                    <p>Cows, Sheep, &amp; Pigs: {this.props.region.BurdenBeasts.toString()}</p>
+                </div>
+                <div>
+                    <h3>Castle Info</h3>
+                    <p>Total Castles: {this.props.region.TotalCastles.toString()}</p>
+                    <p>Active Castles: {this.props.region.ActiveCastles.toString()}</p>
+                    <p>Ruined Castles: {this.props.region.RuinedCastles.toString()}</p>
+                </div>
+                <div>
+                    <h3>Settlement Info</h3>
+                    <p>#Cities: {this.props.region.Cities.length.toString()}</p>
+                    <p>#Towns: {this.props.region.Towns.length.toString()}</p>
+                    <p>#Villages: {this.props.region.Villages.length.toString()}</p>
+                </div>
+            </div>
+        );
+    }
+}
+
+class RegionForm extends React.Component<void, RegionFormState> {
     constructor(props) {
         super(props);
         // set initial state
@@ -74,7 +107,29 @@ class RegionForm extends React.Component<RegionFormProps, RegionFormState> {
     }
 }
 
+class WorldBuilder extends React.Component<void, void> {
+    regions: Region[];
+    constructor(props) {
+        super(props);
+        this.regions = [];
+        this.regions.push(new Region(1000000, 1000, 1000000));
+    }
+
+    render() {
+        return (
+            <div>
+                <RegionForm></RegionForm>
+                {
+                    this.regions.map(function(region, ind) {
+                        return <RegionRender region={region} key={ind}></RegionRender>;
+                    })
+                }
+            </div>
+        );
+    }
+}
+
 ReactDOM.render(
-    <RegionForm />,
+    <WorldBuilder />,
     document.getElementById("reactApp")
 );
