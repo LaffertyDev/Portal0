@@ -41,9 +41,27 @@ When a request hits one of my endpoints, the app will compile the handlebars cod
 
 On dev, I have SCSS middleware which will automatically compile whenever my routes are hit
 
-### Setting up React & Typescript
+Build:
+1. scss is compiled & put into Client/content/css/main.css
+2. typescript is compiled & bundled (using webpack) to Client/content/scripts/bundle.js
 
-WHY DO I NEED SO MANY DEPENDENCIES TO RUN TS REACT?!?!?!
+Dev:
+1. webpack is setup to run concurrently, will auto compile typescript files when changes are detected
+
+Startup:
+1. Register all node dependencies
+2. Start expressjs server
+3. Load middleware
+
+Server:
+1. Endpoint is hit, compile associated .hbs file (converts to html), send back to client
+2. Endpoint is hit, send static files
+
+DnD Webapp:
+1. React & react dependencies are loaded from server
+2. React loads, initializes components & binds to DOM
+
+### Setting up React & Typescript
 
 1. Install react/react-dom dependencies
 2. Convert all files to .ts/.tsx
