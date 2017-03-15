@@ -1,5 +1,5 @@
-import Constants from "./Constants";
-import Service from "./Service";
+import Constants from "../../Constants";
+import Service from "../Services/Service";
 
 /**
  * A settlement where humanoids live

@@ -1,5 +1,5 @@
-import * as RegionConst from "./Constants";
-import Settlement from "./Settlement";
+import * as RegionConst from "../../Constants";
+import Settlement from "../Settlement/Settlement";
 
 export default class Region {
     Population: number;
