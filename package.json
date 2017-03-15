@@ -13,7 +13,11 @@
     "awesome-typescript-loader": "^3.1.2",
     "concurrently": "^3.4.0",
     "gulp": "^3.9.1",
-    "typescript": "^2.2.1"
+    "typescript": "^2.2.1",
+    "@types/react": "*",
+    "@types/react-dom": "*",
+    "react": "*",
+    "react-dom": "*"
   },
   "scripts": {
     "start": "node ./src/nodeserver.js",

@@ -75,6 +75,6 @@ class RegionForm extends React.Component<RegionFormProps, RegionFormState> {
 }
 
 ReactDOM.render(
-    <RegionForm compiler="TypeScript" framework="React" />,
+    <RegionForm />,
     document.getElementById("reactApp")
 );
