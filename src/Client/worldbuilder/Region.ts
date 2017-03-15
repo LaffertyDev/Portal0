@@ -74,8 +74,6 @@ export default class Region {
         for(let x = 0; x < numVillages; x++) {
             this.Villages.push(new Settlement(totalVillagePopulation / numVillages));
         }
-
-        console.log('Region: ' + regionPopulation + ' Town/City/Village: ' + (totalTownPopulation + totalCityPopulation + totalVillagePopulation))
     }
 }
 

@@ -14,6 +14,10 @@ interface RegionFormState {
     regionAgeYears : number 
 };
 
+interface RegionFormProp {
+    onFormSubmit: (region: Region) => any;
+}
+
 class RegionRender extends React.Component<RegionRenderProps, void> {
     render() {
         return (
@@ -44,7 +48,7 @@ class RegionRender extends React.Component<RegionRenderProps, void> {
     }
 }
 
-class RegionForm extends React.Component<void, RegionFormState> {
+class RegionForm extends React.Component<RegionFormProp, RegionFormState> {
     constructor(props) {
         super(props);
         // set initial state
@@ -60,8 +64,7 @@ class RegionForm extends React.Component<void, RegionFormState> {
     handleSubmit(event) {
         let city = new Settlement(Number(this.state.cityPop));
         let region = new Region(Number(this.state.regionPop), this.state.regionAgeYears, this.state.regionAreaAcres);
-        console.log(city);
-        console.log(region);    
+        this.props.onFormSubmit(region);
         event.preventDefault();
     }
 
@@ -107,20 +110,27 @@ class RegionForm extends React.Component<void, RegionFormState> {
     }
 }
 
-class WorldBuilder extends React.Component<void, void> {
+interface WorldBuilderState {
     regions: Region[];
+}
+
+class WorldBuilder extends React.Component<void, WorldBuilderState> {
     constructor(props) {
         super(props);
-        this.regions = [];
-        this.regions.push(new Region(1000000, 1000, 1000000));
+        this.state = {regions: []};
+        this.handleRegionSubmit = this.handleRegionSubmit.bind(this);
+    }
+
+    handleRegionSubmit(region: Region) : void {
+        this.setState({regions: this.state.regions.concat([region])});
     }
 
     render() {
         return (
             <div>
-                <RegionForm></RegionForm>
+                <RegionForm onFormSubmit={this.handleRegionSubmit}></RegionForm>
                 {
-                    this.regions.map(function(region, ind) {
+                    this.state.regions.map(function(region, ind) {
                         return <RegionRender region={region} key={ind}></RegionRender>;
                     })
                 }
