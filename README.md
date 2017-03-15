@@ -97,9 +97,95 @@ Write project for Graphics
 
 ## Worldbuilder todo:
 
-1. setup typings (fix intellisense errors)
-2. setup frontend for visualizing results
-1. setup auto webpack bundling on npm start/debug
-3. add customization options for constant values
-4. improve model support for non-Parisian towns/cities
-5. build name generator
+1. add customization options for constant values
+1. improve model support for non-Parisian towns/cities
+1. build name generator
+
+### Worldbuilder Stretch:
+
+1. Generate city / town / village names
+1. Generate building names
+1. Generate people names
+  * Generate Castle details
+1. Name, size, fortifications, previous sieges?
+1. Specify region naming style
+1. Custom table importing
+1. Generate roads
+1. Generate terrain features
+  * Lakes / rivers / forests / hills / mountains
+1. Visualize generated map
+1. Visualize generated cities / towns
+1. Specify & auto generate region type
+1. Mountainous, grassland, swamp, etc..
+1. Regions influence population density / agricultural slider
+1. Generate region type
+  * Multiple biomes per region
+1. Sub-biome generation
+1. Climate generation
+1. Culture generation
+1. Caravan & Trade generation
+1. Town import / exports
+1. Legends generation
+1. Epic monsters
+  * History
+  * Epic items & swords
+  * Etc..
+1. Editable workspace
+  * Edit terrain features, canvas, legends, world names, building names, etc..
+  * Dungeon generation
+  * Encounter generation
+1. Export features
+  * Export into pdf / image / word doc / csv spreadsheet / gimp / photoshop
+
+#### WorldBuilder Editor Stretch stretch
+
+1. Attach a timeline
+  * Timeline is searchable
+  * Timeline automatically pulls data from places, regions, events, people, items
+1. Add ‘Places’
+  * ‘City of Wardeep’
+  * ‘Exalted Plains’
+  * Attach People, Objects, and Events to Places
+1. Add ‘Regions’
+  * Regions are defined by an area on the map
+  * Automatically link places, people, events, and objects
+  * Searchable
+  * Regions may overlap
+1. Add ‘Events’
+  * Person did this
+  * Object was created
+  * War happened here
+  * Data
+  * Name of event
+  * Date of event (or range)
+  * Description of Event
+  * <Node> did <Action>
+1. Add ‘Objects’
+  * Items
+  * Magical Weapons
+  * Cannons
+  * Artillery Equipment
+  * May be owned by places, people
+  * may be associated with events
+  * Data
+  * Name of object
+  * Date created (or range, for destroyed)
+  * Description of Object
+  * Associated Places
+  * Associated People
+
+1. Add ‘People’
+  * Ancestors
+  * Husbands, Wives
+  * Children
+  * Jobs
+  * Names
+  * Residential Locations
+  * Friends
+  * Enemies
+  * Killed by
+1. Sigil Generator
+  * Automatically creates images and icons for organizations, groups, kingdoms
+  * Can edit generated sigils
+  * Each sigil consists of “pieces” which are images that you can place and color
+  * Pieces are loaded dynamically from a list and imported into the application
