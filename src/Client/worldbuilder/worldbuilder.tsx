@@ -1,12 +1,12 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import Region from "./Components/Region/Region";
+import {RegionModel} from "./Components/Region/Region";
 import RegionRender from "./Components/Region/RegionRender";
 import RegionForm from "./Components/Region/RegionForm";
 import Settlement from "./Components/Settlement/Settlement";
 
 interface WorldBuilderState {
-    regions: Region[];
+    regions: RegionModel[];
 }
 
 class WorldBuilder extends React.Component<void, WorldBuilderState> {
@@ -16,7 +16,7 @@ class WorldBuilder extends React.Component<void, WorldBuilderState> {
         this.handleRegionSubmit = this.handleRegionSubmit.bind(this);
     }
 
-    handleRegionSubmit(region: Region) : void {
+    handleRegionSubmit(region: RegionModel) : void {
         this.setState({regions: this.state.regions.concat([region])});
     }
 

@@ -1,12 +1,16 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import Region from "./Region";
+import { RegionModel } from "./Region";
 
 interface RegionRenderProps extends React.Props<RegionRender> {
-    region: Region;
+    region: RegionModel;
 }
 
 export default class RegionRender extends React.Component<RegionRenderProps, void> {
+    constructor(props) {
+        super(props);
+    }
+
     render() {
         return (
             <div>

@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import Region from "./Region";
+import * as Region from "./Region";
 import Settlement from "../Settlement/Settlement";
 
 interface RegionFormState { 
@@ -11,10 +11,12 @@ interface RegionFormState {
 };
 
 interface RegionFormProp {
-    onFormSubmit: (region: Region) => any;
+    onFormSubmit: (region: Region.RegionModel) => any;
 }
 
 export default class RegionForm extends React.Component<RegionFormProp, RegionFormState> {
+    regionGenerator : Region.RegionGenerator;
+
     constructor(props) {
         super(props);
         // set initial state
@@ -24,12 +26,14 @@ export default class RegionForm extends React.Component<RegionFormProp, RegionFo
         this.handleAgeChange = this.handleAgeChange.bind(this);
         this.handleCityPopChange = this.handleCityPopChange.bind(this);
         this.handleRegionPopChange = this.handleRegionPopChange.bind(this);
+
+        this.regionGenerator = new Region.RegionGenerator();
     }
 
 
     handleSubmit(event) {
         let city = new Settlement(Number(this.state.cityPop));
-        let region = new Region(Number(this.state.regionPop), this.state.regionAgeYears, this.state.regionAreaAcres);
+        let region = this.regionGenerator.generate(Number(this.state.regionPop), this.state.regionAgeYears, this.state.regionAreaAcres);
         this.props.onFormSubmit(region);
         event.preventDefault();
     }
