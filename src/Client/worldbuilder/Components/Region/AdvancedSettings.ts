@@ -50,8 +50,6 @@ export class AdvancedSettings implements IAdvancedSettings {
     CityPeoplePerAcre: number;
     CityCountrysideRatio: number;
 
-
-
     constructor() {
         this.LivestockPerPerson = 2.2;
         this.PeoplePerCastle = 50000;

@@ -101,6 +101,11 @@ Write project for Graphics
 1. improve model support for non-Parisian towns/cities
 1. build name generator
 
+## Worldbuilder Code Quality todo:
+
+1. add summary tags for all fields, functions, classes, and interfaces
+1. separate advanced settings into "RegionConfiguration", "SettlementConfiguration", etc..
+
 ### Worldbuilder Stretch:
 
 1. Generate city / town / village names
@@ -190,7 +195,7 @@ Write project for Graphics
   * Each sigil consists of “pieces” which are images that you can place and color
   * Pieces are loaded dynamically from a list and imported into the application
 
-# NPC Generator Ideas
+### NPC Generator Ideas
 
 1. Pick race
 1. Pick age threshold

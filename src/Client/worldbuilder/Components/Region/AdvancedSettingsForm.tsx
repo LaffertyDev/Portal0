@@ -2,17 +2,23 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import * as AdvancedSettings from "./AdvancedSettings";
 
-export default class AdvancedSettingsForm extends React.Component<void, AdvancedSettings.IAdvancedSettings> {
+interface AdvancedSettingsFormProps {
+    settings: AdvancedSettings.AdvancedSettings;
+    onSettingsChange: (advancedSettings: AdvancedSettings.AdvancedSettings) => any;
+}
+
+export default class AdvancedSettingsForm extends React.Component<AdvancedSettingsFormProps, AdvancedSettings.IAdvancedSettings> {
     constructor(props) {
         super(props);
 
-        this.state = new AdvancedSettings.AdvancedSettings();
+        this.state = props.settings;
 
         this.handleAdvancedSettingsChange = this.handleAdvancedSettingsChange.bind(this);
     }
 
     handleAdvancedSettingsChange(event) {
         this.setState({[event.target.name]: event.target.value});
+        this.props.onSettingsChange(this.state);
     }
 
     render() {
