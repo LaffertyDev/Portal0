@@ -18,25 +18,25 @@ export default class RegionRender extends React.Component<RegionRenderProps, voi
                     <h3>Region Info</h3>
                     <p>
                         <span>
-                            Age (Years): {this.props.region.Age.toString()}
+                            Age (Years): {this.props.region.Age.toLocaleString()}
                         </span>
                         <span>
-                            Area (Acres): {this.props.region.AreaAcres.toString()}
+                            Area (Acres): {this.props.region.AreaAcres.toLocaleString()}
                         </span>
                         <span>
-                            Population: {this.props.region.Population.toString()}
+                            Population: {this.props.region.Population.toLocaleString()}
                         </span>
                     </p>
                     <h3>Livestock</h3>
                     <p>
                         <span>
-                            Total: {this.props.region.TotalLivestock.toString()}
+                            Total: {this.props.region.TotalLivestock.toLocaleString()}
                         </span>
                         <span>
-                            Fowl: {this.props.region.Fowl.toString()}
+                            Fowl: {this.props.region.Fowl.toLocaleString()}
                         </span>
                         <span>
-                            Cows, Sheep, &amp; Pigs: {this.props.region.BurdenBeasts.toString()}
+                            Cows, Sheep, &amp; Pigs: {this.props.region.BurdenBeasts.toLocaleString()}
                         </span>
                     </p>
                 </div>
@@ -44,13 +44,13 @@ export default class RegionRender extends React.Component<RegionRenderProps, voi
                     <h3>Castle Info</h3>
                     <p>
                         <span>
-                            Total Castles: {this.props.region.TotalCastles.toString()}
+                            Total Castles: {this.props.region.TotalCastles.toLocaleString()}
                         </span>
                         <span>
-                            Active Castles: {this.props.region.ActiveCastles.toString()}
+                            Active Castles: {this.props.region.ActiveCastles.toLocaleString()}
                         </span>
                         <span>
-                            Ruined Castles: {this.props.region.RuinedCastles.toString()}
+                            Ruined Castles: {this.props.region.RuinedCastles.toLocaleString()}
                         </span>
                     </p>
                 </div>
