@@ -24,6 +24,7 @@ class WorldBuilder extends React.Component<void, WorldBuilderState> {
         return (
             <div>
                 <RegionForm onFormSubmit={this.handleRegionSubmit}></RegionForm>
+                <hr/>
                 {
                     this.state.regions.map(function(region, ind) {
                         return <RegionRender region={region} key={ind}></RegionRender>;
