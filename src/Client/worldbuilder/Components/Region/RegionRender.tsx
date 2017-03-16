@@ -58,13 +58,13 @@ export default class RegionRender extends React.Component<RegionRenderProps, voi
                     <h3>Settlement Info</h3>
                     <p>
                         <span>
-                            #Cities: {this.props.region.Cities.length.toString()}
+                            #Cities: {this.props.region.Cities.length.toLocaleString()}
                         </span>
                         <span>
-                            #Towns: {this.props.region.Towns.length.toString()}
+                            #Towns: {this.props.region.Towns.length.toLocaleString()}
                         </span>
                         <span>
-                            #Villages: {this.props.region.Villages.length.toString()}
+                            #Villages: {this.props.region.Villages.length.toLocaleString()}
                         </span>
                     </p>
                 </div>
