@@ -189,3 +189,10 @@ Write project for Graphics
   * Can edit generated sigils
   * Each sigil consists of “pieces” which are images that you can place and color
   * Pieces are loaded dynamically from a list and imported into the application
+
+# NPC Generator Ideas
+
+1. Pick race
+1. Pick age threshold
+1. Pick name type
+1. Generate

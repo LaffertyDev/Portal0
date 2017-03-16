@@ -1,5 +1,5 @@
-import * as RegionConst from "../../Constants";
 import Settlement from "../Settlement/Settlement";
+import {AdvancedSettings} from "../Region/AdvancedSettings";
 
 export class RegionModel {
     Population: number;
@@ -25,27 +25,21 @@ export class RegionGenerator {
 
     }
 
-    generate(regionPopulation, regionAgeYears, regionAreaAcres) : RegionModel {
-        const LIVESTOCK_PER_PERSON = 2.2;
-        const PEOPLE_PER_CASTLE = 50000;
-        const PEOPLE_PER_RUINEDCASTLE = 5000000;
-        const FOWL_PERCENTAGE = 0.68;
-        const OUTSKIRT_CASTLE_PERCENTAGE = 0.25;
-
+    generate(regionPopulation: number, regionAgeYears: number, regionAreaAcres: number, advancedSettings: AdvancedSettings) : RegionModel {
         let region = new RegionModel();
         region.Population = regionPopulation;
         region.AreaAcres = regionAreaAcres;
         region.Age = regionAgeYears;
 
-        region.TotalLivestock = regionPopulation * LIVESTOCK_PER_PERSON;
-        region.Fowl = region.TotalLivestock * FOWL_PERCENTAGE;
+        region.TotalLivestock = regionPopulation * advancedSettings.LivestockPerPerson;
+        region.Fowl = region.TotalLivestock * advancedSettings.PercentageOfLivestockIsFowl;
         region.BurdenBeasts = region.TotalLivestock - region.Fowl;
 
-        region.RuinedCastles = regionPopulation * Math.sqrt(regionAgeYears) / (PEOPLE_PER_RUINEDCASTLE);
-        region.ActiveCastles = regionPopulation / PEOPLE_PER_CASTLE;
+        region.RuinedCastles = regionPopulation * Math.sqrt(regionAgeYears) / (advancedSettings.PeoplePerRuinedCastle);
+        region.ActiveCastles = regionPopulation / advancedSettings.PeoplePerCastle;
         region.TotalCastles = region.RuinedCastles + region.ActiveCastles;
 
-        let castlesInOutskirts = region.TotalCastles * OUTSKIRT_CASTLE_PERCENTAGE;
+        let castlesInOutskirts = region.TotalCastles * advancedSettings.PercentageOfCastlesInOutskirts;
         let castlesInCivilization = region.TotalCastles - castlesInOutskirts;
 
         region.Cities = [];
@@ -55,11 +49,11 @@ export class RegionGenerator {
         let totalCityPopulation = 0;
         let lastCityPopulation = Math.sqrt(regionPopulation) * 14; //2d4+10
         totalCityPopulation += lastCityPopulation;
-        region.Cities.push(new Settlement(lastCityPopulation));
+        region.Cities.push(new Settlement(lastCityPopulation, advancedSettings));
         lastCityPopulation = this.getRandomArbitrary(0.2, 0.8) * lastCityPopulation;
         while(lastCityPopulation > 8000) {
             totalCityPopulation += lastCityPopulation;
-            region.Cities.push(new Settlement(lastCityPopulation));
+            region.Cities.push(new Settlement(lastCityPopulation, advancedSettings));
             let populationReduction = this.getRandomArbitrary(0.1, 0.4);
             lastCityPopulation = lastCityPopulation * populationReduction;
         }
@@ -74,7 +68,7 @@ export class RegionGenerator {
                 townPopulation = regionPopulation - totalTownPopulation - totalCityPopulation;
             }
 
-            region.Towns.push(new Settlement(townPopulation));
+            region.Towns.push(new Settlement(townPopulation, advancedSettings));
             totalTownPopulation += townPopulation;
         }
 
@@ -82,7 +76,7 @@ export class RegionGenerator {
         region.Villages = [];
         let numVillages = totalVillagePopulation / 175; //average village population (20 - 1000, or 50 - 300)
         for(let x = 0; x < numVillages; x++) {
-            region.Villages.push(new Settlement(totalVillagePopulation / numVillages));
+            region.Villages.push(new Settlement(totalVillagePopulation / numVillages, advancedSettings));
         }
 
         return region;
