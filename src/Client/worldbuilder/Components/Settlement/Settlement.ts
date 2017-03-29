@@ -1,5 +1,5 @@
 import Service from "../Services/Service";
-import {AdvancedSettings} from "../Region/AdvancedSettings";
+import {RegionGenConfig} from "../Region/RegionGenConfig";
 
 /**
  * A settlement where humanoids live
@@ -17,7 +17,7 @@ export default class Settlement {
 
     Services : any[];
 
-    constructor(cityPopulation, advancedSettings: AdvancedSettings) {
+    constructor(cityPopulation, advancedSettings: RegionGenConfig) {
         this.TotalPopulation = cityPopulation;
 
         this.CountrysidePopulation = cityPopulation / advancedSettings.CityCountrysideRatio;

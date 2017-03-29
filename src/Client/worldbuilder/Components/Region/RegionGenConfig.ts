@@ -1,7 +1,10 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
-export interface IAdvancedSettings {
+/**
+ * Configuration settings for building a region, with tolerances
+ */
+export interface IRegionGenConfig {
     //region advanced settings
     LivestockPerPerson: number;
     PeoplePerCastle: number;
@@ -24,9 +27,16 @@ export interface IAdvancedSettings {
     
     CityPeoplePerAcre: number;
     CityCountrysideRatio: number;
+
+    RegionPopulation: number;
+    RegionAgeYears: number;
+    RegionSizeAcres: number;
 }
 
-export class AdvancedSettings implements IAdvancedSettings {
+/**
+ * Configuration settings for building a region, with tolerances
+ */
+export class RegionGenConfig implements IRegionGenConfig {
     //region advanced settings
     LivestockPerPerson: number;
     PeoplePerCastle: number;
@@ -49,6 +59,10 @@ export class AdvancedSettings implements IAdvancedSettings {
     
     CityPeoplePerAcre: number;
     CityCountrysideRatio: number;
+
+    RegionPopulation: number;
+    RegionAgeYears: number;
+    RegionSizeAcres: number;
 
     constructor() {
         this.LivestockPerPerson = 2.2;
@@ -71,5 +85,9 @@ export class AdvancedSettings implements IAdvancedSettings {
         this.CityPeoplePerAcre = 61;
 
         this.CityCountrysideRatio = this.CityPeoplePerAcre - this.RegionPeoplePerAcre;
+
+        this.RegionPopulation = 1000000;
+        this.RegionAgeYears = 1000000;
+        this.RegionSizeAcres = 1000;
     }
 }
