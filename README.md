@@ -97,6 +97,7 @@ Write project for Graphics
 
 ## Worldbuilder todo:
 
+1. figure out how to dynamically render a form using react and typescript given a model
 1. add customization options for constant values
 1. improve model support for non-Parisian towns/cities
 1. build name generator
