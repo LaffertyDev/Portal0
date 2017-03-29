@@ -32,7 +32,7 @@ export default class Service {
         potentialServices.push(new Service("Chicken Butchers", 1000));
         potentialServices.push(new Service("Pursemakers", 1100));
         potentialServices.push(new Service("Woodsellers", 2400));
-        potentialServices.push(new Service("Magic-Shops", 2800));
+        potentialServices.push(new Service("Reagent Shops", 2800));
         potentialServices.push(new Service("Bookbinders", 3000));
 
         potentialServices.push(new Service("Butchers", 1200));
