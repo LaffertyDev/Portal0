@@ -23,3 +23,9 @@ input {
     padding: 0.25em;
     margin-left: 5px;
 }
+
+button {
+    &:hover {
+        cursor: pointer;
+    }
+}
