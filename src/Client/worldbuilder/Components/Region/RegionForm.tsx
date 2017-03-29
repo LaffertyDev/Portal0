@@ -9,6 +9,9 @@ interface RegionFormProp {
     onFormSubmit: (region: Region.RegionModel) => any;
 }
 
+/**
+ * Form with configuration to set up and build a region. Will call an external function when the form is submitted with the generated region
+ */
 export default class RegionForm extends React.Component<RegionFormProp, IRegionGenConfig> {
     regionGenerator : Region.RegionGenerator;
 

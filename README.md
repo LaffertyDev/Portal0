@@ -101,6 +101,8 @@ Write project for Graphics
 1. add customization options for constant values
 1. improve model support for non-Parisian towns/cities
 1. build name generator
+1. build out ranges for random data
+1. build out seedable random generator for typescript
 
 ## Worldbuilder Code Quality todo:
 
