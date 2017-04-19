@@ -10,6 +10,10 @@ This is my personal NodeJs webserver. In particular, I wanted to host a few thin
 - Relevant tools that I have created to make my life easier
 - Completely move away from LinkedIn as my professional area (why use a linkedin as a web developer? seems awful)
 
+[Guide Used to setup NodeJs server](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-node-js-application-for-production-on-ubuntu-16-04)
+
+[Guide used to harden SSH](https://thepcspy.com/read/making-ssh-secure/)
+
 ## Design Considerations
 
 1. Mobile friendly
@@ -70,6 +74,8 @@ DnD Webapp:
 
 # Todo
 
+1. FIX WEBPACK
+1. verify nodejs & nginx restarts with server reboot
 1. Further flesh out site design & layout
 1. Import & fix all of my old school projects
 1. Cleanup resume page

@@ -1,5 +1,5 @@
-import Service from "../Services/Service";
-import {RegionGenConfig} from "../Region/RegionGenConfig";
+import Service from "../services/service";
+import {RegionGenConfig} from "../region/regiongenconfig";
 
 /**
  * A settlement where humanoids live

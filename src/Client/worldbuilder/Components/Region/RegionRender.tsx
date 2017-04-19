@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { RegionModel } from "./Region";
+import { RegionModel } from "./region";
 
 interface RegionRenderProps extends React.Props<RegionRender> {
     region: RegionModel;

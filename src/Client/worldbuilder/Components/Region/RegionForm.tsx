@@ -1,9 +1,9 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import * as Region from "./Region";
-import {RegionGenConfig} from "./RegionGenConfig";
-import {IRegionGenConfig} from "./RegionGenConfig";
-import Settlement from "../Settlement/Settlement";
+import * as Region from "./region";
+import {RegionGenConfig} from "./regiongenconfig";
+import {IRegionGenConfig} from "./regiongenconfig";
+import Settlement from "../settlement/settlement";
 
 interface RegionFormProp {
     onFormSubmit: (region: Region.RegionModel) => any;

@@ -17,7 +17,8 @@
     "@types/react": "*",
     "@types/react-dom": "*",
     "react": "*",
-    "react-dom": "*"
+    "react-dom": "*",
+    "webpack": "*"
   },
   "scripts": {
     "start": "node ./src/nodeserver.js",

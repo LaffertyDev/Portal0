@@ -12,21 +12,21 @@ var express = require('express'),
 //end dependencies
 
 app.set('view engine', 'hbs');
-app.set('views', __dirname + '/Client/Views');
+app.set('views', __dirname + '/client/views');
 
 //hbs.registerPartial('partial', fs.readFileSync(__dirname + '/Client/Views/partial.hbs', 'utf8'));
-hbs.registerPartials(__dirname + '/Client/Views/Partials');
+hbs.registerPartials(__dirname + '/client/views/partials');
 
 //for some reason, we can't register the SASS directly under content (because it's included in the app.use)
 app.use(sass_middleware({
     src: __dirname + '/sass',
-    dest: __dirname + '/Client/Content/css',
+    dest: __dirname + '/client/content/css',
     prefix: '/css',
     debug: true
 }));
 
-app.use(express.static(__dirname + '/Client/Content'));
-app.use('/App', express.static(__dirname + '/Client/App'));
+app.use(express.static(__dirname + '/client/content'));
+app.use('/app', express.static(__dirname + '/client/app'));
 
 app.get('/', function(req, res) {
     res.render('index');

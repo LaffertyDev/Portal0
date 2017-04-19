@@ -1,5 +1,5 @@
-import Settlement from "../Settlement/Settlement";
-import {IRegionGenConfig} from "../Region/RegionGenConfig";
+import Settlement from "../settlement/settlement";
+import {IRegionGenConfig} from "../region/regiongenconfig";
 
 /**
  * A region on a map, or a kingdom / nation / state

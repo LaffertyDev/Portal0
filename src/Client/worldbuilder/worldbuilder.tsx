@@ -1,9 +1,9 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import {RegionModel} from "./Components/Region/Region";
-import RegionRender from "./Components/Region/RegionRender";
-import RegionForm from "./Components/Region/RegionForm";
-import Settlement from "./Components/Settlement/Settlement";
+import {RegionModel} from "./components/region/region";
+import RegionRender from "./components/region/regionrender";
+import RegionForm from "./components/region/regionform";
+import Settlement from "./components/settlement/settlement";
 
 interface WorldBuilderState {
     regions: RegionModel[];

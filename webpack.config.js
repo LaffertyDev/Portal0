@@ -1,8 +1,8 @@
 module.exports = {
-    entry: "./src/Client/worldbuilder/worldbuilder.tsx",
+    entry: "./src/client/worldbuilder/worldbuilder.tsx",
     output: {
         filename: "bundle.js",
-        path: __dirname + "/src/Client/content/scripts"
+        path: __dirname + "/src/client/content/scripts"
     },
 
     // Enable sourcemaps for debugging webpack's output.
