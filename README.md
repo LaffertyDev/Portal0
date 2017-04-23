@@ -74,7 +74,6 @@ DnD Webapp:
 
 # Todo
 
-1. FIX WEBPACK
 1. verify nodejs & nginx restarts with server reboot
 1. Further flesh out site design & layout
 1. Import & fix all of my old school projects

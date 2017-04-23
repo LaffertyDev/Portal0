@@ -1,8 +1,8 @@
-@import '_scssconstants';
 @import './components/header';
 @import './components/footer';
 @import './components/buttons';
 @import './components/wb-region';
+@import './components/forms';
 
 .#{$namespace}-video {
     width: 320px;
