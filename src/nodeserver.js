@@ -49,6 +49,10 @@ app.get('/worldbuilder', function(req, res) {
     res.render('dnd/worldbuilder');
     console.log('Worldbuilder Hit');
 });
+app.get('/dnd/action', function(req, res) {
+    res.render('dnd/dndaction');
+    console.log('action econ Hit');
+});
 
 //taken from http://stackoverflow.com/a/9802006/2383477
 app.use(function(req, res, next){
