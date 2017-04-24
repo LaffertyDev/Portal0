@@ -1,7 +1,9 @@
 
 .#{$namespace}-site-footer {
-    border: 5px solid $complementary-neutral;
+    border: 5px solid $neutral-grey;
+    background-color: $complementary-neutral-dark;
     border-left: 0;
+    border-bottom: 0;
     border-right: 0;
 
     //Set the footer to "Flow" as you would expect
@@ -11,6 +13,7 @@
     left: 0;
 
     .#{$namespace}-footer-content {
+        color: $white;
         line-height: 4em;
         margin-left: 1rem;
     }
