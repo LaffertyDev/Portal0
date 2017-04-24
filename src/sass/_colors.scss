@@ -110,11 +110,6 @@ $complementary-neutral-dark: darken($complementary-neutral, 33);
 $complementary-light: mix($complementary-neutral-light, $complementary-colour, 45%);
 $complementary-dark: mix($complementary-neutral-dark, $complementary-colour, 45%);
 
-$background-light: #fcf8f8;
-$background-dark: #2b2b2b;
-
-$background-colour: black;
-
 // Pure neutrals, highlight, midtone, shadow
 $white: lighten($primary-neutral-light, 15);
 $neutral-grey: grayscale($primary-neutral);

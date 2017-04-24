@@ -1,11 +1,11 @@
 
 .#{$namespace}-btn-primary {
-    background-color: #74c4c4;
-    border-color: #74c4c4;
+    background-color: $primary-colour;
+    border-color: $primary-dark;
 }
 
 
-.#{$namespace}-button {
+.#{$namespace}-btn {
     appearance: button;
     -moz-appearance: button;
     -webkit-appearance: button;

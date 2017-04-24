@@ -1,9 +1,8 @@
 
 .#{$namespace}-site-footer {
-    border: 5px solid $primary-colour;
+    border: 5px solid $complementary-neutral;
     border-left: 0;
     border-right: 0;
-    border-color: $primary-colour;
 
     //Set the footer to "Flow" as you would expect
     position: absolute;

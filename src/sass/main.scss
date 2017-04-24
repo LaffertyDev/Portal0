@@ -10,14 +10,14 @@ html {
 }
 
 div {
-    color: black;
+    color: $black;
 }
 
 body {
     position: relative;
     margin: 0em;
     padding-bottom: 74px; //the exact size of the footer!
-    background-color: #f9f9f9;
+    background-color: $white;
 }
 
 input {

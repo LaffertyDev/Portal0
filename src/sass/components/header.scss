@@ -1,11 +1,13 @@
 
 .#{$namespace}-site-header {
-    border: 5px solid $primary-colour;
+    border: 5px solid $neutral-grey;
     border-left: 0;
+    border-top: 0;
     border-right: 0;
-    border-color: $primary-colour;
     margin-bottom: 1em;
     line-height: 3em;
+    background-color: $complementary-neutral-dark;
+    color: $white;
 }
 
 .#{$namespace}-navbar {
@@ -15,12 +17,13 @@
         
     li {
         display: inline-block;
-        margin-left: -4px;
-        border-right: 1px $primary-colour solid;
-        background: black;
-        
+        //margin-left: -4px;
+        background-color: $primary-light;
+        border-radius: 8px;
+        line-height: 2em;
+
         a {
-            color: $primary-colour;
+            color: $white;
             display: block;
             padding: 0 20;
             text-decoration: none;
