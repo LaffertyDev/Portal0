@@ -39,6 +39,11 @@ app.get('/resume', function(req, res) {
     console.log('Resume Hit');
 });
 
+app.get('/components', function(req, res) {
+    res.render('components');
+    console.log('Components Hit');
+});
+
 app.get('/worldbuilder', function(req, res) {
     res.render('worldbuilder');
     console.log('Worldbuilder Hit');
