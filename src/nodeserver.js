@@ -13,6 +13,7 @@ var express = require('express'),
 
 app.set('view engine', 'hbs');
 app.set('views', __dirname + '/client/views');
+app.set('view options', { layout: '_layout' });
 
 //hbs.registerPartial('partial', fs.readFileSync(__dirname + '/Client/Views/partial.hbs', 'utf8'));
 hbs.registerPartials(__dirname + '/client/views/partials');
@@ -45,7 +46,7 @@ app.get('/components', function(req, res) {
 });
 
 app.get('/worldbuilder', function(req, res) {
-    res.render('worldbuilder');
+    res.render('dnd/worldbuilder');
     console.log('Worldbuilder Hit');
 });
 
