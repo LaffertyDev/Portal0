@@ -53,11 +53,17 @@
     <h5>I'm a header 5</h5>
     <h6>I'm a header 6</h6>
     <p>I'm a paragraph <a href="#">paragraph link</a> with an <abbr title="abbreviation">abbr</abbr></p>
-    <p><em>emphasis</em> <strong>strong</strong> <small>small</small> <b>bold</b> <s>strikethrough</s> <q>small quote</q> <u>underlined</u> <sub>subscript</sub> <sup>superscript</sup> </p>
+    <p><del>deleted</del> <dfn>First use of a term</dfn> <ins>inserted</ins> <mark>marked</mark> <em>emphasis</em> <strong>strong</strong> <small>small</small> <b>bold</b> <s>strikethrough</s> <q>small quote</q> <u>underlined</u> <sub>subscript</sub> <sup>superscript</sup> </p>
 
     <blockquote>I'm a blockquote</blockquote>
 
     <cite>I'm a citation</cite>
+
+    <pre>
+        this IS
+        some pre
+          text
+    </pre>
 
     <ol>
         <li>I'm a list 1</li>
@@ -71,35 +77,143 @@
         <li>I'm a list</li>
     </ul>
 
+    <dl>
+        <dt>description</dt>
+        <dd>described</dd>
+        <dt>description 2</dt>
+        <dd>described 2</dd>
+    </dl>
+
+    <address>
+        P46 Wallaby Lane, Sydney, Australia
+    </address>
+
+    <legend>
+        I'm a legend!
+    </legend>
+
     <a href="#">click me</a>
     <footer>I'm a section footer</footer>
 </section>
 <section>
+    <header>Tables</header>
+    <table>
+        <caption>my table caption</caption>
+        <thead>
+            <tr>
+                <th>First Col</th>
+                <th>Second Col</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>row1 col 1</td>
+                <td>row1 col 2</td>
+            </tr>
+            <tr>
+                <td>row2 col 1</td>
+                <td>row2 col 2</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>footer col 1</td>
+                <td>footer col 2</td>
+            </tr>
+        </tfoot>
+    </table>
+</section>
+<section>
     <header>Input</header>
-    <label>I'm a label</label>
-    <input type="text" value="text input" />
-    <button>normal button</button>
-    <progress>I'm a progress thing</progress>
+    <div>
+        <label>I'm a label</label>
+    </div>
+    <div>
+        <input type="text" value="text input" />
+    </div>
+    <div>
+        <button>normal button</button>
+    </div>
+    <div>
+        <textarea cols="30" rows="10"></textarea>
+    </div>
+    <div>
+        <select>
+            <option value="1">my option</option>
+            <option value="2">my other option</option>
+        </select>
+    </div>
+    <keygen></keygen>
+</section>
+<section>
+    <header>localization</header>
+    <p>
+        I'm a paragraph that should be bi-directional
+        <bdi>this should not be reversible in the browser</bdi>
+    </p>
 </section>
 <section>
     <header>Misc.</header>
 
-    <hr />
+    <div>
+        <hr />
+    </div>
 
+    <div>
+        <details>
+            <summary>Click me for some more info</summary>
+            <p>HEY HERE IS SOME MORE INFO</p>
+        </details>
+    </div>
 
-    <details>
-        <summary>Click me for some more info</summary>
-        <p>HEY HERE IS SOME MORE INFO</p>
-    </details>
+    <div>
+        <code>
+            And I'm some code!'
+        </code>
+    </div>
+
+    <div>
+        <time datetime="1992-04-26 12:00">my birthday</time>
+        <time>4/26/92</time>
+    </div>
+
+    <div>
+        <figure>
+            I'm a figure
+            <img src="http://i.imgur.com/xS95kps.jpg"></img>
+            <figcaption>And I'm the figure's caption</figcaption>
+        </figure>
+    </div>
+
+    <div>
+        <samp>
+            My sample?!
+        </samp>
+    </div>
+    <div>
+        <output>
+            My output
+        </output>
+    </div>
+
+    <div>
+        meter
+        <meter value="2" min="0" max="10"></meter>
+    </div>
+    <div>
+        <progress>I'm a progress thing</progress>
+    </div>
 
     <code>
-        And I'm some code!'
+        todo: &lt;picture&gt; elements <br>
+        todo: &lt;menu&gt; elements<br>
+        todo: &lt;menuitem&gt; elements<br>
+        todo: &lt;map&gt; elements<br>
+        todo: &lt;keygen&gt; elements<br>
+        todo: &lt;kbd&gt; elements<br>
+        todo: &lt;dialog&gt; elements<br>
+        todo: &lt;datalist&gt; elements<br>
+        todo: &lt;aside&gt; elements<br>
+        todo: &lt;article&gt; elements<br>
     </code>
-
-    <figure>
-        I'm a figure
-        <img src="http://i.imgur.com/xS95kps.jpg"></img>
-        <figcaption>And I'm the figure's caption</figcaption>
-    </figure>
-
 </section>
