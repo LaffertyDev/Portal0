@@ -9,27 +9,3 @@
     background-color: $complementary-neutral-dark;
     color: $white;
 }
-
-.#{$namespace}-navbar {
-    margin: 0em;
-    padding: 0em;
-    padding-right: 5px;
-    list-style: none;
-        
-    li {
-        display: inline-block;
-        //margin-left: -4px;
-        background-color: $primary-light;
-        border-radius: 8px;
-        line-height: 2em;
-
-        //emily recommends removing background & just having links
-
-        a {
-            color: $white;
-            display: block;
-            padding: 0 20;
-            text-decoration: none;
-        }
-    }
-}

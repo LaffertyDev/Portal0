@@ -1,17 +1,9 @@
 @import '_scssconstants';
 
-.#{$namespace}-site-body {
-    margin: 0 1rem;
-}
-
 .#{$namespace}-logo {
     margin: 0px;
     display: inline;
     margin-left: 1rem;
-}
-
-.#{$namespace}-title {
-    margin-top: 0;
 }
 
 .pull-left {
@@ -27,8 +19,4 @@
     width: 20%;
     height: 100%;
     background-color: $neutral-grey;
-}
-
-.#{$namespace}-content {
-    
 }
