@@ -37,11 +37,21 @@ section {
         padding-right: initial;
     }
 
-    & header, h1, h2, h3, h4, h5, h6, p {
+    //this is getting out of hand...
+    & > header, > h1, > h2, > h3, > h4, > h5, > h6, > p, > form {
         padding: 0 15px;
         padding-top: initial;
         padding-bottom: initial;
     }
+
+    .#{$namespace}-section-content {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+a {
+    text-decoration: none;
 }
 
 input {
