@@ -32,7 +32,15 @@ section {
     & header {
         background-color: $complementary-neutral-light;
         font-size: 2em;
-        padding: 7px 15px;
+        padding: 7px 0;
+        padding-left: initial;
+        padding-right: initial;
+    }
+
+    & header, p {
+        padding: 0 15px;
+        padding-top: initial;
+        padding-bottom: initial;
     }
 }
 
