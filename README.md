@@ -74,6 +74,7 @@ DnD Webapp:
 
 # Todo
 
+1. setup shim for html5 on legacy browsers (why does edge not support details & summary)
 1. verify nodejs & nginx restarts with server reboot
 1. Further flesh out site design & layout
 1. Import & fix all of my old school projects
