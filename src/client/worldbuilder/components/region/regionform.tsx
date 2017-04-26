@@ -223,7 +223,7 @@ export default class RegionForm extends React.Component<RegionFormProp, IRegionG
                             <input id="regionAreaAcres" type="number" value={regionAreaAcres} onChange={this.handleRegionPeoplePerAcre} />
                         </div>  
                     </fieldset>
-                    <button className="laff-btn laff-btn-primary" type="submit">Submit</button> (see dev console for details)
+                    <button className="laff-btn laff-btn-primary" type="submit">Submit</button>
                 </form>
             </div>
         );
