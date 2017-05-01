@@ -54,10 +54,13 @@ a {
     text-decoration: none;
 }
 
+label + input {
+    margin-left: 5px;
+}
+
 input {
     font-size: 0.85em;
     padding: 0.25em;
-    margin-left: 5px;
 }
 
 form {
