@@ -80,7 +80,6 @@ DnD Webapp:
 1. Learn what the meta viewport property does cross-browser
 1. Wrap the header float'd list in a div so it wraps properly
 1. fix the footer so it wraps intelligently
-1. find a good font
 1. [Unicode lists](https://css-tricks.com/ordered-lists-unicode-symbols/)
 
 # Content Todo
@@ -98,7 +97,6 @@ DnD Webapp:
 
 1. Setup auto-deploy
 1. Setup separate git project for DnD worldbuilder & how to auto import it when changes are made
-1. verify nodejs & nginx restarts with server reboot
 1. setup some form of analytics to see website hits
 1. include robots.txt file
 1. setup HSTS
