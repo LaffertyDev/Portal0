@@ -1,5 +1,6 @@
 # Custom Git Ignore files
-src/Client/Content/
+src/Client/Content/css/
+src/Client/Content/scripts/
 .DS_Store
 .vscode/
 
