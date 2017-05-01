@@ -80,6 +80,8 @@ DnD Webapp:
 1. Learn what the meta viewport property does cross-browser
 1. Wrap the header float'd list in a div so it wraps properly
 1. fix the footer so it wraps intelligently
+1. find a good font
+1. [Unicode lists](https://css-tricks.com/ordered-lists-unicode-symbols/)
 
 # Content Todo
 
@@ -89,6 +91,7 @@ DnD Webapp:
 1. Include a picture of me
 1. figure out what the hell goes on homepage
 1. Import & fix all of my old school projects
+1. make timeline of work experience because that is definitely dank
 
 # devops todo
 
