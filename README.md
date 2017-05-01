@@ -72,20 +72,26 @@ DnD Webapp:
 3. Install webpack dependency (ts react will NOT work without it)
 4. Install awesome-typescript-loader (again, ts react will NOT work without it)
 
-# Todo
+# Site Design & Layout todo
+
+1. Fix header reflow on smaller screen sizes
+1. Setup basic mobile media queries
+1. Setup grid / flexbox layout
+1. Verify mobile page works & flows
+
+# Content Todo
 
 1. setup shim for html5 on legacy browsers (why does edge not support details & summary)
-1. verify nodejs & nginx restarts with server reboot
-1. Further flesh out site design & layout
 1. Import & fix all of my old school projects
-1. Cleanup resume page
 1. Get the girlfriend to design me a logo
 1. Include a picture of me
-1. Setup TLS
-1. Verify mobile page works & flows
+1. figure out what the hell goes on homepage
+
+# devops todo
+
 1. Setup auto-deploy
 1. Setup separate git project for DnD worldbuilder & how to auto import it when changes are made
-1. Figure out how to auto commit / sync using Visual Studio Code w/ Github
+1. verify nodejs & nginx restarts with server reboot
 
 ## School Projects to import:
 Write project for Senior Design
