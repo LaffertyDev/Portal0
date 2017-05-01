@@ -38,13 +38,13 @@ section {
     }
 
     //this is getting out of hand...
-    & > header, > h1, > h2, > h3, > h4, > h5, > h6, > p, > form {
+    & > header {
         padding: 0 15px;
         padding-top: initial;
         padding-bottom: initial;
     }
 
-    .#{$namespace}-section-content {
+    .#{$namespace}-section-copy {
         padding-left: 15px;
         padding-right: 15px;
     }
