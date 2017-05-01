@@ -74,24 +74,31 @@ DnD Webapp:
 
 # Site Design & Layout todo
 
-1. Fix header reflow on smaller screen sizes
 1. Setup basic mobile media queries
 1. Setup grid / flexbox layout
 1. Verify mobile page works & flows
+1. Learn what the meta viewport property does cross-browser
+1. Wrap the header float'd list in a div so it wraps properly
+1. fix the footer so it wraps intelligently
 
 # Content Todo
 
-1. setup shim for html5 on legacy browsers (why does edge not support details & summary)
-1. Import & fix all of my old school projects
+1. get repeatable background setup on a few pages
+1. setup icons
 1. Get the girlfriend to design me a logo
 1. Include a picture of me
 1. figure out what the hell goes on homepage
+1. Import & fix all of my old school projects
 
 # devops todo
 
 1. Setup auto-deploy
 1. Setup separate git project for DnD worldbuilder & how to auto import it when changes are made
 1. verify nodejs & nginx restarts with server reboot
+1. setup some form of analytics to see website hits
+1. include robots.txt file
+1. setup HSTS
+1. setup shim for html5 on legacy browsers (why does edge not support details & summary)
 
 ## School Projects to import:
 Write project for Senior Design
@@ -100,12 +107,6 @@ Fix ai project
 Write project for Graphics interpolation project
 Fix graphics interpolation project
 Write project for Graphics 
-
-## Responsive Todo
-
-1. Learn what the meta viewport property does cross-browser
-2. Wrap the header float'd list in a div so it wraps properly
-3. fix the footer so it wraps intelligently
 
 ## Worldbuilder todo:
 
