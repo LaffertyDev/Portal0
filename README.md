@@ -14,6 +14,8 @@ This is my personal NodeJs webserver. In particular, I wanted to host a few thin
 
 [Guide used to harden SSH](https://thepcspy.com/read/making-ssh-secure/)
 
+[Guide used to setup teamspeak](https://www.digitalocean.com/community/questions/setup-teamspeak-server-ubuntu-15-04)
+
 ## Design Considerations
 
 1. Mobile friendly
@@ -101,6 +103,7 @@ DnD Webapp:
 1. include robots.txt file
 1. setup HSTS
 1. setup shim for html5 on legacy browsers (why does edge not support details & summary)
+1. setup teamspeak to reboot on server reboot
 
 ## School Projects to import:
 Write project for Senior Design
