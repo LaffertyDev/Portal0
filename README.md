@@ -92,6 +92,7 @@ DnD Webapp:
 1. figure out what the hell goes on homepage
 1. Import & fix all of my old school projects
 1. make timeline of work experience because that is definitely dank
+1. setup contact info request w/ google recaptcha or something similar
 
 # devops todo
 
