@@ -90,7 +90,6 @@ DnD Webapp:
 1. setup icons
 1. Get the girlfriend to design me a logo
 1. Include a picture of me
-1. figure out what the hell goes on homepage
 1. Import & fix all of my old school projects
 1. make timeline of work experience because that is definitely dank
 1. setup contact info request w/ google recaptcha or something similar
@@ -98,12 +97,12 @@ DnD Webapp:
 # devops todo
 
 1. Setup auto-deploy
-1. Setup separate git project for DnD worldbuilder & how to auto import it when changes are made
 1. setup some form of analytics to see website hits
 1. include robots.txt file
 1. setup HSTS
 1. setup shim for html5 on legacy browsers (why does edge not support details & summary)
 1. setup teamspeak to reboot on server reboot
+1. Setup separate git project for DnD worldbuilder & how to auto import it when changes are made
 
 ## School Projects to import:
 Write project for Senior Design
