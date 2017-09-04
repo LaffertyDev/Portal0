@@ -4,6 +4,7 @@ import {RegionModel} from "./components/region/region";
 import RegionRender from "./components/region/regionrender";
 import RegionForm from "./components/region/regionform";
 import Settlement from "./components/settlement/settlement";
+import Map from "./components/map/map";
 
 interface WorldBuilderState {
     regions: RegionModel[];
@@ -23,6 +24,10 @@ class WorldBuilder extends React.Component<void, WorldBuilderState> {
     render() {
         return (
             <div>
+                <div>
+                    <h3>Map</h3>
+                    <Map></Map>
+                </div>
                 <RegionForm onFormSubmit={this.handleRegionSubmit}></RegionForm>
                 <hr/>
                 {

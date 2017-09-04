@@ -1,7 +1,10 @@
 module.exports = {
-    entry: "./src/client/worldbuilder/worldbuilder.tsx",
+    entry: {
+        worldbuilder: "./src/client/worldbuilder/worldbuilder.tsx",
+        procgen22: "./src/client/procgen/challenge_22/challenge_22.tsx",
+    },
     output: {
-        filename: "bundle.js",
+        filename: "[name].bundle.js",
         path: __dirname + "/src/client/content/scripts"
     },
 

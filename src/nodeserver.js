@@ -53,6 +53,10 @@ app.get('/dnd/action', function(req, res) {
     res.render('dnd/dndaction');
     console.log('action econ Hit');
 });
+app.get('/procgen', function(req, res) {
+    res.render('procgen/procgen');
+    console.log('proc gen Hit');
+});
 
 //taken from http://stackoverflow.com/a/9802006/2383477
 app.use(function(req, res, next){
