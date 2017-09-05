@@ -4,7 +4,7 @@ import {RegionModel} from "./components/region/region";
 import RegionRender from "./components/region/regionrender";
 import RegionForm from "./components/region/regionform";
 import Settlement from "./components/settlement/settlement";
-import Map from "./components/map/map";
+import Map from "../resources/map/map";
 
 interface WorldBuilderState {
     regions: RegionModel[];
@@ -40,7 +40,7 @@ class WorldBuilder extends React.Component<void, WorldBuilderState> {
     }
 }
 
-ReactDOM.render(
-    <WorldBuilder />,
+ReactDOM.render(    
+    React.createElement(WorldBuilder),
     document.getElementById("reactApp")
 );
