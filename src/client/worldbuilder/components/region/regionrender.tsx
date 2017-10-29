@@ -9,7 +9,7 @@ interface RegionRenderProps extends React.Props<RegionRender> {
 /**
  * The region component, which displays a region with all of its fields in a user-friendly format
  */
-export default class RegionRender extends React.Component<RegionRenderProps, void> {
+export default class RegionRender extends React.Component<RegionRenderProps, {}> {
     constructor(props) {
         super(props);
     }

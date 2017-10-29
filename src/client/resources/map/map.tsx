@@ -3,7 +3,7 @@ import * as ReactDOM from "react-dom";
 import * as critterstuff from "../../procgen/challenge_22/models/critter"
 
 
-export default class Map extends React.Component<void, void> {
+export default class Map extends React.Component<{}, {}> {
     private canvas: HTMLCanvasElement;
 
     constructor(props) {

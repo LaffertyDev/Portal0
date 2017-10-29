@@ -10,7 +10,7 @@ interface WorldBuilderState {
     regions: RegionModel[];
 }
 
-class WorldBuilder extends React.Component<void, WorldBuilderState> {
+class WorldBuilder extends React.Component<{}, WorldBuilderState> {
     constructor(props) {
         super(props);
         this.state = {regions: []};
@@ -26,7 +26,7 @@ class WorldBuilder extends React.Component<void, WorldBuilderState> {
             <div>
                 <div>
                     <h3>Map</h3>
-                    <Map></Map>
+                    <Map />
                 </div>
                 <RegionForm onFormSubmit={this.handleRegionSubmit}></RegionForm>
                 <hr/>
