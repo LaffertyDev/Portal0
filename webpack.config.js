@@ -2,6 +2,7 @@ module.exports = {
     entry: {
         worldbuilder: "./src/client/worldbuilder/worldbuilder.tsx",
         procgen22: "./src/client/procgen/challenge_22/challenge_22.tsx",
+        battlemap: "./src/client/battlemap/battlemap.tsx"
     },
     output: {
         filename: "[name].bundle.js",

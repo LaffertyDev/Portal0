@@ -31,7 +31,6 @@ app.use('/app', express.static(__dirname + '/client/app'));
 
 app.get('/', function(req, res) {
     res.render('index');
-    //res.sendFile(__dirname + '/Client/Views/index.html');
     console.log('Index Hit');
 });
 
@@ -56,6 +55,10 @@ app.get('/dnd/action', function(req, res) {
 app.get('/procgen', function(req, res) {
     res.render('procgen/procgen');
     console.log('proc gen Hit');
+});
+app.get('/dnd/battlemap', function(req, res) {
+    res.render('dnd/battlemap');
+    console.log('battlemap Hit');
 });
 
 //taken from http://stackoverflow.com/a/9802006/2383477

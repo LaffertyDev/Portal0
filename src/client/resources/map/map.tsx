@@ -1,9 +1,10 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import * as critterstuff from "../../procgen/challenge_22/models/critter"
+import * as critterstuff from "../../procgen/challenge_22/models/critter";
+import MapConfig from "./map.config";
 
 
-export default class Map extends React.Component<{}, {}> {
+export default class Map extends React.Component<MapConfig, {}> {
     private canvas: HTMLCanvasElement;
 
     constructor(props) {
@@ -12,7 +13,7 @@ export default class Map extends React.Component<{}, {}> {
 
     componentDidMount() {
         var ctx = this.canvas.getContext("2d");
-        ctx.fillStyle = 'orange';
+        ctx.fillStyle = this.props.BackgroundColor;
         ctx.fillRect(0, 0, 1280, 768);
 
         var critter = new critterstuff.DrawingPiece(50, 50);

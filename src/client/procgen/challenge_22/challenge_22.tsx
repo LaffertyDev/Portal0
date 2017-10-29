@@ -20,7 +20,7 @@ class Challenge_22 extends React.Component<void, Challenge_22State> {
                 <hr/>
                 <div>
                     <p>Virus / Bacteria / Fungal generator visual thing goes here!</p>
-                    <Map></Map>
+                    <Map BackgroundColor='orange' ></Map>
                 </div>
             </div>
         );
