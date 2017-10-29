@@ -1,10 +1,10 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import * as critterstuff from "../../procgen/challenge_22/models/critter";
-import MapConfig from "./map.config";
+import MapProps from "./map.config";
 
 
-export default class Map extends React.Component<MapConfig, {}> {
+export default class Map extends React.Component<MapProps, {}> {
     private canvas: HTMLCanvasElement;
 
     constructor(props) {

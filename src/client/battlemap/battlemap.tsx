@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import Map from "../resources/map/map";
-import MapConfig from "../resources/map/map.config";
+import MapProps from "../resources/map/map.config";
 
 interface BattlemapState {
 
