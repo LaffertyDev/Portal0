@@ -24,10 +24,6 @@ class WorldBuilder extends React.Component<{}, WorldBuilderState> {
     render() {
         return (
             <div>
-                <div>
-                    <h3>Map</h3>
-                    <Map />
-                </div>
                 <RegionForm onFormSubmit={this.handleRegionSubmit}></RegionForm>
                 <hr/>
                 {
