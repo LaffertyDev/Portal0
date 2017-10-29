@@ -16,6 +16,18 @@ This is my personal NodeJs webserver. In particular, I wanted to host a few thin
 
 [Guide used to setup teamspeak](https://www.digitalocean.com/community/questions/setup-teamspeak-server-ubuntu-15-04)
 
+# Running
+
+1. run `npm install --dev`
+2. run `npm run debug` to start debug mode (and have webpack see changes as they come in)
+
+# Deployment
+
+1. copy files into `nodeserver` directory of `webuser`
+2. run `npm install` (Note: do not need dev if you precompiled your data) (Note: this is dirty and needs cleanedup)
+3. run `sudo pm2 restart nodeserver`
+4. refresh website and the changes should populate
+
 ## Design Considerations
 
 1. Mobile friendly

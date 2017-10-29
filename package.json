@@ -7,7 +7,8 @@
     "express": "*",
     "node-sass": "*",
     "node-sass-middleware": "*",
-    "hbs": "*"
+    "hbs": "*",
+    "pm2": "*"
   },
   "devDependencies": {
     "awesome-typescript-loader": "*",
@@ -22,6 +23,8 @@
   },
   "scripts": {
     "start": "node ./src/nodeserver.js",
+    "test": "",
+    "restart": "pm2 restart all",
     "debug": "concurrently \"webpack --progress --colors -w\" \"node ./src/nodeserver.js\"",
     "tsc": "tsc",
     "tsc:w": "tsc -w"
