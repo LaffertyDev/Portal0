@@ -70,27 +70,3 @@ class Bacteria {
 class Fungus {
     //multicellular
 }
-
-export class DrawingPiece implements IDrawingPiece2d {
-    private x: number;
-    private y: number;
-
-    constructor(xOffset: number, yOffset: number) {
-        this.x = xOffset;
-        this.y = yOffset;
-    }
-
-    Draw(canvas: CanvasRenderingContext2D): void {
-        canvas.save();
-        canvas.beginPath();
-        canvas.strokeStyle = "blue";
-        canvas.lineWidth = 2;
-        canvas.arc(this.x, this.y, 10, 0, 2 * Math.PI);
-        canvas.stroke();
-        canvas.restore();
-    }
-}
-
-interface IDrawingPiece2d {
-    Draw(canvas: CanvasRenderingContext2D): void;
-}

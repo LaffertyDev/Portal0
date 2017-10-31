@@ -4,11 +4,6 @@ export interface IShape {
     //square
     //polygon
 
-    GetVolume(): number;
-    GetCenter(): Point;
-}
-
-export interface Point {
-    //x
-    //y
+    //GetVolume(): number;
+    //GetCenter(): Point;
 }

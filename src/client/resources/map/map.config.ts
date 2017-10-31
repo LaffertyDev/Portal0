@@ -1,3 +1,9 @@
+import { Color } from './tile';
+import { IDrawingPiece2d } from './idrawable';
 export default class MapProps {
-    BackgroundColor: string;
+    Width: number;
+    Height: number;
+
+    BackgroundColor: Color;
+    DrawingPieces: IDrawingPiece2d[];
 }

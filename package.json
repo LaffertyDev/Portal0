@@ -24,6 +24,7 @@
   "scripts": {
     "start": "node ./src/nodeserver.js",
     "test": "",
+    "compile": "webpack",
     "restart": "pm2 restart all",
     "debug": "concurrently \"webpack --progress --colors -w\" \"node ./src/nodeserver.js\"",
     "tsc": "tsc",
