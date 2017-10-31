@@ -1,9 +1,6 @@
+import { Point } from './../position/point';
+import { Tile } from './itile';
 import { IDrawingPiece2d } from "./idrawable";
-
-export interface Tile extends IDrawingPiece2d {
-    Position: Point;
-    BackgroundColor: string
-}
 
 export class Hex implements Tile {
     BackgroundColor: 'blue';
@@ -23,12 +20,6 @@ export class Hex implements Tile {
     }
 }
 
-export class Point {
-    constructor(public x, public y, public z) {
-
-    }
-}
-
 export class HexMetrics {
     outerRadius: number = 10;
     innerRadius: number = this.outerRadius * 0.866025404; //sqrt (3) / 2
@@ -41,12 +32,4 @@ export class HexMetrics {
 		new Point(-this.innerRadius, 0, -0.5 * this.outerRadius),
 		new Point(-this.innerRadius, 0, 0.5 * this.outerRadius)
     ]
-}
-
-export class Color {
-    Color: string;
-
-    constructor(strColor: string) {
-        this.Color = strColor;
-    }
 }

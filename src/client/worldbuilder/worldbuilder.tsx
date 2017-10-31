@@ -4,7 +4,6 @@ import {RegionModel} from "./components/region/region";
 import RegionRender from "./components/region/regionrender";
 import RegionForm from "./components/region/regionform";
 import Settlement from "./components/settlement/settlement";
-import Map from "../resources/map/map";
 
 interface WorldBuilderState {
     regions: RegionModel[];

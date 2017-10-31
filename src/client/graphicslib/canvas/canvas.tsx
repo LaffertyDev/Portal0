@@ -1,10 +1,9 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import MapProps from "./map.config";
-import * as drawable from './idrawable'
+import { CanvasConfig } from "./canvas-config";
 
 
-export default class Map extends React.Component<MapProps, {}> {
+export class Canvas extends React.Component<CanvasConfig, {}> {
     private canvas: HTMLCanvasElement;
 
     constructor(props) {
