@@ -3,7 +3,7 @@ import * as ReactDOM from "react-dom";
 import { IDrawingPiece2d } from "../graphicslib/drawing/idrawable";
 import { Color } from "../graphicslib/drawing/color";
 import { Canvas } from "../graphicslib/canvas/canvas";
-import { Hex } from "../graphicslib/drawing/tile";
+import { Hex, HexMetrics } from "../graphicslib/drawing/hex";
 import { Point } from "../graphicslib/position/point";
 
 interface BattlemapState {
@@ -21,11 +21,21 @@ class BattleMap extends React.Component<{}, BattlemapState> {
 
         for(let x = 0; x < 10; x++) {
             for(let y = 0; y < 10; y++) {
-                let hexPoint = new Point(x*30, y*30, 0);
-                let newHex = new Hex(hexPoint, new Color('blue'));
-                this.state.Pieces.push(newHex);
+                this.state.Pieces.push(this.createHex(x,y));
             }
         }
+    }
+
+    private createHex(x: number, y: number): Hex {
+        let halfHexInteger = Math.floor(y / 2);
+        let worldX: number = (x + y * 0.5 - halfHexInteger) * (HexMetrics.innerRadius * 2);
+        let worldY: number = y * (HexMetrics.outerRadius * 1.5);
+
+        let worldPosition = new Point(worldX, worldY, 0);
+        let coordinatePosition = new Point(x, y, 0);
+        let newHex = new Hex(worldPosition, coordinatePosition, new Color('blue'));
+
+        return newHex;
     }
 
     render() {
