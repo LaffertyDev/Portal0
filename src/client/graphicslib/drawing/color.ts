@@ -4,4 +4,8 @@ export class Color {
     constructor(strColor: string) {
         this.Color = strColor;
     }
+
+    toString(): string {
+        return this.Color;
+    }
 }

@@ -1,18 +1,17 @@
+import { Color } from './color';
 import { Point } from './../position/point';
 import { Tile } from './itile';
 import { IDrawingPiece2d } from "./idrawable";
 
 export class Hex implements Tile {
-    BackgroundColor: 'blue';
-
-    constructor(public Position: Point) {
+    constructor(public Position: Point, public BackgroundColor: Color) {
 
     }
 
     Draw(canvas: CanvasRenderingContext2D): void {
         canvas.save();
         canvas.beginPath();
-        canvas.strokeStyle = this.BackgroundColor;
+        canvas.strokeStyle = this.BackgroundColor.toString();
         canvas.lineWidth = 2;
         canvas.arc(this.Position.x, this.Position.y, 10, 0, 2 * Math.PI);
         canvas.stroke();
