@@ -7,6 +7,8 @@
 
 # Goals:
 
+I believe that a new, integrated, performant Tabletop RPG system can be built that is more performant, feature-filled, and accessible than current offerings. Embracing complex image-editing tools, web technologies, and advanced game tooling support would yield a very good product that would fill many adventures will joy and fun.
+
 This section outlines the features in ascending order of priority
 
 0. Tier0 features are fundamental and the entire product is worthless without these
@@ -15,6 +17,13 @@ This section outlines the features in ascending order of priority
 3. Tier3 features are medium-value gameplay features that are "Standard" on other products
 4. Tier4 features are low-value features that will add value to the product
 5. Tier5+ features are essentiall stretch goals, and are only included for brevity purposes to illistrate future-vision once all other features are implemented.
+
+The core paradigms of the program should be:
+
+- Performance-first
+- Support all form-factors (Mobile & Desktop)
+- Support accessibility features (Vision impaired, hand-impaired, screen-assist, hearing-impaired)
+- Don't be an Asshole
 
 ## 2d Paint Editor Features [Core, Editor]
 
@@ -43,7 +52,7 @@ Tiling is the "Core" component of tabletop RPGs, given that everything affects t
 
 Tiles must interface well with painting tools and layers. It is very frustrating when tiling is done wrong or doesn't have appropriate tooling, e.g. import a map that already has tiles and its difficult to draw on them. Or you want walls to rendered ABOVE tiles.
 
-This is a Tier1 feature
+This is a Tier0 feature
 
 1. Arbitrary "tile" support (3,4,6 edges, etc..)
 1. Intelligent "Edge" detection
@@ -93,7 +102,7 @@ Hotkeys are a must, but most systems don't support mobile or don't support key r
 
 It would be awesome if we had Keybinding Support, Gesture Support, and custom tools to change keybinds / gesture binding on a whim
 
-This feature ranges from Tier2 to Tier3 
+This is a Tier3 feature
 
 1. Static hotkey support
 1. Distinct per-person rebinding of keys and hotkeys, gestures
@@ -146,51 +155,72 @@ This is a Tier2 feature.
 1. intelligent search and filter options
 1. Attach audo cues to objects that can be triggered on scenarios
 
+## Content Sharing Features [Core]
+
+Importing and exporting is similar to the Steam marketplace, allowing creators to seamlessly build out FREE content. No content should ever be purchased in our platform because purchase-grade marketplace content leaves a bad taste in my mouth. Rather, content creators using our core editing features should be able to trivially output their work into the marketplace with Media Management and Exporting features.
+
+Importing features are a Tier5 feature.
+
+1. Importing pre-fab tokens, maps, and gameplay from other groups
+1. Exporting pre-fab tokens, maps, and gameplay to other groups
+1. Ability to categorize imported and exported objects and rank them up / down
 
 ## Playing Support
 
-1. Account support
-1. Assign character to player
-1. Turn-order counter
-1. Chat window and support
-1. Group Audio support
-1. Group Video support
-1. Dice support
+This feature is actually "Playing the game" and what would be considered "Minimum Viable" for playing a tabletop RPG on a battlemap.
 
-### Token Features
+These have various Tiers and need to be set apart in their own tech documents
 
-"Tokens" are special objects that are used in the play space. They should have ties to the underlying system being used. Players and Monsters should be able to control their own tokens.
+1. Generic Token Support (Tier0)
+1. Monster token support (Tier1)
+1. Player token support (Tier1)
+1. Account support (Tier2)
+1. Player Character Sheet Support (Tier2)
+1. Assign character to player (Tier2)
+1. Turn-order counter (Tier3)
+1. Chat window and support (Tier2)
+1. Group Audio support (Tier3)
+1. Group Video support (Tier4)
+1. Dice support (Tier1)
+1. Token Aura Support (Tier4)
+1. Table Support (e.g. wild sorceress wild magic table) (Tier4)
 
-Tokens can be rendered in the play space. Tokens can be integrated with player sheets.
+## Contextual Menu Support
 
-Tokens are a Tier2 feature.
+There should always be a contextual menu for any given action. E.g. right click on a player token:
 
-1. Import token
-1. Move tokens
-1. Token "Auras", apply distinct colour
+- Add light source
+- Change image
+- Attack (choose weapon)
+- View character sheet
+- Add initiative / turn
+- Kill
+- Create spell effect ontop of
+- Whisper (prompt)
+- Play sound for (prompt)
+- Give item (prompt)
 
-### Character Support
+Right click on a tile:
 
-Characters are the highlight of any tabletop RPG, as such Characters must be a first-class citizen. A "Character" has special controls to interact with the game world, and is typically controller by a player.
+- Add Token (choose token / texture / object, with context menu)
+- Create Effect (choose effect)
+- Add trigger (while editing)
+- 
 
-Characters are Tier1 Features
+Additionally, the core "Chat" system should have chat commands that can do all of the contextual menu options. This way, core functionality could be automously scripted from users and macros could be written to further automate.
 
-1. Character sheet support
-1. Bind character to Token
-1. Edit character sheet
+The contextual menu should be a "Tier1" feature for the simple fact that it should be heavily prioritized as a quick way of accessing things
 
-### Table Support
-
-Roll tables, e.g. wild sorceress magic table
-
-## Permissions Support
+## Permissions Support [Core]
 
 1. Granular permissions for tokens and actions
 1. "Owner" can add/remove players, can add other people to manage campaign
 
-## System-prefabs
+## System-prefabs [Content]
 
 Art assets are a requirement. It is frustrating that Roll20 does not have free art assets to build a campaign from.
+
+Prefabs are Tier4 features. Unnecessary but VERY preferred. There should be several distinct art designs.
 
 1. Player Tokens
 1. Walls
@@ -224,6 +254,15 @@ Art assets are a requirement. It is frustrating that Roll20 does not have free a
 1. Scripting support
 1. Literally build a game engine that people can (This is Jordan's Dnez program)
 
+## Object Scripting Support [Core, Editor]
+
+Typically, objects in a battlemap are just simple flat textures that, themselves, have no programmability into them. Granted, this should be the "Default" case there should still be objects that can have special behavior associated. Our core "Object" system should handle this, and be distinct from "Painting".
+
+At minimum, we should support:
+
+- "Clickable" objects (that players / DM masters can click to have an effect happen, such as Text being printed)
+- "Collision" objects (that fire an action when collided upon by Enemies/Players)
+
 ## Lighting Engine Features
 
 1. Real-time lighting
@@ -233,37 +272,51 @@ Art assets are a requirement. It is frustrating that Roll20 does not have free a
 
 ## Campaign Support Features
 
+Campaign support would allow Dungeon Masters and Players to view, edit, and manage their campaign history. It ranges from adding chapters and story tidbits to a full-blown worldbuilding engine. The design should be reminiscent of a Wikipedia engine and OneNote.
+
+Campaign support is a Tier5 feature.
+
 1. Support for multiple campaigns that you can select from
 1. "Smart link" game ideas, "the dragon Parthanax assaulted the Grey Beards at Skyrim" links entities Parthanax, Grey Beards, and Skyrim
 1. Add text and game objects
 1. Add histogram for campaign
 1. Add automated journal logging for campaign
 
-## Importing Features
-
-1. Importing pre-fab tokens, maps, and gameplay from other groups
-1. Exporting pre-fab tokens, maps, and gameplay to other groups
-
 ## Administrative Features
+
+Administrative features are the core controls that we would need to manage our own product.
+
+Administrative features are a Tier2 feature
 
 1. Give free time to players
 1. Give codes to unlock free time
 1. Delete people
 1. reset passwords
 1. lock people from accounts
-1. 
+1. lock or remove content, ban users
 
-## Pay Support
+## Business Plan
 
+1. Evaluate project schedule, develop excel timelines w/ estimated effort and task logs
 1. Find funding (personal, venture, friends & families, bank)
 1. Build financial model (Monthly subscription, one-time license, monthly subscription per-player / per group etc..)
+1. Determine market floor / cap
+1. Evaluate ongoing costs and licenses that would be required. Bandwidth, database storage, etc..
+1. Evaluate artist costs for 2d art
+1. Evaluate artist / modeller cost for 3d art
+1. Evaluate UI designer fees & cost
+1. Evaluate marketing costs and expenses
+1. Evaluate further Kickstarting plans and realistic goals
 
 ## Supported Systems
 
 1. DnD5e SRD
 1. Pathfinder
+1. Trevor's RPG (ARCLite)
 
 ### Super-stretch features
+
+These are really, really cool features that would be fun / awesome to work on. But otherwise add no immediate value to consumers and justifying their cost would be very difficult.
 
 #### Autogenerated Content
 
@@ -277,6 +330,14 @@ Art assets are a requirement. It is frustrating that Roll20 does not have free a
 
 1. AI autogenerates a dungeon and uses monsters to attack
 1. AI can move and play along with players
+
+#### Playable Tutorials
+
+One of the issues with DnD groups is not understanding the core rulesets (because people don't read). Having a playable tutorial would help streamline Dungeons and Dragons.
+
+#### Literal Game Engine Support
+
+Allow the creation and management of browser-based game using all of the tools created above.
 
 ## Tutorials following
 
