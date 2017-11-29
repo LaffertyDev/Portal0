@@ -48,6 +48,10 @@ The core paradigms of the program should be:
     - Once clicked / touched, replaced with combobox with focus
     - Maximum of 10 items rendered with scroll (hard cap on 100 items?)
     - Bottom-most option outside of scroll range on the viewport should be "Advanced", which opens the wizard for the associated thing
+- Smart pre-fabrication features, such as a randomized goblin
+    - "Monster Type" -> Goblin
+    - "Str Range" -> 10 + 1d4
+    - "HP Range" -> 4x6 + constitution
 
 
 ## 2d Paint Editor Features [Core, Editor]
@@ -421,3 +425,4 @@ A user-editable OpenMap interface that allows users to quickly move around a wor
 - Mipui (Online battlemap maker) https://www.mipui.net/app/
 - Profantasy (App-based map editor) https://www.profantasy.com/
 - Fantasy Grounds (App-based map editor & gamespace) (Steam)
+- Dized (Board game education app) https://dized.com
