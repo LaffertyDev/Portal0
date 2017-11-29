@@ -238,3 +238,10 @@ Write project for Graphics
 1. Pick age threshold
 1. Pick name type
 1. Generate
+
+
+## Project Management Program Idea
+
+1. Make tasks / user stories a graph instead of a tree
+2. Bind related objects using nodes to see similarities, e.g. "Make Context Menu" -> "Make Searchable" and then you can click on "Searchable" to view all features that should be searchable
+3. Auto-linking of features using smart string detection would be killer

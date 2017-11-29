@@ -25,6 +25,31 @@ The core paradigms of the program should be:
 - Support accessibility features (Vision impaired, hand-impaired, screen-assist, hearing-impaired)
 - Don't be an Asshole
 
+## Misclaneous Ideas That Need Sorted
+
+- What if you could bind an object to a local grid, and if you move that local grid the object moves with it?
+    - What if you could bind an environmental effect to give the appearance of movement, e.g. on a boat or an airship?
+    - What would happen if two local grids don't line up?
+    - How to define a local grid?
+- Ability to "path" a token, so that that token can automatically move (e.g. a Guard on guard patrol for out of combat)
+    - This should be used like a "shift click" system from RTS games
+- Ability to specify custom borders for grids (https://www.reddit.com/r/battlemaps/comments/7dceui/new_themes_just_released_for_mipui_my_free_online/)
+- "Traits" on objects, such as Lootable
+    - User right clicks on chest token, "add trait", "lootable", "Short Sword +1"
+- Bind arbitrary actions to "tables"
+    - User right clicks on chest token, "add trait", "lootable", "bind to LOOT TABLE 1-4 NO MAGIC"
+    - User right clicks on art, "show overlay", "My Custom Plot Window #5"
+    - User right clicks on goblin token, "Add Trait", "Talk", "Trigger" -> Death / HP 0 -> "Action" -> "Death Table - Goblin"
+- "Context Menu" actions should use tags, such as e.g. "Lootable", "Container", "Storage", "Pouch", "Bag", all go to the same feature
+- Character Sheets - drag and drop skills to use them
+- Define Design Methodology, under what cases should UI elements be usable for consistency? e.g. when is a feature context-menu supported, drag n drop supported, mobile-friendly, etc..
+- UI element idea for "adding"
+    - Rendered as "Add a <>" e.g. "Add a token", "Add an item", etc..
+    - Once clicked / touched, replaced with combobox with focus
+    - Maximum of 10 items rendered with scroll (hard cap on 100 items?)
+    - Bottom-most option outside of scroll range on the viewport should be "Advanced", which opens the wizard for the associated thing
+
+
 ## 2d Paint Editor Features [Core, Editor]
 
 First, "battlemap" is a 2d / 3d image editor!!! We need very rad 2d paint editor features that would make Photoshop blush. The user interface for this must be perfectly intuitive.
@@ -185,6 +210,10 @@ These have various Tiers and need to be set apart in their own tech documents
 1. Token Aura Support (Tier4)
 1. Table Support (e.g. wild sorceress wild magic table) (Tier4)
 
+## Window Engine Support
+
+There should be a trivial way of rendering and manipulating windows in the game. E.g., "pop out" character sheet. Windows should have an underlying, selectable, theme.
+
 ## Contextual Menu Support
 
 There should always be a contextual menu for any given action. E.g. right click on a player token:
@@ -205,11 +234,15 @@ Right click on a tile:
 - Add Token (choose token / texture / object, with context menu)
 - Create Effect (choose effect)
 - Add trigger (while editing)
-- 
+- Cast Spell (choose and see effects / affected creatures)
 
 Additionally, the core "Chat" system should have chat commands that can do all of the contextual menu options. This way, core functionality could be automously scripted from users and macros could be written to further automate.
 
 The contextual menu should be a "Tier1" feature for the simple fact that it should be heavily prioritized as a quick way of accessing things
+
+## Smart Clipboard Support
+
+Users should be able to use the clipboard to manage maps and quickly copy and paste or move effects. E.g., click on a token, copy and paste makes duplicate token. Click on an audio file, copy and paste will insert file contextually.
 
 ## Permissions Support [Core]
 
@@ -228,6 +261,18 @@ Prefabs are Tier4 features. Unnecessary but VERY preferred. There should be seve
 1. simple objects (Lamps, Chests, Chairs, Tables, Beds, Torches, Corpses)
 1. Monster tokens
 1. Spell effects
+
+TOKENS
+- 1 token for every class/gender/race combination
+- 1 token for every monster in the DnD5e monster manual
+- Variety of tokens for low-level hoard monsters (Goblin, Orc, Zombie, Kobold)
+- Variety of humanoid tokens (Bandits, Peasants, Farmers, Nobility, Guardmen, Knights)
+- Variety of object tokens (Potions, Chests, Bookshelves, Beds, Tables, Chairs, Campfires)
+
+MAP TILESETS
+- Walls
+- Floor
+- Water
 
 ## Z-Index Support
 
@@ -269,6 +314,17 @@ At minimum, we should support:
 1. Mark objects that "Collide" with light
 1. Generate "light source"
 1. Specify colours for "Light source"
+1. Global Illumination Support for "sun" or "moon" lighting which creates smart shadows
+
+## Scheduling Features
+
+If I make an app, scheduling should be a critical feature. Built-in reminders for play sessions, DM sending notifications to players
+
+1. DMs should be able to set a recurring time for their campaign
+2. Users receive periodic notifications about upcoming games
+3. DMs should be able to cancel a game and palyers should receive a notification
+4. Players should be able to accept or deny upcoming game notifications, allowing everyone to see the schedule
+5. DMs should be able to ask players when the next game / all games should be held
 
 ## Campaign Support Features
 
@@ -281,6 +337,10 @@ Campaign support is a Tier5 feature.
 1. Add text and game objects
 1. Add histogram for campaign
 1. Add automated journal logging for campaign
+
+## Item Builder Features
+
+Trivially make items to give to players. Image, name, description, effects, stat-changes, etc..
 
 ## Administrative Features
 
@@ -313,6 +373,10 @@ Administrative features are a Tier2 feature
 1. DnD5e SRD
 1. Pathfinder
 1. Trevor's RPG (ARCLite)
+1. Star Wars RPG
+1. Pathfinder Star Runner RPG
+1. Arbitrary WarGame support
+1. Arbitrary Tabletop Game support
 
 ### Super-stretch features
 
@@ -339,12 +403,21 @@ One of the issues with DnD groups is not understanding the core rulesets (becaus
 
 Allow the creation and management of browser-based game using all of the tools created above.
 
+#### OpenMap Integration
+
+A user-editable OpenMap interface that allows users to quickly move around a world or battlemap with ease.
+
 ## Tutorials following
 
 - http://catlikecoding.com/unity/tutorials/hex-map/part-1/
 
 ### Marketing / Competition
 
-- Roll20
-- Realmworks http://www.wolflair.com/realmworks/features/the-future-of-realm-works/
-- Realmware https://www.reddit.com/r/dndnext/comments/7air6o/hey_guys_were_realmware_and_were_building/
+- Roll20 (Online map editor & gamespace)
+- Realmworks (Campaign Managing Utility) http://www.wolflair.com/realmworks/features/the-future-of-realm-works/
+- Realmware (App map editor) https://www.kickstarter.com/projects/realmware/realmware-tabletop-tools
+- WorldAnvil (Online campaign managing utility)  https://www.worldanvil.com/#features
+- Inkarnate (Online World map editor) https://inkarnate.com/
+- Mipui (Online battlemap maker) https://www.mipui.net/app/
+- Profantasy (App-based map editor) https://www.profantasy.com/
+- Fantasy Grounds (App-based map editor & gamespace) (Steam)
