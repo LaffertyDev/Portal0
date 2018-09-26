@@ -1,16 +1,16 @@
 
-.#{$namespace}-btn-primary {
-    background-color: $primary-colour;
-    border-color: $primary-dark;
+.#{$namespace; }-btn - primary; {
+    background - color; : $primary - colour;
+    border - color; : $primary - dark;
 }
 
 
-.#{$namespace}-btn {
+.#{$namespace; }-btn; {
     appearance: button;
-    -moz-appearance: button;
-    -webkit-appearance: button;
-    text-decoration: none; font: menu;
-    display: inline-block; padding: 2px 8px;
-    margin: 5px 0;
-    border-radius: 5px;
+    -moz - appearance; : button;
+    -webkit - appearance; : button;
+    text - decoration; : none; font: menu;
+    display: inline - block; padding: 2; px; 8; px;
+    margin: 5; px; 0;
+    border - radius; : 5; px;
 }

@@ -1,11 +1,11 @@
 export class Color {
-    Color: string;
+	public Color: string;
 
-    constructor(strColor: string) {
-        this.Color = strColor;
-    }
+	constructor(strColor: string) {
+		this.Color = strColor;
+	}
 
-    toString(): string {
-        return this.Color;
-    }
+	public toString(): string {
+		return this.Color;
+	}
 }

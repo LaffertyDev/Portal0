@@ -1,11 +1,11 @@
-import { Color } from './color';
-import { IDrawingPiece2d } from './idrawable';
-import { Point } from '../position/point';
+import { Point } from "../position/point";
+import { Color } from "./color";
+import { IDrawingPiece2d } from "./idrawable";
 
 export interface ITile<TCoordinate> extends IDrawingPiece2d {
-    drawingPosition: Point;
-    coordinatePosition: TCoordinate;
-    backgroundColor: Color;
+	backgroundColor: Color;
+	coordinatePosition: TCoordinate;
+	drawingPosition: Point;
 
-    GetCoordinates(): TCoordinate;
+	GetCoordinates(): TCoordinate;
 }

@@ -1,15 +1,15 @@
 export interface ITileCoordinate {
-    toString(): string;
+	toString(): string;
 }
 
 export class HexCoordinate implements ITileCoordinate {
-    constructor(public longitude: number, public latitude: number, public rLatitude: number) {
-        
-    }
+	constructor(public longitude: number, public latitude: number, public rLatitude: number) {
+		
+	}
 
-    toString(): string {
-        return `long: ${this.longitude}, lat: ${this.latitude}, rLat: ${this.rLatitude}`;
-    }
+	public toString(): string {
+		return `long: ${this.longitude}, lat: ${this.latitude}, rLat: ${this.rLatitude}`;
+	}
 }
 
 // export class SquareCoordinate implements ITileCoordinate {

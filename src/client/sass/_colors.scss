@@ -1,172 +1,176 @@
-//all source code taken from: https://github.com/tallys
-@function is-cool-color($color) {
-	@return hue($color) < 310 and hue($color) > 140;
+// all source code taken from: https://github.com/tallys
+@function is-cool - color($color); {
+	@return hue($color) < 310; and; hue($color) > 140;
 }
 
-@function is-high-key-value($color) {
-	@return hue($color) > 20 and hue($color) < 190;
+@function is-high - key - value($color); {
+	@return hue($color) > 20; and; hue($color) < 190;
 }
 
-@function is-highest-key-value($color) {
-	@return hue($color) > 30 and hue($color) <90;
+@function is-highest - key - value($color); {
+	@return hue($color) > 30; and; hue($color) < 90;
 }
 
-@function harmonious-mix($mix, $base) {
-	@if (is-cool-color($mix)){
-		@if is-high-key-value($base) {
-			@return mix($mix, $base, 11%);
+@function harmonious-mix($mix, $base); {
+	@if (is - cool - color($mix)) {
+		@if is - high - key - value($base) {
+			@return mix($mix, $base, 11 % );
 		}
 		@else {
-			@return mix($mix, $base, 16%);
+			@return mix($mix, $base, 16 % );
 		}
 	}
 	@else {
-		@if is-high-key-value($base) {
-			@return mix($mix, $base, 13%);
+		@if is - high - key - value($base) {
+			@return mix($mix, $base, 13 % );
 		}
 		@else {
-			@return mix($mix, $base, 23%);
+			@return mix($mix, $base, 23 % );
 		}
 	}
 }
 
-@function mix-neutral($color) {
-	@if (is-highest-key-value($color)) {
-		@if is-high-key-value(complement($color)) {
-			@return mix(complement($color), $color, 19%);
+@function mix-neutral($color); {
+	@if (is - highest - key - value($color)) {
+		@if is - high - key - value(complement($color)) {
+			@return mix(complement($color), $color, 19 % );
 		}
 		@else {
-			@return mix(complement($color), $color, 13%);
+			@return mix(complement($color), $color, 13 % );
 		}
 	}
-	@else if (is-high-key-value($color)) {
-		@if is-high-key-value(complement($color)) {
-			@return mix(complement($color), $color, 31%);
+	@else if (is - high - key - value($color)) {
+		@if is - high - key - value(complement($color)) {
+			@return mix(complement($color), $color, 31 % );
 		}
 		@else {
-			@return mix(complement($color), $color, 23%);
+			@return mix(complement($color), $color, 23 % );
 		}
 	}
 	@else {
-		@if is-highest-key-value(complement($color)) {
-			@return mix(complement($color), $color, 31%);
+		@if is - highest - key - value(complement($color)) {
+			@return mix(complement($color), $color, 31 % );
 		}
-		@if is-high-key-value(complement($color)) {
-			@return mix(complement($color), $color, 26%);
+		@if is - high - key - value(complement($color)) {
+			@return mix(complement($color), $color, 26 % );
 		}
 		@else {
-			@return mix(complement($color), $color, 23%);
+			@return mix(complement($color), $color, 23 % );
 		}
 	}
 }
 
-@function pick-contrast-of($color) {
-	@if is-high-key-value($color){
-		@if lightness($color) < 30% {
-			@return lighten(complement($color), 86);
+@function pick-contrast - of($color); {
+	@if is - high - key - value($color) {
+		@if lightness($color) < 30 % { {
+			@
+			}return lighten(complement($color), 86);
 		}
-		@else if lightness($color) > 70% {
-			@return darken(complement($color), 68);
+	@else if lightness($color) > 70 % { {
+			@
+							}return darken(complement($color), 68);
 		}
-		@else {
+@else {
 			@return darken(complement($color), 53);
 		}
 } @else {
-	@if lightness($color) < 30% {
-			@return lighten(complement($color), 86);
+	@if lightness($color) < 30 % { {
+			@
+		}return lighten(complement($color), 86);
 		}
-		@else if lightness($color) > 70% {
-			@return darken(complement($color), 68);
+@else if lightness($color) > 70 % { {
+			@
+						}return darken(complement($color), 68);
 		}
-		@else {
+@else {
 			@return lighten(complement($color), 53);
 		}
 	}
 }
 
-//Core CTA colour and complemented colour
-$first-colour: hsl(355, 100%, 50%);
-$second-colour: complement($first-colour);
+// Core CTA colour and complemented colour
+$first - colour; : hsl(355, 100 % , 50 % );
+$second - colour; : complement($first - colour);
 
-$primary-colour: harmonious-mix($second-colour, $first-colour);
+$primary - colour; : harmonious - mix($second - colour, $first - colour);
 
 // Primary neutrals, highlight, midtone, shadow`
-$primary-neutral: mix-neutral($primary-colour);
-$primary-neutral-light: lighten($primary-neutral, 33);
-$primary-neutral-dark: darken($primary-neutral, 33);
+$primary - neutral; : mix - neutral($primary - colour);
+$primary - neutral - light; : lighten($primary - neutral, 33);
+$primary - neutral - dark; : darken($primary - neutral, 33);
 
 // Primary tint and shade
-$primary-light: mix($primary-neutral-light, $primary-colour, 45%);
-$primary-dark: mix($primary-neutral-dark, $primary-colour, 45%);
+$primary - light; : mix($primary - neutral - light, $primary - colour, 45 % );
+$primary - dark; : mix($primary - neutral - dark, $primary - colour, 45 % );
 
-$complementary-colour: harmonious-mix($first-colour, $second-colour);
+$complementary - colour; : harmonious - mix($first - colour, $second - colour);
 
 // Complementary Neutrals, highlight, midtone, shadow
-$complementary-neutral: mix-neutral($complementary-colour);
-$complementary-neutral-light: lighten($complementary-neutral, 33);
-$complementary-neutral-dark: darken($complementary-neutral, 33);
+$complementary - neutral; : mix - neutral($complementary - colour);
+$complementary - neutral - light; : lighten($complementary - neutral, 33);
+$complementary - neutral - dark; : darken($complementary - neutral, 33);
 
 // Complementary tint and shade
-$complementary-light: mix($complementary-neutral-light, $complementary-colour, 45%);
-$complementary-dark: mix($complementary-neutral-dark, $complementary-colour, 45%);
+$complementary - light; : mix($complementary - neutral - light, $complementary - colour, 45 % );
+$complementary - dark; : mix($complementary - neutral - dark, $complementary - colour, 45 % );
 
 // Pure neutrals, highlight, midtone, shadow
-$white: lighten($primary-neutral-light, 15);
-$neutral-grey: grayscale($primary-neutral);
-$primary-grey: mix($primary-colour, $complementary-colour, 30);
-$complementary-grey: mix($complementary-colour, $primary-colour, 63);
-$black: grayscale($complementary-neutral-dark);
-$analogous-colour: adjust-hue($complementary-colour, -40);
-$complementary-analogous: mix($analogous-colour, $complementary-colour, 66);
+$white: lighten($primary - neutral - light, 15);
+$neutral - grey; : grayscale($primary - neutral);
+$primary - grey; : mix($primary - colour, $complementary - colour, 30);
+$complementary - grey; : mix($complementary - colour, $primary - colour, 63);
+$black: grayscale($complementary - neutral - dark);
+$analogous - colour; : adjust - hue($complementary - colour, -40);
+$complementary - analogous; : mix($analogous - colour, $complementary - colour, 66);
 
-//examples
-.colour-box {
-    width: 80px;
-    height: 80px;
-    display: inline-block;
-}
-
-.primary {
-    background-color: $primary-colour;
-}
-.primary-neutral {
-    background-color: $primary-neutral;
-}
-.primary-neutral-light {
-    background-color: $primary-neutral-light;
-}
-.primary-neutral-dark {
-    background-color: $primary-neutral-dark;
-}
-.primary-light {
-    background-color: $primary-light;
-}
-.primary-dark {
-    background-color: $primary-dark;
-}
-.complementary {
-    background-color: $complementary-colour;
-}
-.complementary-neutral {
-    background-color: $complementary-neutral;
-}
-.complementary-neutral-light {
-    background-color: $complementary-neutral-light;
-}
-.complementary-neutral-dark {
-    background-color: $complementary-neutral-dark;
-}
-.complementary-light {
-    background-color: $complementary-light;
-}
-.complementary-dark {
-    background-color: $complementary-dark;
+// examples
+.colour - box; {
+    width: 80; px;
+    height: 80; px;
+    display: inline - block;
 }
 
-.white { background-color: $white}
-.neutral-grey { background-color: $neutral-grey}
-.primary-grey { background-color: $primary-grey}
-.complementary-grey { background-color: $complementary-grey}
-.black { background-color: $black}
-.analogous { background-color: $analogous-colour}
-.complementary-analogous { background-color: $complementary-analogous}
+.primary; {
+    background - color; : $primary - colour;
+}
+.primary - neutral; {
+    background - color; : $primary - neutral;
+}
+.primary - neutral - light; {
+    background - color; : $primary - neutral - light;
+}
+.primary - neutral - dark; {
+    background - color; : $primary - neutral - dark;
+}
+.primary - light; {
+    background - color; : $primary - light;
+}
+.primary - dark; {
+    background - color; : $primary - dark;
+}
+.complementary; {
+    background - color; : $complementary - colour;
+}
+.complementary - neutral; {
+    background - color; : $complementary - neutral;
+}
+.complementary - neutral - light; {
+    background - color; : $complementary - neutral - light;
+}
+.complementary - neutral - dark; {
+    background - color; : $complementary - neutral - dark;
+}
+.complementary - light; {
+    background - color; : $complementary - light;
+}
+.complementary - dark; {
+    background - color; : $complementary - dark;
+}
+
+.white; { background - color; : $white; }
+.neutral - grey; { background - color; : $neutral - grey; }
+.primary - grey; { background - color; : $primary - grey; }
+.complementary - grey; { background - color; : $complementary - grey; }
+.black; { background - color; : $black; }
+.analogous; { background - color; : $analogous - colour; }
+.complementary - analogous; { background - color; : $complementary - analogous; }

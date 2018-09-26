@@ -3,6 +3,7 @@
 	"compilerOptions": {
 		"module": "es2015",
 		"outDir": "../../www/dist",
+		"jsx": "react"
 	},
 	"include": [
 		"./**/*",

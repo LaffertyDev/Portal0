@@ -1,4 +1,4 @@
-import resolve from "rollup-nodemodules-resolve";
+import resolve from "rollup-plugin-node-resolve";
 import sourcemaps from 'rollup-plugin-sourcemaps';
 
 // `npm run build` -> `production` is true
