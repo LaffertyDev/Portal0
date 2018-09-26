@@ -1,0 +1,76 @@
+{
+	// Use IntelliSense to learn about possible attributes.
+	// Hover to view descriptions of existing attributes.
+	// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Server - Prod",
+			"program": "${workspaceFolder}/src/server/app.ts",
+			"outFiles": [
+				"${workspaceFolder}/**/*.js"
+			]
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Server - Dev",
+			"program": "${workspaceFolder}/src/server/app.ts",
+			"args": [
+				"dev"
+			],
+			"outFiles": [
+				"${workspaceFolder}/**/*.js"
+			]
+		},
+		{
+			"name": "Client - Chrome",
+			"type": "chrome",
+			"request": "launch",
+			"url": "https://localhost:4433",
+			"webRoot": "${workspaceFolder}/www"
+		},
+		{
+			"name": "Attach to Chrome",
+			"type": "chrome",
+			"request": "attach",
+			"port": 9222,
+			"url": "https://localhost:4433",
+			"webRoot": "${workspaceFolder}/www/dist"
+		},
+		{
+			"name": "Client - Firefox",
+			"type": "firefox",
+			"request": "launch",
+			"reAttach": true,
+			"url": "https://localhost:4433/",
+			"sourceMaps": "server",
+			"webRoot": "${workspaceFolder}/www",
+			"pathMappings": [
+				{
+					"url": "https://localhost:4433/src/client/",
+					"path": "${workspaceFolder}/src/client/"
+				}
+			]
+		},
+		{
+			"name": "Attach to Firefox",
+			"type": "firefox",
+			"request": "attach",
+			"port": 9222,
+			"url": "https://localhost:4433",
+			"webRoot": "${workspaceFolder}/www/dist"
+		}
+	],
+	"compounds": [
+		{
+			"name": "Server/Client",
+			"configurations": [
+				"Server - Dev",
+				"Client - Chrome"
+			]
+		}
+	]
+}

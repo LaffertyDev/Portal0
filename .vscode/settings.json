@@ -1,0 +1,23 @@
+{
+  "git.confirmSync": false,
+  "git.enableSmartCommit": true,
+  "git.promptToSaveFilesBeforeCommit": true,
+  "git.autofetch": false,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "typescript.implementationsCodeLens.enabled": true,
+  "files.insertFinalNewline": true,
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/cgi": true,
+    "**/dist": true,
+    "node_modules/": true
+  },
+  "editor.insertSpaces": false,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true
+  }
+}
