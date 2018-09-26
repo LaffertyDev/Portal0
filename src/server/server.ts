@@ -3,7 +3,10 @@ import * as fs from "fs";
 import * as http from "http";
 import * as https from "https";
 import * as Path from "path";
-import { SERVER_HOSTNAME, SERVER_INSECURE_PORT, SERVER_SECURE_PORT } from "./../shared/constants";
+
+export const SERVER_INSECURE_PORT = 8080;
+export const SERVER_SECURE_PORT = 4433;
+export const SERVER_HOSTNAME = "localhost";
 
 const PUBLIC_DIRECTORY = "../../../www";
 const PUBLIC_DIRECTORY_FULL_PATH = Path.join(__dirname, PUBLIC_DIRECTORY);
