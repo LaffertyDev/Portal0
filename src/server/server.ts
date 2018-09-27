@@ -1,6 +1,6 @@
 import * as express from "express";
+import * as expressHandlebars from "express-handlebars";
 import * as fs from "fs";
-import * as hbs from "handlebars";
 import * as http from "http";
 import * as https from "https";
 import * as Path from "path";
@@ -9,10 +9,11 @@ export const SERVER_INSECURE_PORT = 8080;
 export const SERVER_SECURE_PORT = 4433;
 export const SERVER_HOSTNAME = "localhost";
 
-const PUBLIC_DIRECTORY = "../../../www";
+const PUBLIC_DIRECTORY = "../../www";
 const PUBLIC_DIRECTORY_FULL_PATH = Path.join(__dirname, PUBLIC_DIRECTORY);
-const SERVER_DIRECTORY = "../../";
+const SERVER_DIRECTORY = "../";
 const SERVER_DIRECTORY_PATH = Path.join(__dirname, SERVER_DIRECTORY);
+const VIEWS_DIRECTORY = Path.join(__dirname, PUBLIC_DIRECTORY, "views");
 const SERVER_KEY_PATH = Path.join(SERVER_DIRECTORY_PATH, "key.pem");
 const SERVER_CERT_PATH = Path.join(SERVER_DIRECTORY_PATH, "cert.pem");
 
@@ -27,11 +28,17 @@ export class HttpServer {
 
 	constructor(serveSource: boolean) {
 		const server = express();
-		server.use(express.static(PUBLIC_DIRECTORY_FULL_PATH));
 
+		server.engine("hbs", expressHandlebars({
+			defaultLayout: "_layout",
+			extname: "hbs",
+			layoutsDir: VIEWS_DIRECTORY,
+			partialsDir: Path.join(VIEWS_DIRECTORY, "partials"),
+		}));
 		server.set("view engine", "hbs");
-		server.set("views", Path.join(__dirname, PUBLIC_DIRECTORY, "views"));
-		server.set("view options", { layout: "_layout" });
+		server.set("views", VIEWS_DIRECTORY);
+
+		server.use(express.static(PUBLIC_DIRECTORY_FULL_PATH));
 
 		// server.use(sass_middleware({
 		// 	src: __dirname + '/sass',
@@ -40,8 +47,8 @@ export class HttpServer {
 		// 	debug: true
 		// }));
 
-		hbs.registerPartial("footer", fs.readFileSync(Path.join(__dirname, PUBLIC_DIRECTORY, "views/footer.hbs"), "utf8"));
-		hbs.registerPartial("header", fs.readFileSync(Path.join(__dirname, PUBLIC_DIRECTORY, "views/footer.hbs"), "utf8"));
+		// Handlebars.registerPartial("footer", fs.readFileSync(Path.join(__dirname, PUBLIC_DIRECTORY, "views/partials/footer.hbs"), "utf8"));
+		// Handlebars.registerPartial("header", fs.readFileSync(Path.join(__dirname, PUBLIC_DIRECTORY, "views/partials/footer.hbs"), "utf8"));
 
 		server.get("/", (req, res) => {
 			res.render("index");
