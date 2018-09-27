@@ -1,22 +1,22 @@
-@import "_scssconstants";
+@import '_scssconstants';
 
-.#{$namespace; }-logo; {
-    margin: 0; px;
+.#{$namespace}-logo {
+    margin: 0px;
     display: inline;
-    margin - left; : 1; rem;
+    margin-left: 1rem;
 }
 
-.pull - left; {
+.pull-left {
     float: left;
 }
 
-.pull - right; {
+.pull-right {
     float: right;
 }
 
-.#{$namespace; }-sidebar; {
+.#{$namespace}-sidebar {
     float: left;
-    width: 20 % ;
-    height: 100 % ;
-    background - color; : $neutral - grey;
+    width: 20%;
+    height: 100%;
+    background-color: $neutral-grey;
 }

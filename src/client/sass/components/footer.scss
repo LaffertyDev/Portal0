@@ -1,20 +1,19 @@
+.#{$namespace}-site-footer {
+    border: 3px solid $neutral-grey;
+    background-color: $complementary-neutral-dark;
+    border-left: 0;
+    border-bottom: 0;
+    border-right: 0;
 
-.#{$namespace; }-site - footer; {
-    border: 3; px; solid; $neutral - grey;
-    background - color; : $complementary - neutral - dark;
-    border - left; : 0;
-    border - bottom; : 0;
-    border - right; : 0;
-
-    // Set the footer to "Flow" as you would expect
+    //Set the footer to "Flow" as you would expect
     position: absolute;
     right: 0;
     bottom: 0;
     left: 0;
 
-    .#{$namespace; }-footer - content; {
+    .#{$namespace}-footer-content {
         color: $white;
-        line - height; : 4e; m;
-        margin - left; : 1; rem;
+        line-height: 4em;
+        margin-left: 1rem;
     }
 }

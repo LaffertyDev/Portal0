@@ -1,100 +1,100 @@
-@import "colors";
-@import "components";
-@import "layouts";
-@import "scssconstants";
+@import 'scssconstants';
+@import 'colors';
+@import 'layouts';
+@import 'components';
 
-html; {
-    // font-size: 16px; Don't set a default font size, this way users can specify what size they want instead :)
-    // poor ux as a result of this is on the user. The App should handle "normal" font sizes gracefully, but absurd 
-    // sizes (72px?) don't need to be handled
-    line - height; : 1.3e; m;
-    font - family; : Arial, Helvetica, sans - serif;
+html {
+    //font-size: 16px; Don't set a default font size, this way users can specify what size they want instead :)
+    //poor ux as a result of this is on the user. The App should handle "normal" font sizes gracefully, but absurd 
+    //sizes (72px?) don't need to be handled
+    line-height: 1.3em;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-div; {
+div {
     color: $black;
 }
 
-body; {
+body {
     position: relative;
-    margin: 0e; m;
-    padding - bottom; : 74; px; // the exact size of the footer!
-    background - color; : $complementary - neutral;
+    margin: 0em;
+    padding-bottom: 74px; //the exact size of the footer!
+    background-color: $complementary-neutral;
 }
 
-section; {
-    background - color; : $white;
-    width: 75 % ;
-    margin - left; : 12.5 % ;
-    margin - right; : 12.5 % ;
-    margin - bottom; : 25; px;
-    box - shadow; : 1; px; 2; px; 3; px; 0; rgba(0, 0, 0, 0.3);
-    padding - bottom; : 10; px;     
+section {
+    background-color: $white;
+    width: 75%;
+    margin-left: 12.5%;
+    margin-right: 12.5%;
+    margin-bottom: 25px;
+    box-shadow: 1px 2px 3px 0 rgba(0,0,0,0.3);
+    padding-bottom: 10px;
 
-    & > header; {
-        padding: 7; px; 15; px;
-        background - color; : $complementary - neutral - light;
-        font - size; : 1.5e; m;
-        line - height; : 2e; m;
+    & > header {
+        padding: 7px 15px;
+        background-color: $complementary-neutral-light;
+        font-size: 1.5em;
+        line-height: 2em;
     }
 
-    .#{$namespace; }-section - copy; {
-        padding - left; : 15; px;
-        padding - right; : 15; px;
+    .#{$namespace}-section-copy {
+        padding-left: 15px;
+        padding-right: 15px;
     }
 }
 
-a; {
-    text - decoration; : none;
+a {
+    text-decoration: none;
 }
 
-label + input; {
-    margin - left; : 5; px;
+label + input {
+    margin-left: 5px;
 }
 
-input; {
-    font - size; : 0.85e; m;
-    padding: 0.25e; m;
+input {
+    font-size: 0.85em;
+    padding: 0.25em;
 }
 
-code; {
-    background - color; : $complementary - neutral - light;
-    padding: 1; px; 5; px;
-    display: inline - block;
-    margin: 2; px;
+code {
+    background-color: $complementary-neutral-light;
+    padding: 1px 5px;
+    display:inline-block;
+    margin: 2px;
 }
 
-form; {
-    max - width; : 50; vw;
+form {
+    max-width: 50vw;
 }
 
-button; {
-    & ; : hover; {
+button {
+    &:hover {
         cursor: pointer;
     }
 }
 
-nav; {
-    ul; {
-        margin: 0e; m;
-        padding: 0e; m;
-        padding - right; : 5; px;
-        list - style; : none;   
-        li; {
-            display: inline - block;
-            // margin-left: -4px;
-            border: 1; px; solid; $primary - dark;
-            background - color; : $primary - light;
-            border - radius; : 8; px;
-            line - height; : 2e; m;
+nav {
+    ul {
+        margin: 0em;
+        padding: 0em;
+        padding-right: 5px;
+        list-style: none;   
+        li {
+            display: inline-block;
+            //margin-left: -4px;
+            border: 1px solid $primary-dark;
+            background-color: $primary-light;
+            border-radius: 8px;
+            line-height: 2em;
 
-            // emily recommends removing background & just having links
+            //emily recommends removing background & just having links
 
-            a; {
+            a {
                 color: $white;
                 display: block;
-                padding: 0; 20;
-                text - decoration; : none;
+                padding: 0 20;
+                text-decoration: none;
             }
         }
     }

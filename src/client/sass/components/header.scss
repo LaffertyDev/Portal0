@@ -1,11 +1,10 @@
-
-.#{$namespace; }-site - header; {
-    border: 3; px; solid; $neutral - grey;
-    border - left; : 0;
-    border - top; : 0;
-    border - right; : 0;
-    margin - bottom; : 1e; m;
-    line - height; : 3e; m;
-    background - color; : $complementary - neutral - dark;
+.#{$namespace}-site-header {
+    border: 3px solid $neutral-grey;
+    border-left: 0;
+    border-top: 0;
+    border-right: 0;
+    margin-bottom: 1em;
+    line-height: 3em;
+    background-color: $complementary-neutral-dark;
     color: $white;
 }
