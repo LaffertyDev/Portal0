@@ -73,14 +73,6 @@ export class HttpServer {
 			res.render("dnd/dndaction");
 			console.log("action econ Hit");
 		});
-		server.get("/procgen", (req, res) => {
-			res.render("procgen/procgen");
-			console.log("proc gen Hit");
-		});
-		server.get("/dnd/battlemap", (req, res) => {
-			res.render("dnd/battlemap");
-			console.log("battlemap Hit");
-		});
 
 		// taken from http://stackoverflow.com/a/9802006/2383477
 		server.use((req, res, next) => {
