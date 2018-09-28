@@ -1,5 +1,4 @@
 import * as express from "express";
-import * as expressHandlebars from "express-handlebars";
 import * as fs from "fs";
 import * as http from "http";
 import * as https from "https";
@@ -13,7 +12,7 @@ const PUBLIC_DIRECTORY = "../../www";
 const PUBLIC_DIRECTORY_FULL_PATH = Path.join(__dirname, PUBLIC_DIRECTORY);
 const SERVER_DIRECTORY = "../";
 const SERVER_DIRECTORY_PATH = Path.join(__dirname, SERVER_DIRECTORY);
-const VIEWS_DIRECTORY = Path.join(__dirname, PUBLIC_DIRECTORY, "views");
+const VIEWS_DIRECTORY = Path.join(__dirname, PUBLIC_DIRECTORY, "dist/views");
 const SERVER_KEY_PATH = Path.join(SERVER_DIRECTORY_PATH, "key.pem");
 const SERVER_CERT_PATH = Path.join(SERVER_DIRECTORY_PATH, "cert.pem");
 
@@ -29,38 +28,31 @@ export class HttpServer {
 	constructor(serveSource: boolean) {
 		const server = express();
 
-		server.engine("hbs", expressHandlebars({
-			defaultLayout: "_layout",
-			extname: "hbs",
-			layoutsDir: VIEWS_DIRECTORY,
-			partialsDir: Path.join(VIEWS_DIRECTORY, "partials"),
-		}));
-		server.set("view engine", "hbs");
-		server.set("views", VIEWS_DIRECTORY);
-
 		server.use(express.static(PUBLIC_DIRECTORY_FULL_PATH));
+		server.set("views", VIEWS_DIRECTORY);
+		server.set("view options", { layout: false });
 
-		server.get("/", (req, res) => {
-			res.render("index");
+		server.get("/", (req, res) => { 
+			res.sendFile(Path.join(VIEWS_DIRECTORY, "index.html"));
 			console.log("Index Hit");
 		});
 
 		server.get("/resume", (req, res) => {
-			res.render("resume");
+			res.sendFile(Path.join(VIEWS_DIRECTORY, "resume.html"));
 			console.log("Resume Hit");
 		});
 
 		server.get("/components", (req, res) => {
-			res.render("components");
+			res.sendFile(Path.join(VIEWS_DIRECTORY, "components.html"));
 			console.log("Components Hit");
 		});
 
 		server.get("/worldbuilder", (req, res) => {
-			res.render("dnd/worldbuilder");
+			res.sendFile(Path.join(VIEWS_DIRECTORY, "worldbuilder.html"));
 			console.log("Worldbuilder Hit");
 		});
-		server.get("/dnd/action", (req, res) => {
-			res.render("dnd/dndaction");
+		server.get("/dndaction", (req, res) => {
+			res.sendFile(Path.join(VIEWS_DIRECTORY, "dndaction.html"));
 			console.log("action econ Hit");
 		});
 
