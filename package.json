@@ -9,7 +9,7 @@
     "build:compile": "tsc -p ./src/client/tsconfig.json && tsc -p ./src/server/tsconfig.json",
     "build:css": "node build.js",
     "build:lint": "tslint --project tsconfig.json",
-    "clean": "rimraf ./server/cgi & rimraf ./www/dist",
+    "clean": "rimraf ./server/cgi & rimraf ./www/dist && rimraf ./cgi",
     "dev": "node ./server/cgi/server/app.js dev",
     "start": "node ./server/cgi/app.js",
     "test": "jest"

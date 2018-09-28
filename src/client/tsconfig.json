@@ -2,7 +2,7 @@
 	"extends": "../../tsconfig.json",
 	"compilerOptions": {
 		"module": "es2015",
-		"outDir": "../../www/dist",
+		"outDir": "../../cgi",
 		"jsx": "react"
 	},
 	"include": [

@@ -12,7 +12,7 @@ const appBundle = {
 		pureExternalModules: true,
 		propertyReadSideEffects: false
 	},
-	input: "www/dist/app.js",
+	input: "cgi/app.js",
 	external: [
 		//"three"
 	],
@@ -40,7 +40,7 @@ const worldbuilder = {
 		pureExternalModules: true,
 		propertyReadSideEffects: false
 	},
-	input: "www/dist/worldbuilder/worldbuilder.js",
+	input: "cgi/worldbuilder/worldbuilder.js",
 	external: [
 		// "react",
 		// "react-dom"

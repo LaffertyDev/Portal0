@@ -12,9 +12,9 @@
     "**/.hg": true,
     "**/CVS": true,
     "**/.DS_Store": true,
-    "**/cgi": true,
-    "**/dist": true,
-    "node_modules/": true
+    //"**/cgi": true,
+    //"**/dist": true,
+    // "node_modules/": true
   },
   "editor.insertSpaces": false,
   "editor.codeActionsOnSave": {
