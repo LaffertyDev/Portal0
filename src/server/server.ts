@@ -40,16 +40,6 @@ export class HttpServer {
 
 		server.use(express.static(PUBLIC_DIRECTORY_FULL_PATH));
 
-		// server.use(sass_middleware({
-		// 	src: __dirname + '/sass',
-		// 	dest: __dirname + '/client/content/css',
-		// 	prefix: '/css',
-		// 	debug: true
-		// }));
-
-		// Handlebars.registerPartial("footer", fs.readFileSync(Path.join(__dirname, PUBLIC_DIRECTORY, "views/partials/footer.hbs"), "utf8"));
-		// Handlebars.registerPartial("header", fs.readFileSync(Path.join(__dirname, PUBLIC_DIRECTORY, "views/partials/footer.hbs"), "utf8"));
-
 		server.get("/", (req, res) => {
 			res.render("index");
 			console.log("Index Hit");
