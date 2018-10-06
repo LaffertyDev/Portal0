@@ -25,14 +25,14 @@ export class HttpServer {
 	private httpServer: http.Server;
 	private httpsServer: https.Server;
 
-	constructor(serveSource: boolean) {
+	constructor(serveSource: boolean, enableRedirects: boolean) {
 		const server = express();
 
 		server.use(express.static(PUBLIC_DIRECTORY_FULL_PATH));
 		server.set("views", VIEWS_DIRECTORY);
 		server.set("view options", { layout: false });
 
-		server.get("/", (req, res) => { 
+		server.get("/", (req, res) => {
 			res.sendFile(Path.join(VIEWS_DIRECTORY, "index.html"));
 			console.log("Index Hit");
 		});
@@ -83,11 +83,16 @@ export class HttpServer {
 			server.use("/src", express.static(srcPath));
 		}
 
-		this.httpServer = http.createServer((req, res) => {
-			const redirectUrl = `https://${SERVER_HOSTNAME}:${SERVER_SECURE_PORT}${req.url}`;
-			res.writeHead(301, { Location: redirectUrl });
-			res.end();
-		}).listen(SERVER_INSECURE_PORT);
+		// On production, we let nginx handle rewriting
+		if (enableRedirects) {
+			this.httpServer = http.createServer((req, res) => {
+				const redirectUrl = `https://${SERVER_HOSTNAME}:${SERVER_SECURE_PORT}${req.url}`;
+				res.writeHead(301, { Location: redirectUrl });
+				res.end();
+			}).listen(SERVER_INSECURE_PORT);
+		} else {
+			this.httpServer = http.createServer(server).listen(SERVER_INSECURE_PORT);
+		}
 
 		this.httpsServer = https.createServer(certificate, server);
 		this.httpsServer.listen(SERVER_SECURE_PORT);
