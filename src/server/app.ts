@@ -11,7 +11,7 @@ export class App {
 			console.log("Starting Server in Development Mode...");
 		}
 
-		this.server = new HttpServer(isDevelopment, !isDevelopment);
+		this.server = new HttpServer(isDevelopment, isDevelopment);
 	}
 
 	private IsDevelopment(processArgs: string[]): boolean {
