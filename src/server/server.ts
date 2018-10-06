@@ -85,7 +85,9 @@ export class HttpServer {
 
 		// On production, we let nginx handle rewriting
 		if (enableRedirects) {
+			console.log("Enabling Redircts to HTTPS");
 			this.httpServer = http.createServer((req, res) => {
+				console.log("redirected to https site");
 				const redirectUrl = `https://${SERVER_HOSTNAME}:${SERVER_SECURE_PORT}${req.url}`;
 				res.writeHead(301, { Location: redirectUrl });
 				res.end();
