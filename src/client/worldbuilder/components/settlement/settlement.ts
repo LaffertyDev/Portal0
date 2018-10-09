@@ -20,8 +20,13 @@ export default class Settlement {
 	constructor(cityPopulation: number, advancedSettings: RegionGenConfig) {
 		this.TotalPopulation = cityPopulation;
 
-		this.CountrysidePopulation = Math.floor(cityPopulation / advancedSettings.CityCountrysideRatio);
-		this.CountrysideAcres = Math.floor(this.CountrysidePopulation / advancedSettings.RegionPopulationDensity);
+		const supportingPopulationPerAcre = advancedSettings.PeoplePerAcreFarmland - advancedSettings.RegionPeoplePerAcre;
+		const acresOfFarmlandToSupportCity = cityPopulation / supportingPopulationPerAcre;
+		const peopleFarmingToSupportCity = acresOfFarmlandToSupportCity * advancedSettings.RegionPeoplePerAcre;
+		
+		this.CountrysidePopulation = Math.floor(peopleFarmingToSupportCity);
+		this.CountrysideAcres = Math.floor(acresOfFarmlandToSupportCity);
+
 		this.CityAcres = Math.floor(cityPopulation / advancedSettings.CityPeoplePerAcre);
 
 		// people stats

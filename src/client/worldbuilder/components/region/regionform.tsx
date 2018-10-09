@@ -1,6 +1,6 @@
 import * as React from "react";
 import { RegionModel } from "./region";
-import { IRegionGenConfig, RegionGenConfig } from "./regiongenconfig";
+import { RegionGenConfig } from "./regiongenconfig";
 import { RegionGenerator } from "./regiongenerator";
 
 interface IRegionFormProp {
@@ -10,7 +10,7 @@ interface IRegionFormProp {
 /**
  * Form with configuration to set up and build a region. Will call an external function when the form is submitted with the generated region
  */
-export default class RegionForm extends React.Component<IRegionFormProp, IRegionGenConfig> {
+export default class RegionForm extends React.Component<IRegionFormProp, RegionGenConfig> {
 	public regionGenerator: RegionGenerator;
 
 	constructor(props: IRegionFormProp) {
@@ -28,7 +28,6 @@ export default class RegionForm extends React.Component<IRegionFormProp, IRegion
 		this.handlePeoplePerRuinedCastle = this.handlePeoplePerRuinedCastle.bind(this);
 		this.handlePercentageOfLivestockIsFowl = this.handlePercentageOfLivestockIsFowl.bind(this);
 		this.handlePercentageOfCastlesInOutskirts = this.handlePercentageOfCastlesInOutskirts.bind(this);
-		this.handleRegionPopulationDensity = this.handleRegionPopulationDensity.bind(this);
 		this.handlePeoplePerAcreFarmland = this.handlePeoplePerAcreFarmland.bind(this);
 		this.handleRegionPeoplePerAcre = this.handleRegionPeoplePerAcre.bind(this);
 		this.handlePeoplePerNobleFamily = this.handlePeoplePerNobleFamily.bind(this);
@@ -38,12 +37,8 @@ export default class RegionForm extends React.Component<IRegionFormProp, IRegion
 		this.handleHouseholdSize = this.handleHouseholdSize.bind(this);
 		this.handleWarehousesPerBuildingMultiplier = this.handleWarehousesPerBuildingMultiplier.bind(this);
 		this.handleCityPeoplePerAcre = this.handleCityPeoplePerAcre.bind(this);
-		this.handleCityCountrysideRatio = this.handleCityCountrysideRatio.bind(this);
 
 		this.regionGenerator = new RegionGenerator();
-	}
-	public handleCityCountrysideRatio(event: React.ChangeEvent<HTMLInputElement>) {
-		this.setState({CityCountrysideRatio: Number.parseInt(event.target.value, 10)});
 	}
 	public handleCityPeoplePerAcre(event: React.ChangeEvent<HTMLInputElement>) {
 		this.setState({CityPeoplePerAcre: Number.parseInt(event.target.value, 10)});
@@ -93,9 +88,6 @@ export default class RegionForm extends React.Component<IRegionFormProp, IRegion
 	public handleRegionPopulation(event: React.ChangeEvent<HTMLInputElement>) {
 		this.setState({RegionPopulation: Number.parseInt(event.target.value, 10)});
 	}
-	public handleRegionPopulationDensity(event: React.ChangeEvent<HTMLInputElement>) {
-		this.setState({RegionPopulationDensity: Number.parseInt(event.target.value, 10)});
-	}
 
 	public handleRegionSizeAcres(event: React.ChangeEvent<HTMLInputElement>) {
 		this.setState({RegionSizeAcres: Number.parseInt(event.target.value, 10)});
@@ -106,6 +98,7 @@ export default class RegionForm extends React.Component<IRegionFormProp, IRegion
 		this.props.onFormSubmit(region);
 		event.preventDefault();
 	}
+
 	public handleWarehousesPerBuildingMultiplier(event: React.ChangeEvent<HTMLInputElement>) {
 		this.setState({WarehousesPerBuildingMultiplier: Number.parseInt(event.target.value, 10) });
 	}
@@ -124,7 +117,6 @@ export default class RegionForm extends React.Component<IRegionFormProp, IRegion
 		const peoplePerRuinedCastle = this.state.PeoplePerRuinedCastle;
 		const percentageOfLivestockIsFowl = this.state.PercentageOfLivestockIsFowl;
 		const percentageOfCastlesInOutskirts = this.state.PercentageOfCastlesInOutskirts;
-		const regionPopulationDensity = this.state.RegionPopulationDensity;
 		const peoplePerAcreFarmland = this.state.PeoplePerAcreFarmland;
 		const regionPeoplePerAcre = this.state.RegionPeoplePerAcre;
 		const peoplePerNobleFamily = this.state.PeoplePerNobleFamily;
@@ -134,7 +126,6 @@ export default class RegionForm extends React.Component<IRegionFormProp, IRegion
 		const householdSize = this.state.HouseholdSize;
 		const warehousesPerBuildingMultiplier = this.state.WarehousesPerBuildingMultiplier;
 		const cityPeoplePerAcre = this.state.CityPeoplePerAcre;
-		const cityCountrysideRatio = this.state.CityCountrysideRatio;
 
 		return (
 			<div>
@@ -152,9 +143,9 @@ export default class RegionForm extends React.Component<IRegionFormProp, IRegion
 							<p>Older regions have more castles</p>
 						</div>
 						<div>
-							<label htmlFor="regionAreaAcres">Region Avg Population Per Acre</label>
+							<label htmlFor="regionAreaAcres">Region Area Size Acres</label>
 							<input id="regionAreaAcres" type="number" value={regionAreaAcres} onChange={this.handleRegionSizeAcres} />
-							<p>Higher density implies more hospitable land, and vice-versa</p>
+							<p>Total size of the region, including inhospitable land</p>
 						</div>  
 					</fieldset>
 					<h3>City Settings</h3>
@@ -164,11 +155,6 @@ export default class RegionForm extends React.Component<IRegionFormProp, IRegion
 							<input type="number" id="warehousesPerBuildingMultiplier" 
 								value={warehousesPerBuildingMultiplier} onChange={this.handleWarehousesPerBuildingMultiplier} />
 							<p>Used in conjunction with people per household to determine storage requirements of the cities.</p>
-						</div>
-						<div>
-							<label htmlFor="cityCountrysideRatio">City Countryside Ratio</label>
-							<input type="number" id="cityCountrysideRatio" value={cityCountrysideRatio} onChange={this.handleCityCountrysideRatio} />
-							<p>People in city per people in countryside. Indicates city centralization</p>
 						</div>
 						<div>
 							<label htmlFor="cityPeoplePerAcre">City People per Acre</label>
@@ -201,11 +187,6 @@ export default class RegionForm extends React.Component<IRegionFormProp, IRegion
 					</fieldset>
 					<h3>Population Settings</h3>
 					<fieldset>
-						<div>
-							<label htmlFor="regionPopulationDensity">Countryside Population Density</label>
-							<input type="number" id="regionPopulationDensity" value={regionPopulationDensity} onChange={this.handleRegionPopulationDensity} />
-							<p>Greater densities make the countryside area smaller per city</p>
-						</div>
 						<div>
 							<label htmlFor="peoplePerAcreFarmland">People per Acre Farmland</label>
 							<input type="number" id="peoplePerAcreFarmland" value={peoplePerAcreFarmland} onChange={this.handlePeoplePerAcreFarmland} />

@@ -19,15 +19,15 @@ export default class SettlementRender extends React.Component<ISettlementRenderP
 				<thead>
 					<tr>
 						<td>Population</td>
+						<td>City Acres</td>
+						<td>Countryside Population</td>
+						<td>Countryside Acres</td>
 						<td>Services</td>
 						<td>Total Buildings</td>
-						<td>City Acres</td>
 						<td>Noble Families</td>
 						<td>Clergy</td>
 						<td>Priests</td>
 						<td>Law Officers</td>
-						<td>Countryside Acres</td>
-						<td>Countryside Population</td>
 					</tr>
 				</thead>
 				<tbody>
@@ -38,13 +38,19 @@ export default class SettlementRender extends React.Component<ISettlementRenderP
 									{ settlement.TotalPopulation }
 								</td>
 								<td>
+									{ settlement.CityAcres.toLocaleString() }
+								</td>
+								<td>
+									{ settlement.CountrysidePopulation.toLocaleString() }
+								</td>
+								<td>
+									{ settlement.CountrysideAcres.toLocaleString() }
+								</td>
+								<td>
 									{ settlement.Services.length.toLocaleString() }
 								</td>
 								<td>
 									{ settlement.TotalBuildings.toLocaleString() }
-								</td>
-								<td>
-									{ settlement.CityAcres.toLocaleString() }
 								</td>
 								<td>
 									{ settlement.NobleFamilies.toLocaleString() }
@@ -57,12 +63,6 @@ export default class SettlementRender extends React.Component<ISettlementRenderP
 								</td>
 								<td>
 									{ settlement.LawOfficers.toLocaleString() }
-								</td>
-								<td>
-									{ settlement.CountrysideAcres.toLocaleString() }
-								</td>
-								<td>
-									{ settlement.CountrysidePopulation.toLocaleString() }
 								</td>
 							</tr>
 						);
