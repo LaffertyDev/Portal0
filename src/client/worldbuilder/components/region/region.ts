@@ -10,9 +10,9 @@ export class RegionModel {
 	public Age!: number;
 
 	/**
-	 * The size of the region, in acres
+	 * The size of the region, in sq miles
 	 */
-	public AreaAcres!: number;
+	public AreaSqMiles!: number;
 
 	/**
 	 * The total number of cows/pigs/etc.. in the region

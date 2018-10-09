@@ -21,27 +21,27 @@ export default class RegionForm extends React.Component<IRegionFormProp, RegionG
 		// WRITING OUT THESE SUCKED AND THERE HAS TO BE A BETTER WAY
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleRegionPopulation = this.handleRegionPopulation.bind(this);
-		this.handleRegionSizeAcres = this.handleRegionSizeAcres.bind(this);
+		this.handleRegionSizeMilesSq = this.handleRegionSizeMilesSq.bind(this);
 		this.handleRegionAgeYears = this.handleRegionAgeYears.bind(this);
 		this.handleLivestockPerPerson = this.handleLivestockPerPerson.bind(this);
 		this.handlePeoplePerCastle = this.handlePeoplePerCastle.bind(this);
 		this.handlePeoplePerRuinedCastle = this.handlePeoplePerRuinedCastle.bind(this);
 		this.handlePercentageOfLivestockIsFowl = this.handlePercentageOfLivestockIsFowl.bind(this);
 		this.handlePercentageOfCastlesInOutskirts = this.handlePercentageOfCastlesInOutskirts.bind(this);
-		this.handlePeoplePerAcreFarmland = this.handlePeoplePerAcreFarmland.bind(this);
-		this.handleRegionPeoplePerAcre = this.handleRegionPeoplePerAcre.bind(this);
+		this.handlepeoplePerFarmlandSqMiles = this.handlepeoplePerFarmlandSqMiles.bind(this);
+		this.handleRegionPeoplePerSqMile = this.handleRegionPeoplePerSqMile.bind(this);
 		this.handlePeoplePerNobleFamily = this.handlePeoplePerNobleFamily.bind(this);
 		this.handlePeoplePerOfficer = this.handlePeoplePerOfficer.bind(this);
 		this.handlePeoplePerClergy = this.handlePeoplePerClergy.bind(this);
 		this.handleClergyPerPriest = this.handleClergyPerPriest.bind(this);
 		this.handleHouseholdSize = this.handleHouseholdSize.bind(this);
 		this.handleWarehousesPerBuildingMultiplier = this.handleWarehousesPerBuildingMultiplier.bind(this);
-		this.handleCityPeoplePerAcre = this.handleCityPeoplePerAcre.bind(this);
+		this.handlecityPeoplePerMileSq = this.handlecityPeoplePerMileSq.bind(this);
 
 		this.regionGenerator = new RegionGenerator();
 	}
-	public handleCityPeoplePerAcre(event: React.ChangeEvent<HTMLInputElement>) {
-		this.setState({CityPeoplePerAcre: Number.parseInt(event.target.value, 10)});
+	public handlecityPeoplePerMileSq(event: React.ChangeEvent<HTMLInputElement>) {
+		this.setState({CityPeoplePerSqMile: Number.parseInt(event.target.value, 10)});
 	}
 	public handleClergyPerPriest(event: React.ChangeEvent<HTMLInputElement>) {
 		this.setState({ClergyPerPriest: Number.parseInt(event.target.value, 10)});
@@ -53,14 +53,14 @@ export default class RegionForm extends React.Component<IRegionFormProp, RegionG
 	public handleLivestockPerPerson(event: React.ChangeEvent<HTMLInputElement>) {
 		this.setState({LivestockPerPerson: Number.parseInt(event.target.value, 10)});
 	}
-	public handlePeoplePerAcreFarmland(event: React.ChangeEvent<HTMLInputElement>) {
-		this.setState({PeoplePerAcreFarmland: Number.parseInt(event.target.value, 10)});
-	}
 	public handlePeoplePerCastle(event: React.ChangeEvent<HTMLInputElement>) {
 		this.setState({PeoplePerCastle: Number.parseInt(event.target.value, 10)});
 	}
 	public handlePeoplePerClergy(event: React.ChangeEvent<HTMLInputElement>) {
 		this.setState({PeoplePerClergy: Number.parseInt(event.target.value, 10)});
+	}
+	public handlepeoplePerFarmlandSqMiles(event: React.ChangeEvent<HTMLInputElement>) {
+		this.setState({PeoplePerSqMileFarmland: Number.parseInt(event.target.value, 10)});
 	}
 	public handlePeoplePerNobleFamily(event: React.ChangeEvent<HTMLInputElement>) {
 		this.setState({PeoplePerNobleFamily: Number.parseInt(event.target.value, 10)});
@@ -81,16 +81,16 @@ export default class RegionForm extends React.Component<IRegionFormProp, RegionG
 	public handleRegionAgeYears(event: React.ChangeEvent<HTMLInputElement>) {
 		this.setState({RegionAgeYears: Number.parseInt(event.target.value, 10)});
 	}
-	public handleRegionPeoplePerAcre(event: React.ChangeEvent<HTMLInputElement>) {
-		this.setState({RegionPeoplePerAcre: Number.parseInt(event.target.value, 10)});
+	public handleRegionPeoplePerSqMile(event: React.ChangeEvent<HTMLInputElement>) {
+		this.setState({RegionPeoplePerSqMile: Number.parseInt(event.target.value, 10)});
 	}
 
 	public handleRegionPopulation(event: React.ChangeEvent<HTMLInputElement>) {
 		this.setState({RegionPopulation: Number.parseInt(event.target.value, 10)});
 	}
 
-	public handleRegionSizeAcres(event: React.ChangeEvent<HTMLInputElement>) {
-		this.setState({RegionSizeAcres: Number.parseInt(event.target.value, 10)});
+	public handleRegionSizeMilesSq(event: React.ChangeEvent<HTMLInputElement>) {
+		this.setState({RegionSizeSqMiles: Number.parseInt(event.target.value, 10)});
 	}
 
 	public handleSubmit(event: React.FormEvent<HTMLElement>) {
@@ -108,7 +108,7 @@ export default class RegionForm extends React.Component<IRegionFormProp, RegionG
 
 	public render() {
 		const regionPop = this.state.RegionPopulation;
-		const regionAreaAcres = this.state.RegionSizeAcres;
+		const regionMilesSq = this.state.RegionSizeSqMiles;
 		const regionAgeYears = this.state.RegionAgeYears;
 
 		// adv settings
@@ -117,18 +117,50 @@ export default class RegionForm extends React.Component<IRegionFormProp, RegionG
 		const peoplePerRuinedCastle = this.state.PeoplePerRuinedCastle;
 		const percentageOfLivestockIsFowl = this.state.PercentageOfLivestockIsFowl;
 		const percentageOfCastlesInOutskirts = this.state.PercentageOfCastlesInOutskirts;
-		const peoplePerAcreFarmland = this.state.PeoplePerAcreFarmland;
-		const regionPeoplePerAcre = this.state.RegionPeoplePerAcre;
+		const peoplePerFarmlandSqMiles = this.state.PeoplePerSqMileFarmland;
+		const regionPeoplePerSqMile = this.state.RegionPeoplePerSqMile;
 		const peoplePerNobleFamily = this.state.PeoplePerNobleFamily;
 		const peoplePerOfficer = this.state.PeoplePerOfficer;
 		const peoplePerClergy = this.state.PeoplePerClergy;
 		const clergyPerPriest = this.state.ClergyPerPriest;
 		const householdSize = this.state.HouseholdSize;
 		const warehousesPerBuildingMultiplier = this.state.WarehousesPerBuildingMultiplier;
-		const cityPeoplePerAcre = this.state.CityPeoplePerAcre;
+		const cityPeoplePerMileSq = this.state.CityPeoplePerSqMile;
 
 		return (
 			<div>
+				<h2>About This</h2>
+				<div>
+					<p>
+						This app takes heavy inspiration from <a href="http://www222.pair.com/sjohn/blueroom/demog.htm">S. John Ross</a>.
+					</p>
+					<p>
+						Middle ages (Medieval times) were <a href="https://en.wikipedia.org/wiki/Middle_Ages">from 5th century until 15th century</a>.
+						For reference, here are some demographics that might provide context:
+					</p>
+					<ul>
+						<li>
+							France population in 1AD was 5.5 million. In 1226 it was 16 million (height of Medieval times) 
+							<a href="https://en.wikipedia.org/wiki/Demographics_of_France">source</a>
+						</li>
+						<li>
+							Paris population in 50AD was 80,000. In 1250 it was 160,000 
+							<a href="https://en.wikipedia.org/wiki/Demographics_of_Paris">source</a>
+						</li>
+						<li>
+							Byzantine Empire in 300AD was 17 million. In 1204 it was 9 million. 
+							<a href="https://en.wikipedia.org/wiki/Population_of_the_Byzantine_Empire">source</a>
+						</li>
+						<li>
+							The population of the biggest city in the world has fluctuated greatly through history.
+							<a href="https://en.wikipedia.org/wiki/List_of_largest_cities_throughout_history">source</a>
+						</li>
+						<li>
+							The area of countries is drastically different.
+							<a href="https://en.wikipedia.org/wiki/List_of_European_countries_by_area">source</a>
+						</li>
+					</ul>
+				</div>
 				<form action="javascript:void(0);" onSubmit={this.handleSubmit}>
 					<h3>Region Parameters</h3>
 					<fieldset>
@@ -140,11 +172,11 @@ export default class RegionForm extends React.Component<IRegionFormProp, RegionG
 						<div>
 							<label htmlFor="regionAgeYears">Region Age Years</label>
 							<input id="regionAgeYears" type="number" value={regionAgeYears} onChange={this.handleRegionAgeYears}/>
-							<p>Older regions have more castles</p>
+							<p>Older regions have more ruined / abandoned castles</p>
 						</div>
 						<div>
-							<label htmlFor="regionAreaAcres">Region Area Size Acres</label>
-							<input id="regionAreaAcres" type="number" value={regionAreaAcres} onChange={this.handleRegionSizeAcres} />
+							<label htmlFor="regionMilesSq">Region Area Size (Miles^2)</label>
+							<input id="regionMilesSq" type="number" value={regionMilesSq} onChange={this.handleRegionSizeMilesSq} />
 							<p>Total size of the region, including inhospitable land</p>
 						</div>  
 					</fieldset>
@@ -157,8 +189,8 @@ export default class RegionForm extends React.Component<IRegionFormProp, RegionG
 							<p>Used in conjunction with people per household to determine storage requirements of the cities.</p>
 						</div>
 						<div>
-							<label htmlFor="cityPeoplePerAcre">City People per Acre</label>
-							<input type="number" id="cityPeoplePerAcre" value={cityPeoplePerAcre} onChange={this.handleCityPeoplePerAcre} />
+							<label htmlFor="cityPeoplePerMileSq">City People per (Miles^2)</label>
+							<input type="number" id="cityPeoplePerMileSq" value={cityPeoplePerMileSq} onChange={this.handlecityPeoplePerMileSq} />
 							<p>Greater value implies denser cities</p>
 						</div>
 					</fieldset>
@@ -188,14 +220,12 @@ export default class RegionForm extends React.Component<IRegionFormProp, RegionG
 					<h3>Population Settings</h3>
 					<fieldset>
 						<div>
-							<label htmlFor="peoplePerAcreFarmland">People per Acre Farmland</label>
-							<input type="number" id="peoplePerAcreFarmland" value={peoplePerAcreFarmland} onChange={this.handlePeoplePerAcreFarmland} />
-							<p>Greater values imply much more fertile farmland, and vice-versa</p>
-						</div>
-						<div>
-							<label htmlFor="regionPeoplePerAcre">Region People per Acre</label>
-							<input type="number" id="regionPeoplePerAcre" value={regionPeoplePerAcre} onChange={this.handleRegionPeoplePerAcre} />
-							<p>The average population density for the region as a whole. Higher densities imply much more friendly environments</p>
+							<label htmlFor="regionPeoplePerSqMile">Region People per (Mile^2)</label>
+							<input type="number" id="regionPeoplePerSqMile" value={regionPeoplePerSqMile} onChange={this.handleRegionPeoplePerSqMile} />
+							<p>
+								The average population density for the region as a whole. Higher densities imply much more friendly environments.
+								Generally, 30 people per sq mile is on the low side, 120 is on the high side.
+							</p>
 						</div>
 						<div>
 							<label htmlFor="householdSize">Household Size</label>
@@ -229,6 +259,11 @@ export default class RegionForm extends React.Component<IRegionFormProp, RegionG
 							<label htmlFor="percentageOfLivestockIsFowl">Livestock Fowl Ratio</label>
 							<input type="number" id="percentageOfLivestockIsFowl" value={percentageOfLivestockIsFowl} onChange={this.handlePercentageOfLivestockIsFowl} />
 							<p>Medieval societies generally raised more fowl. Higher percentages imply more fowl. (Chickens, Turkeys, etc.)</p>
+						</div>
+						<div>
+							<label htmlFor="peoplePerFarmlandSqMiles">People Per Sq Mile Farmland</label>
+							<input type="number" id="peoplePerFarmlandSqMiles" value={peoplePerFarmlandSqMiles} onChange={this.handlepeoplePerFarmlandSqMiles} />
+							<p>Greater values imply much more fertile farmland, and vice-versa. This accounts for common ailments such as plagues, droughts, etc.</p>
 						</div>
 					</fieldset>
 					<button className="laff-btn laff-btn-primary" type="submit">Generate Region</button>

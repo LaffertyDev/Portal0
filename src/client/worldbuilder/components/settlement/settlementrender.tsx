@@ -19,9 +19,9 @@ export default class SettlementRender extends React.Component<ISettlementRenderP
 				<thead>
 					<tr>
 						<td>Population</td>
-						<td>City Acres</td>
+						<td>City Sq Miles</td>
 						<td>Countryside Population</td>
-						<td>Countryside Acres</td>
+						<td>Countryside Sq Miles</td>
 						<td>Services</td>
 						<td>Total Buildings</td>
 						<td>Noble Families</td>
@@ -31,20 +31,20 @@ export default class SettlementRender extends React.Component<ISettlementRenderP
 					</tr>
 				</thead>
 				<tbody>
-					{ this.props.Settlements.sort((a, b) => b.TotalPopulation - a.TotalPopulation).map((settlement) => {
+					{ this.props.Settlements.sort((a, b) => b.CityPopulation - a.CityPopulation).map((settlement) => {
 						return (
 							<tr>
 								<td>
-									{ settlement.TotalPopulation }
+									{ settlement.CityPopulation }
 								</td>
 								<td>
-									{ settlement.CityAcres.toLocaleString() }
+									{ settlement.CityMilesSq.toPrecision(3).toLocaleString() }
 								</td>
 								<td>
 									{ settlement.CountrysidePopulation.toLocaleString() }
 								</td>
 								<td>
-									{ settlement.CountrysideAcres.toLocaleString() }
+									{ settlement.CountrysideMilesSq.toPrecision(3).toLocaleString() }
 								</td>
 								<td>
 									{ settlement.Services.length.toLocaleString() }

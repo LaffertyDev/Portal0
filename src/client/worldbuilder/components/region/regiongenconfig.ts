@@ -4,28 +4,25 @@
  */
 export class RegionGenConfig {
 	
-	public CityPeoplePerAcre: number;
+	public CityPeoplePerSqMile: number;
 	public ClergyPerPriest: number;
 
 	public HouseholdSize: number;
-	// region advanced settings
 	public LivestockPerPerson: number;
 
-	public PeoplePerAcreFarmland: number;
 	public PeoplePerCastle: number;
 	public PeoplePerClergy: number;
-
-	// city advanced settings
 	public PeoplePerNobleFamily: number;
 	public PeoplePerOfficer: number;
 	public PeoplePerRuinedCastle: number;
+	public PeoplePerSqMileFarmland: number;
 	public PercentageOfCastlesInOutskirts: number;
 	public PercentageOfLivestockIsFowl: number;
 	public RegionAgeYears: number;
-	public RegionPeoplePerAcre: number; // 30-120
+	public RegionPeoplePerSqMile: number; // 30-120
 
 	public RegionPopulation: number;
-	public RegionSizeAcres: number;
+	public RegionSizeSqMiles: number;
 	public WarehousesPerBuildingMultiplier: number;
 
 	constructor() {
@@ -35,8 +32,8 @@ export class RegionGenConfig {
 		this.PercentageOfLivestockIsFowl = 0.68;
 		this.PercentageOfCastlesInOutskirts = 0.25;
 
-		this.PeoplePerAcreFarmland = 180;
-		this.RegionPeoplePerAcre = 30; // 30 - 120
+		this.PeoplePerSqMileFarmland = 180;
+		this.RegionPeoplePerSqMile = 30; // 30 - 120
 
 		this.PeoplePerNobleFamily = 200;
 		this.PeoplePerOfficer = 150;
@@ -45,9 +42,9 @@ export class RegionGenConfig {
 
 		this.HouseholdSize = 5;
 		this.WarehousesPerBuildingMultiplier = 1.4; // 1.0 - 1.4
-		this.CityPeoplePerAcre = 61;
+		this.CityPeoplePerSqMile = 39040; // 61 per acre, 640 acres in a sq mile
 		this.RegionPopulation = 1000000;
 		this.RegionAgeYears = 1000000;
-		this.RegionSizeAcres = 1000;
+		this.RegionSizeSqMiles = 1000;
 	}
 }

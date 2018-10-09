@@ -14,7 +14,7 @@ export class RegionGenerator {
 	public generate(regionGenConfiguration: RegionGenConfig): RegionModel {
 		const region = new RegionModel();
 		region.Population = regionGenConfiguration.RegionPopulation;
-		region.AreaAcres = regionGenConfiguration.RegionSizeAcres;
+		region.AreaSqMiles = regionGenConfiguration.RegionSizeSqMiles;
 		region.Age = regionGenConfiguration.RegionAgeYears;
 
 		// Generate Farming Details
@@ -40,14 +40,16 @@ export class RegionGenerator {
 
 		let totalCityPopulation = 0;
 		let lastCityPopulation = Math.sqrt(regionGenConfiguration.RegionPopulation) * (this.getRandomArbitraryInteger(2, 8) + 10);
-		totalCityPopulation += lastCityPopulation;
-		region.Cities.push(new Settlement(lastCityPopulation, regionGenConfiguration));
+		const capitol = new Settlement(lastCityPopulation, regionGenConfiguration);
+		totalCityPopulation += capitol.GetTotalPopulation();
+		region.Cities.push(capitol);
 		lastCityPopulation = this.getRandomArbitraryInteger(0.2, 0.8) * lastCityPopulation;
 		while (lastCityPopulation > 8000) {
-			totalCityPopulation += lastCityPopulation;
-			region.Cities.push(new Settlement(lastCityPopulation, regionGenConfiguration));
+			const city = new Settlement(lastCityPopulation, regionGenConfiguration);
+			region.Cities.push(city);
 			const populationReduction = this.getRandomArbitraryInteger(0.1, 0.4);
 			lastCityPopulation = lastCityPopulation * populationReduction;
+			totalCityPopulation += city.GetTotalPopulation();
 		}
 
 		let totalTownPopulation = 0;
@@ -60,8 +62,9 @@ export class RegionGenerator {
 				townPopulation = regionGenConfiguration.RegionPopulation - totalTownPopulation - totalCityPopulation;
 			}
 
-			region.Towns.push(new Settlement(townPopulation, regionGenConfiguration));
-			totalTownPopulation += townPopulation;
+			const settlement = new Settlement(townPopulation, regionGenConfiguration);
+			region.Towns.push(settlement);
+			totalTownPopulation += settlement.GetTotalPopulation();
 		}
 
 		const totalVillagePopulation = regionGenConfiguration.RegionPopulation - (totalCityPopulation + totalTownPopulation);

@@ -27,7 +27,7 @@ export default class RegionRender extends React.Component<IRegionRenderProps, {}
 							Age (Years): {this.props.region.Age.toLocaleString()}
 						</span>
 						<span>
-							Area (Acres): {this.props.region.AreaAcres.toLocaleString()}
+							Area (Sq Miles): {this.props.region.AreaSqMiles.toLocaleString()}
 						</span>
 						<span>
 							Population: {this.props.region.Population.toLocaleString()}

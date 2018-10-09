@@ -6,28 +6,28 @@ import Service from "../services/service";
  */
 export default class Settlement {
 
-	public CityAcres: number;
+	public CityMilesSq: number;
+	public CityPopulation: number;
 	public Clergy: number;
-	public CountrysideAcres: number;
+	public CountrysideMilesSq: number;
 	public CountrysidePopulation: number;
 	public LawOfficers: number;
 	public NobleFamilies: number;
 	public Priests: number;
 	public Services: Service[];
 	public TotalBuildings: number;
-	public TotalPopulation: number;
 
 	constructor(cityPopulation: number, advancedSettings: RegionGenConfig) {
-		this.TotalPopulation = cityPopulation;
+		this.CityPopulation = cityPopulation;
 
-		const supportingPopulationPerAcre = advancedSettings.PeoplePerAcreFarmland - advancedSettings.RegionPeoplePerAcre;
-		const acresOfFarmlandToSupportCity = cityPopulation / supportingPopulationPerAcre;
-		const peopleFarmingToSupportCity = acresOfFarmlandToSupportCity * advancedSettings.RegionPeoplePerAcre;
+		const supportingPopulationPerSqMile = advancedSettings.PeoplePerSqMileFarmland - advancedSettings.RegionPeoplePerSqMile;
+		const milesSqOfFarmlandToSupportCity = cityPopulation / supportingPopulationPerSqMile;
+		const peopleFarmingToSupportCity = milesSqOfFarmlandToSupportCity * advancedSettings.RegionPeoplePerSqMile;
 		
 		this.CountrysidePopulation = Math.floor(peopleFarmingToSupportCity);
-		this.CountrysideAcres = Math.floor(acresOfFarmlandToSupportCity);
+		this.CountrysideMilesSq = milesSqOfFarmlandToSupportCity;
 
-		this.CityAcres = Math.floor(cityPopulation / advancedSettings.CityPeoplePerAcre);
+		this.CityMilesSq = cityPopulation / advancedSettings.CityPeoplePerSqMile;
 
 		// people stats
 		this.NobleFamilies = Math.floor(cityPopulation / advancedSettings.PeoplePerNobleFamily);
@@ -41,10 +41,18 @@ export default class Settlement {
 
 		const potentialServices = Service.GetServices();
 		for (const service of potentialServices) {
-			const numServices = Math.floor(this.TotalPopulation / service.SupportValue);
+			const numServices = Math.floor(this.CityPopulation / service.SupportValue);
 			for (let y = 0; y < numServices; y++) {
 				this.Services.push(new Service(service.Name, service.SupportValue));
 			}
 		}
+	}
+
+	public GetTotalPopulation(): number {
+		return this.CityPopulation + this.CountrysidePopulation;
+	}
+
+	public GetTotalSizeAcres(): number {
+		return this.CityMilesSq + this.CountrysideMilesSq;
 	}
 }
