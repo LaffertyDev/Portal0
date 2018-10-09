@@ -138,12 +138,91 @@ export default class RegionForm extends React.Component<IRegionFormProp, IRegion
 		return (
 			<div>
 				<form action="javascript:void(0);" onSubmit={this.handleSubmit}>
-					<h3>Advanced Region Settings</h3>
+					<h3>Region Parameters</h3>
 					<fieldset>
 						<div>
-							<label htmlFor="livestockPerPerson">Livestock per Person</label>
-							<input type="number" id="livestockPerPerson" value={livestockPerPerson} onChange={this.handleLivestockPerPerson} />
+							<label htmlFor="regionPop">Region Population</label>
+							<input id="regionPop" type="number" value={regionPop} onChange={this.handleRegionPopulation}/>
+							<p>Population affects the number of castles, villages, towns, and cities</p>
 						</div>
+						<div>
+							<label htmlFor="regionAgeYears">Region Age Years</label>
+							<input id="regionAgeYears" type="number" value={regionAgeYears} onChange={this.handleRegionAgeYears}/>
+							<p>Older regions have more castles</p>
+						</div>
+						<div>
+							<label htmlFor="regionAreaAcres">Region Avg Population Per Acre</label>
+							<input id="regionAreaAcres" type="number" value={regionAreaAcres} onChange={this.handleRegionPeoplePerAcre} />
+							<p>Higher density implies more hospitable land, and vice-versa</p>
+						</div>  
+					</fieldset>
+					<h3>City Settings</h3>
+					<fieldset>
+						<div>
+							<label htmlFor="warehousesPerBuildingMultiplier">Warehouses per Building Multiplier</label>
+							<input type="number" id="warehousesPerBuildingMultiplier" 
+								value={warehousesPerBuildingMultiplier} onChange={this.handleWarehousesPerBuildingMultiplier} />
+							<p>Used in conjunction with people per household to determine storage requirements of the cities.</p>
+						</div>
+						<div>
+							<label htmlFor="cityCountrysideRatio">City Countryside Ratio</label>
+							<input type="number" id="cityCountrysideRatio" value={cityCountrysideRatio} onChange={this.handleCityCountrysideRatio} />
+							<p>People in city per people in countryside. Indicates city centralization</p>
+						</div>
+						<div>
+							<label htmlFor="cityPeoplePerAcre">City People per Acre</label>
+							<input type="number" id="cityPeoplePerAcre" value={cityPeoplePerAcre} onChange={this.handleCityPeoplePerAcre} />
+							<p>Greater value implies denser cities</p>
+						</div>
+					</fieldset>
+					<h3>Profession Ratios</h3>
+					<fieldset>
+						<div>
+							<label htmlFor="peoplePerNobleFamily">People per Noble Family</label>
+							<input type="number" id="peoplePerNobleFamily" value={peoplePerNobleFamily} onChange={this.handlePeoplePerNobleFamily} />
+							<p>Higher amounts imply fewer nobility, and vice-versa</p>
+						</div>
+						<div>
+							<label htmlFor="peoplePerOfficer">People per Officer</label>
+							<input type="number" id="peoplePerOfficer" value={peoplePerOfficer} onChange={this.handlePeoplePerOfficer} />
+							<p>Higher amounts imply fewer officers, and vice-versa</p>
+						</div>
+						<div>
+							<label htmlFor="peoplePerClergy">People per Clergy</label>
+							<input type="number" id="peoplePerClergy" value={peoplePerClergy} onChange={this.handlePeoplePerClergy} />
+							<p>Higher amounts imply fewer clergy, and vice-versa</p>
+						</div>
+						<div>
+							<label htmlFor="clergyPerPriest">Clergy per Priest</label>
+							<input type="number" id="clergyPerPriest" value={clergyPerPriest} onChange={this.handleClergyPerPriest} />
+							<p>Higher amounts imply fewer priests, and vice-versa</p>
+						</div>
+					</fieldset>
+					<h3>Population Settings</h3>
+					<fieldset>
+						<div>
+							<label htmlFor="regionPopulationDensity">Countryside Population Density</label>
+							<input type="number" id="regionPopulationDensity" value={regionPopulationDensity} onChange={this.handleRegionPopulationDensity} />
+							<p>Greater densities make the countryside area smaller per city</p>
+						</div>
+						<div>
+							<label htmlFor="peoplePerAcreFarmland">People per Acre Farmland</label>
+							<input type="number" id="peoplePerAcreFarmland" value={peoplePerAcreFarmland} onChange={this.handlePeoplePerAcreFarmland} />
+							<p>Greater values imply much more fertile farmland, and vice-versa</p>
+						</div>
+						<div>
+							<label htmlFor="regionPeoplePerAcre">Region People per Acre</label>
+							<input type="number" id="regionPeoplePerAcre" value={regionPeoplePerAcre} onChange={this.handleRegionPeoplePerAcre} />
+							<p>The average population density for the region as a whole. Higher densities imply much more friendly environments</p>
+						</div>
+						<div>
+							<label htmlFor="householdSize">Household Size</label>
+							<input type="number" id="householdSize" value={householdSize} onChange={this.handleHouseholdSize} />
+							<p>Average people per household. Used in determining building counts for cities.</p>
+						</div>
+					</fieldset>
+					<h3>Castle Settings</h3>
+					<fieldset>
 						<div>
 							<label htmlFor="peoplePerCastle">People per Castle</label>
 							<input type="number" id="peoplePerCastle" value={peoplePerCastle} onChange={this.handlePeoplePerCastle} />
@@ -153,75 +232,24 @@ export default class RegionForm extends React.Component<IRegionFormProp, IRegion
 							<input type="number" id="peoplePerRuinedCastle" value={peoplePerRuinedCastle} onChange={this.handlePeoplePerRuinedCastle} />
 						</div>
 						<div>
-							<label htmlFor="percentageOfLivestockIsFowl">Livestock Fowl %</label>
-							<input type="number" id="percentageOfLivestockIsFowl" value={percentageOfLivestockIsFowl} onChange={this.handlePercentageOfLivestockIsFowl} />
-						</div>
-						<div>
 							<label htmlFor="percentageOfCastlesInOutskirts">Castle % in outskirts</label>
 							<input type="number" id="percentageOfCastlesInOutskirts" value={percentageOfCastlesInOutskirts} onChange={this.handlePercentageOfCastlesInOutskirts} />
 						</div>
-						<div>
-							<label htmlFor="regionPopulationDensity">Region Population Density</label>
-							<input type="number" id="regionPopulationDensity" value={regionPopulationDensity} onChange={this.handleRegionPopulationDensity} />
-						</div>
-						<div>
-							<label htmlFor="peoplePerAcreFarmland">People per Acre Farmland</label>
-							<input type="number" id="peoplePerAcreFarmland" value={peoplePerAcreFarmland} onChange={this.handlePeoplePerAcreFarmland} />
-						</div>
-						<div>
-							<label htmlFor="regionPeoplePerAcre">Region People per Acre</label>
-							<input type="number" id="regionPeoplePerAcre" value={regionPeoplePerAcre} onChange={this.handleRegionPeoplePerAcre} />
-						</div>
-						<div>
-							<label htmlFor="peoplePerNobleFamily">People per Noble Family</label>
-							<input type="number" id="peoplePerNobleFamily" value={peoplePerNobleFamily} onChange={this.handlePeoplePerNobleFamily} />
-						</div>
-						<div>
-							<label htmlFor="peoplePerOfficer">People per Officer</label>
-							<input type="number" id="peoplePerOfficer" value={peoplePerOfficer} onChange={this.handlePeoplePerOfficer} />
-						</div>
-						<div>
-							<label htmlFor="peoplePerClergy">People per Clergy</label>
-							<input type="number" id="peoplePerClergy" value={peoplePerClergy} onChange={this.handlePeoplePerClergy} />
-						</div>
-						<div>
-							<label htmlFor="clergyPerPriest">Clergy per Priest</label>
-							<input type="number" id="clergyPerPriest" value={clergyPerPriest} onChange={this.handleClergyPerPriest} />
-						</div>
-						<div>
-							<label htmlFor="householdSize">Household Size</label>
-							<input type="number" id="householdSize" value={householdSize} onChange={this.handleHouseholdSize} />
-						</div>
-						<div>
-							<label htmlFor="warehousesPerBuildingMultiplier">Warehouses per Building Multiplier</label>
-							<input type="number" id="warehousesPerBuildingMultiplier" 
-								value={warehousesPerBuildingMultiplier} onChange={this.handleWarehousesPerBuildingMultiplier} />
-						</div>
-						<div>
-							<label htmlFor="cityPeoplePerAcre">City People per Acre</label>
-							<input type="number" id="cityPeoplePerAcre" value={cityPeoplePerAcre} onChange={this.handleCityPeoplePerAcre} />
-						</div>
-						<div>
-							<label htmlFor="cityCountrysideRatio">City Countryside Ratio</label>
-							<input type="number" id="cityCountrysideRatio" value={cityCountrysideRatio} onChange={this.handleCityCountrysideRatio} />
-						</div>
 					</fieldset>
-					<h3>Define Region Parameters:</h3>
+					<h3>Farming Settings</h3>
 					<fieldset>
 						<div>
-							<label htmlFor="regionPop">Region Pop Population</label>
-							<input id="regionPop" type="number" value={regionPop} onChange={this.handleRegionPopulation}/>
+							<label htmlFor="livestockPerPerson">Livestock per Person</label>
+							<input type="number" id="livestockPerPerson" value={livestockPerPerson} onChange={this.handleLivestockPerPerson} />
+							<p>Medieval societies had a lot of animals, for work and food resources. This includes Cows, Sheeps, Pigs, Chickens, etc.</p>
 						</div>
 						<div>
-							<label htmlFor="regionAgeYears">Region Age Years (older -> more castles)</label>
-							<input id="regionAgeYears" type="number" value={regionAgeYears} onChange={this.handleRegionAgeYears}/>
-						</div>  
-						<div>
-							<label htmlFor="regionAreaAcres">Region Area Acres</label>
-							<input id="regionAreaAcres" type="number" value={regionAreaAcres} onChange={this.handleRegionPeoplePerAcre} />
-						</div>  
+							<label htmlFor="percentageOfLivestockIsFowl">Livestock Fowl Ratio</label>
+							<input type="number" id="percentageOfLivestockIsFowl" value={percentageOfLivestockIsFowl} onChange={this.handlePercentageOfLivestockIsFowl} />
+							<p>Medieval societies generally raised more fowl. Higher percentages imply more fowl. (Chickens, Turkeys, etc.)</p>
+						</div>
 					</fieldset>
-					<button className="laff-btn laff-btn-primary" type="submit">Submit</button>
+					<button className="laff-btn laff-btn-primary" type="submit">Generate Region</button>
 				</form>
 			</div>
 		);
