@@ -50,13 +50,13 @@ export default class RegionRender extends React.Component<IRegionRenderProps, {}
 					<h3>Castle Info</h3>
 					<p>
 						<span>
-							Total Castles: {this.props.region.TotalCastles.toLocaleString()}
+							Total Castles: {this.props.region.CastlesTotal.toLocaleString()}
 						</span>
 						<span>
-							Active Castles: {this.props.region.ActiveCastles.toLocaleString()}
+							Active Castles: {this.props.region.CastlesActive.toLocaleString()}
 						</span>
 						<span>
-							Ruined Castles: {this.props.region.RuinedCastles.toLocaleString()}
+							Ruined Castles: {this.props.region.CastlesRuined.toLocaleString()}
 						</span>
 					</p>
 				</div>

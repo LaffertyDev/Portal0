@@ -13,31 +13,31 @@ export default class Settlement {
 	public LawOfficers: number;
 	public NobleFamilies: number;
 	public Priests: number;
-	public Services: any[];
+	public Services: Service[];
 	public TotalBuildings: number;
 	public TotalPopulation: number;
 
 	constructor(cityPopulation: number, advancedSettings: RegionGenConfig) {
 		this.TotalPopulation = cityPopulation;
 
-		this.CountrysidePopulation = cityPopulation / advancedSettings.CityCountrysideRatio;
-		this.CountrysideAcres = this.CountrysidePopulation / advancedSettings.RegionPopulationDensity;
-		this.CityAcres = cityPopulation / advancedSettings.CityPeoplePerAcre;
+		this.CountrysidePopulation = Math.floor(cityPopulation / advancedSettings.CityCountrysideRatio);
+		this.CountrysideAcres = Math.floor(this.CountrysidePopulation / advancedSettings.RegionPopulationDensity);
+		this.CityAcres = Math.floor(cityPopulation / advancedSettings.CityPeoplePerAcre);
 
 		// people stats
-		this.NobleFamilies = cityPopulation / advancedSettings.PeoplePerNobleFamily;
-		this.LawOfficers = cityPopulation / advancedSettings.PeoplePerOfficer;
-		this.Clergy = cityPopulation / advancedSettings.PeoplePerClergy;
-		this.Priests = this.Clergy / advancedSettings.ClergyPerPriest;
+		this.NobleFamilies = Math.floor(cityPopulation / advancedSettings.PeoplePerNobleFamily);
+		this.LawOfficers = Math.floor(cityPopulation / advancedSettings.PeoplePerOfficer);
+		this.Clergy = Math.floor(cityPopulation / advancedSettings.PeoplePerClergy);
+		this.Priests = Math.floor(this.Clergy / advancedSettings.ClergyPerPriest);
 		
 		// building stats
-		this.TotalBuildings = cityPopulation / advancedSettings.HouseholdSize * advancedSettings.WarehousesPerBuildingMultiplier;
+		this.TotalBuildings = Math.floor(cityPopulation / advancedSettings.HouseholdSize * advancedSettings.WarehousesPerBuildingMultiplier);
 		this.Services = [];
 
 		const potentialServices = Service.GetServices();
 		for (const service of potentialServices) {
-			const numServices = this.TotalPopulation / service.SupportValue;
-			for (let y = 1; y < numServices; y++) {
+			const numServices = Math.floor(this.TotalPopulation / service.SupportValue);
+			for (let y = 0; y < numServices; y++) {
 				this.Services.push(new Service(service.Name, service.SupportValue));
 			}
 		}

@@ -23,10 +23,18 @@ export interface IRegionGenConfig {
 	PercentageOfCastlesInOutskirts: number;
 	PercentageOfLivestockIsFowl: number;
 	RegionAgeYears: number;
+
+	/**
+	 * 
+	 */
 	RegionPeoplePerAcre: number; // 30-120
 
 	RegionPopulation: number;
 	RegionPopulationDensity: number;
+
+	/**
+	 * This is the total size of the region, in acres
+	 */
 	RegionSizeAcres: number;
 	WarehousesPerBuildingMultiplier: number;
 }

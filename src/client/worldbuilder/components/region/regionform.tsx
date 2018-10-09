@@ -1,6 +1,7 @@
 import * as React from "react";
-import { RegionGenerator, RegionModel } from "./region";
+import { RegionModel } from "./region";
 import { IRegionGenConfig, RegionGenConfig } from "./regiongenconfig";
+import { RegionGenerator } from "./regiongenerator";
 
 interface IRegionFormProp {
 	onFormSubmit: (region: RegionModel) => any;
@@ -141,7 +142,7 @@ export default class RegionForm extends React.Component<IRegionFormProp, IRegion
 					<h3>Region Parameters</h3>
 					<fieldset>
 						<div>
-							<label htmlFor="regionPop">Region Population</label>
+							<label htmlFor="regionPop">Region Total Population</label>
 							<input id="regionPop" type="number" value={regionPop} onChange={this.handleRegionPopulation}/>
 							<p>Population affects the number of castles, villages, towns, and cities</p>
 						</div>
@@ -152,7 +153,7 @@ export default class RegionForm extends React.Component<IRegionFormProp, IRegion
 						</div>
 						<div>
 							<label htmlFor="regionAreaAcres">Region Avg Population Per Acre</label>
-							<input id="regionAreaAcres" type="number" value={regionAreaAcres} onChange={this.handleRegionPeoplePerAcre} />
+							<input id="regionAreaAcres" type="number" value={regionAreaAcres} onChange={this.handleRegionSizeAcres} />
 							<p>Higher density implies more hospitable land, and vice-versa</p>
 						</div>  
 					</fieldset>
