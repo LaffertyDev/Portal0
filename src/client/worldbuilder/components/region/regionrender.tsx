@@ -17,62 +17,73 @@ export default class RegionRender extends React.Component<IRegionRenderProps, {}
 
 	public render() {
 		const settlements: Settlement[] = this.props.region.Cities.concat(this.props.region.Towns);
+		const farmland = settlements.map((x) => x.CountrysideMilesSq).reduce((a, b) => a + b, 0);
+		const urbanArea = settlements.map((x) => x.CityMilesSq).reduce((a, b) => a + b, 0);
 
 		return (
 			<div className="laff-wb-region">
 				<div>
 					<h3>Region Info</h3>
-					<p>
-						<span>
+					<ul>
+						<li>
 							Age (Years): {this.props.region.Age.toLocaleString()}
-						</span>
-						<span>
-							Area (Sq Miles): {this.props.region.AreaSqMiles.toLocaleString()}
-						</span>
-						<span>
+						</li>
+						<li>
+							Area: {this.props.region.AreaSqMiles.toLocaleString()} Miles^2
+						</li>
+						<li>
+							Urban Area: { urbanArea.toPrecision(3) } Miles^2
+						</li>
+						<li>
+							Farmland: { farmland.toPrecision(3) } Miles^2
+						</li>
+						<li>
+							Untamed Wilderness: {(this.props.region.AreaSqMiles - (farmland + urbanArea)).toPrecision(3)} Miles^2
+						</li>
+						<li>
 							Population: {this.props.region.Population.toLocaleString()}
-						</span>
-					</p>
+						</li>
+					</ul>
 					<h3>Livestock</h3>
-					<p>
-						<span>
+					<ul>
+						<li>
 							Total: {this.props.region.TotalLivestock.toLocaleString()}
-						</span>
-						<span>
+						</li>
+						<li>
 							Fowl: {this.props.region.Fowl.toLocaleString()}
-						</span>
-						<span>
+						</li>
+						<li>
 							Cows, Sheep, &amp; Pigs: {this.props.region.BurdenBeasts.toLocaleString()}
-						</span>
-					</p>
+						</li>
+					</ul>
 				</div>
 				<div>
 					<h3>Castle Info</h3>
-					<p>
-						<span>
+					<ul>
+						<li>
 							Total Castles: {this.props.region.CastlesTotal.toLocaleString()}
-						</span>
-						<span>
+						</li>
+						<li>
 							Active Castles: {this.props.region.CastlesActive.toLocaleString()}
-						</span>
-						<span>
+						</li>
+						<li>
 							Ruined Castles: {this.props.region.CastlesRuined.toLocaleString()}
-						</span>
-					</p>
+						</li>
+					</ul>
 				</div>
 				<div>
 					<h3>Settlement Info</h3>
-					<p>
-						<span>
+					<ul>
+						<li>
 							#Cities: {this.props.region.Cities.length.toLocaleString()}
-						</span>
-						<span>
+						</li>
+						<li>
 							#Towns: {this.props.region.Towns.length.toLocaleString()}
-						</span>
-						<span>
+						</li>
+						<li>
 							#Villages: {this.props.region.Villages.length.toLocaleString()}
-						</span>
-					</p>
+						</li>
+					</ul>
 					<SettlementRender Settlements={settlements}></SettlementRender>
 				</div>
 			</div>
