@@ -6,16 +6,16 @@ import Service from "../services/service";
  */
 export default class Settlement {
 
+	public CityAcres: number;
+	public Clergy: number;
+	public CountrysideAcres: number;
+	public CountrysidePopulation: number;
+	public LawOfficers: number;
+	public NobleFamilies: number;
+	public Priests: number;
 	public Services: any[];
-	private CityAcres: number;
-	private Clergy: number;
-	private CountrysideAcres: number;
-	private CountrysidePopulation: number;
-	private LawOfficers: number;
-	private NobleFamilies: number;
-	private Priests: number;
-	private TotalBuildings: number;
-	private TotalPopulation: number;
+	public TotalBuildings: number;
+	public TotalPopulation: number;
 
 	constructor(cityPopulation: number, advancedSettings: RegionGenConfig) {
 		this.TotalPopulation = cityPopulation;

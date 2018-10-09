@@ -1,4 +1,6 @@
 import * as React from "react";
+import Settlement from "../settlement/settlement";
+import SettlementRender from "../settlement/settlementrender";
 import { RegionModel } from "./region";
 
 interface IRegionRenderProps extends React.Props<RegionRender> {
@@ -14,6 +16,8 @@ export default class RegionRender extends React.Component<IRegionRenderProps, {}
 	}
 
 	public render() {
+		const settlements: Settlement[] = this.props.region.Cities.concat(this.props.region.Towns);
+
 		return (
 			<div className="laff-wb-region">
 				<div>
@@ -69,6 +73,7 @@ export default class RegionRender extends React.Component<IRegionRenderProps, {}
 							#Villages: {this.props.region.Villages.length.toLocaleString()}
 						</span>
 					</p>
+					<SettlementRender Settlements={settlements}></SettlementRender>
 				</div>
 			</div>
 		);
