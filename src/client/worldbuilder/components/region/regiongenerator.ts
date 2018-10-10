@@ -38,10 +38,10 @@ export class RegionGenerator {
 		// step 1, determine actual settlement population
 		// step 2, determine outskirts settlement population
 
-		let totalCityPopulation = 0;
-		let lastCityPopulation = Math.sqrt(regionGenConfiguration.RegionPopulation) * (this.getRandomArbitraryInteger(2, 8) + 10);
+		let totalGeneratedPopulation = 0;
+		let lastCityPopulation = Math.floor(Math.sqrt(regionGenConfiguration.RegionPopulation)) * (this.getRandomArbitraryInteger(2, 8) + 10);
 		const capitol = new Settlement(lastCityPopulation, regionGenConfiguration);
-		totalCityPopulation += capitol.GetTotalPopulation();
+		totalGeneratedPopulation += capitol.GetTotalPopulation();
 		region.Cities.push(capitol);
 		lastCityPopulation = this.getRandomArbitraryInteger(0.2, 0.8) * lastCityPopulation;
 		while (lastCityPopulation > 8000) {
@@ -49,25 +49,24 @@ export class RegionGenerator {
 			region.Cities.push(city);
 			const populationReduction = this.getRandomArbitraryInteger(0.1, 0.4);
 			lastCityPopulation = lastCityPopulation * populationReduction;
-			totalCityPopulation += city.GetTotalPopulation();
+			totalGeneratedPopulation += city.GetTotalPopulation();
 		}
 
-		let totalTownPopulation = 0;
 		const numTowns = region.Cities.length * this.getRandomArbitraryInteger(2, 16);
 		region.Towns = [];
 		
-		while (region.Towns.length < numTowns && (totalTownPopulation + totalCityPopulation) < regionGenConfiguration.RegionPopulation) {
+		while (region.Towns.length < numTowns && totalGeneratedPopulation < regionGenConfiguration.RegionPopulation) {
 			let townPopulation = this.getRandomArbitraryInteger(1000, 8000); // town minimum, town maximum
-			if (townPopulation + totalCityPopulation + totalTownPopulation > regionGenConfiguration.RegionPopulation) {
-				townPopulation = regionGenConfiguration.RegionPopulation - totalTownPopulation - totalCityPopulation;
+			if (townPopulation + totalGeneratedPopulation > regionGenConfiguration.RegionPopulation) {
+				townPopulation = regionGenConfiguration.RegionPopulation - totalGeneratedPopulation;
 			}
 
 			const settlement = new Settlement(townPopulation, regionGenConfiguration);
 			region.Towns.push(settlement);
-			totalTownPopulation += settlement.GetTotalPopulation();
+			totalGeneratedPopulation += settlement.GetTotalPopulation();
 		}
 
-		const totalVillagePopulation = regionGenConfiguration.RegionPopulation - (totalCityPopulation + totalTownPopulation);
+		const totalVillagePopulation = regionGenConfiguration.RegionPopulation - totalGeneratedPopulation;
 		region.Villages = [];
 
 		const AVERAGE_VILLAGE_POPULATION = 175; // average village population (20 - 1000, or 50 - 300)

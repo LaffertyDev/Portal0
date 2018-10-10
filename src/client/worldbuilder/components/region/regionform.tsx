@@ -129,38 +129,6 @@ export default class RegionForm extends React.Component<IRegionFormProp, RegionG
 
 		return (
 			<div>
-				<h2>About This</h2>
-				<div>
-					<p>
-						This app takes heavy inspiration from <a href="http://www222.pair.com/sjohn/blueroom/demog.htm">S. John Ross</a>.
-					</p>
-					<p>
-						Middle ages (Medieval times) were <a href="https://en.wikipedia.org/wiki/Middle_Ages">from 5th century until 15th century</a>.
-						For reference, here are some demographics that might provide context:
-					</p>
-					<ul>
-						<li>
-							France population in 1AD was 5.5 million. In 1226 it was 16 million (height of Medieval times) 
-							<a href="https://en.wikipedia.org/wiki/Demographics_of_France">source</a>
-						</li>
-						<li>
-							Paris population in 50AD was 80,000. In 1250 it was 160,000 
-							<a href="https://en.wikipedia.org/wiki/Demographics_of_Paris">source</a>
-						</li>
-						<li>
-							Byzantine Empire in 300AD was 17 million. In 1204 it was 9 million. 
-							<a href="https://en.wikipedia.org/wiki/Population_of_the_Byzantine_Empire">source</a>
-						</li>
-						<li>
-							The population of the biggest city in the world has fluctuated greatly through history.
-							<a href="https://en.wikipedia.org/wiki/List_of_largest_cities_throughout_history">source</a>
-						</li>
-						<li>
-							The area of countries is drastically different.
-							<a href="https://en.wikipedia.org/wiki/List_of_European_countries_by_area">source</a>
-						</li>
-					</ul>
-				</div>
 				<form action="javascript:void(0);" onSubmit={this.handleSubmit}>
 					<h3>Region Parameters</h3>
 					<fieldset>

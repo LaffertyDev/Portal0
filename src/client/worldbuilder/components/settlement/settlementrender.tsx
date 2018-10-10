@@ -14,6 +14,7 @@ export default class SettlementRender extends React.Component<ISettlementRenderP
 	}
 
 	public render() {
+		
 		return (
 			<table>
 				<thead>
@@ -32,19 +33,22 @@ export default class SettlementRender extends React.Component<ISettlementRenderP
 				</thead>
 				<tbody>
 					{ this.props.Settlements.sort((a, b) => b.CityPopulation - a.CityPopulation).map((settlement) => {
+						const cityDimensions = Math.sqrt(settlement.CityMilesSq).toPrecision(3);
+						const countrysideDimensions = Math.sqrt(settlement.CountrysideMilesSq).toPrecision(3);
+
 						return (
 							<tr>
 								<td>
 									{ settlement.CityPopulation }
 								</td>
 								<td>
-									{ settlement.CityMilesSq.toPrecision(3).toLocaleString() }
+									{ settlement.CityMilesSq.toPrecision(3).toLocaleString() } ({ cityDimensions }x{ cityDimensions } miles)
 								</td>
 								<td>
 									{ settlement.CountrysidePopulation.toLocaleString() }
 								</td>
 								<td>
-									{ settlement.CountrysideMilesSq.toPrecision(3).toLocaleString() }
+									{ settlement.CountrysideMilesSq.toPrecision(3).toLocaleString() } ({ countrysideDimensions}x{countrysideDimensions} miles)
 								</td>
 								<td>
 									{ settlement.Services.length.toLocaleString() }

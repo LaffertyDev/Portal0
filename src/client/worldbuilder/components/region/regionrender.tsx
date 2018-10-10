@@ -40,8 +40,20 @@ export default class RegionRender extends React.Component<IRegionRenderProps, {}
 						<li>
 							Untamed Wilderness: {(this.props.region.AreaSqMiles - (farmland + urbanArea)).toPrecision(3)} Miles^2
 						</li>
+					</ul>
+					<h3>Population Stats</h3>
+					<ul>
 						<li>
-							Population: {this.props.region.Population.toLocaleString()}
+							People: {this.props.region.Population.toLocaleString()}
+						</li>
+						<li>
+							Avg Population Density: N/A People / Mi²
+						</li>
+						<li>
+							City Dwellers: N/A	(X%)
+						</li>
+						<li>
+							Rural Dwellers: N/A (X%)
 						</li>
 					</ul>
 					<h3>Livestock</h3>
