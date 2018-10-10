@@ -20,9 +20,12 @@ export default class Settlement {
 	constructor(cityPopulation: number, advancedSettings: RegionGenConfig) {
 		this.CityPopulation = cityPopulation;
 
-		const supportingPopulationPerSqMile = advancedSettings.PeoplePerSqMileFarmland - advancedSettings.RegionPeoplePerSqMile;
+		// we need to support the countryside with the countryside -- so account for it
+		const farmsPerMile = 640 / advancedSettings.AverageFarmSizeAcres;
+		const averageDensity = farmsPerMile * advancedSettings.HouseholdSize;
+		const supportingPopulationPerSqMile = advancedSettings.PeoplePerSqMileFarmland - averageDensity;
 		const milesSqOfFarmlandToSupportCity = cityPopulation / supportingPopulationPerSqMile;
-		const peopleFarmingToSupportCity = milesSqOfFarmlandToSupportCity * advancedSettings.RegionPeoplePerSqMile;
+		const peopleFarmingToSupportCity = milesSqOfFarmlandToSupportCity * averageDensity;
 		
 		this.CountrysidePopulation = Math.floor(peopleFarmingToSupportCity);
 		this.CountrysideMilesSq = milesSqOfFarmlandToSupportCity;

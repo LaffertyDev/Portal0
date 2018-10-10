@@ -19,9 +19,9 @@ export default class SettlementRender extends React.Component<ISettlementRenderP
 				<thead>
 					<tr>
 						<td>Population</td>
-						<td>City Sq Miles</td>
+						<td>City Miles²</td>
 						<td>Countryside Population</td>
-						<td>Countryside Sq Miles</td>
+						<td>Countryside Miles²</td>
 						<td>Services</td>
 						<td>Total Buildings</td>
 						<td>Noble Families</td>

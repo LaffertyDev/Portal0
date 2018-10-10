@@ -29,7 +29,7 @@ export default class RegionForm extends React.Component<IRegionFormProp, RegionG
 		this.handlePercentageOfLivestockIsFowl = this.handlePercentageOfLivestockIsFowl.bind(this);
 		this.handlePercentageOfCastlesInOutskirts = this.handlePercentageOfCastlesInOutskirts.bind(this);
 		this.handlepeoplePerFarmlandSqMiles = this.handlepeoplePerFarmlandSqMiles.bind(this);
-		this.handleRegionPeoplePerSqMile = this.handleRegionPeoplePerSqMile.bind(this);
+		this.handleAverageFarmSizeAcres = this.handleAverageFarmSizeAcres.bind(this);
 		this.handlePeoplePerNobleFamily = this.handlePeoplePerNobleFamily.bind(this);
 		this.handlePeoplePerOfficer = this.handlePeoplePerOfficer.bind(this);
 		this.handlePeoplePerClergy = this.handlePeoplePerClergy.bind(this);
@@ -39,6 +39,9 @@ export default class RegionForm extends React.Component<IRegionFormProp, RegionG
 		this.handlecityPeoplePerMileSq = this.handlecityPeoplePerMileSq.bind(this);
 
 		this.regionGenerator = new RegionGenerator();
+	}
+	public handleAverageFarmSizeAcres(event: React.ChangeEvent<HTMLInputElement>) {
+		this.setState({AverageFarmSizeAcres: Number.parseInt(event.target.value, 10)});
 	}
 	public handlecityPeoplePerMileSq(event: React.ChangeEvent<HTMLInputElement>) {
 		this.setState({CityPeoplePerSqMile: Number.parseInt(event.target.value, 10)});
@@ -81,9 +84,6 @@ export default class RegionForm extends React.Component<IRegionFormProp, RegionG
 	public handleRegionAgeYears(event: React.ChangeEvent<HTMLInputElement>) {
 		this.setState({RegionAgeYears: Number.parseInt(event.target.value, 10)});
 	}
-	public handleRegionPeoplePerSqMile(event: React.ChangeEvent<HTMLInputElement>) {
-		this.setState({RegionPeoplePerSqMile: Number.parseInt(event.target.value, 10)});
-	}
 
 	public handleRegionPopulation(event: React.ChangeEvent<HTMLInputElement>) {
 		this.setState({RegionPopulation: Number.parseInt(event.target.value, 10)});
@@ -118,7 +118,7 @@ export default class RegionForm extends React.Component<IRegionFormProp, RegionG
 		const percentageOfLivestockIsFowl = this.state.PercentageOfLivestockIsFowl;
 		const percentageOfCastlesInOutskirts = this.state.PercentageOfCastlesInOutskirts;
 		const peoplePerFarmlandSqMiles = this.state.PeoplePerSqMileFarmland;
-		const regionPeoplePerSqMile = this.state.RegionPeoplePerSqMile;
+		const averageFarmSizeAcres = this.state.AverageFarmSizeAcres;
 		const peoplePerNobleFamily = this.state.PeoplePerNobleFamily;
 		const peoplePerOfficer = this.state.PeoplePerOfficer;
 		const peoplePerClergy = this.state.PeoplePerClergy;
@@ -175,7 +175,7 @@ export default class RegionForm extends React.Component<IRegionFormProp, RegionG
 							<p>Older regions have more ruined / abandoned castles</p>
 						</div>
 						<div>
-							<label htmlFor="regionMilesSq">Region Area Size (Miles^2)</label>
+							<label htmlFor="regionMilesSq">Region Area Size Miles²</label>
 							<input id="regionMilesSq" type="number" value={regionMilesSq} onChange={this.handleRegionSizeMilesSq} />
 							<p>Total size of the region, including inhospitable land</p>
 						</div>  
@@ -189,7 +189,7 @@ export default class RegionForm extends React.Component<IRegionFormProp, RegionG
 							<p>Used in conjunction with people per household to determine storage requirements of the cities.</p>
 						</div>
 						<div>
-							<label htmlFor="cityPeoplePerMileSq">City People per (Miles^2)</label>
+							<label htmlFor="cityPeoplePerMileSq">City People per Miles²</label>
 							<input type="number" id="cityPeoplePerMileSq" value={cityPeoplePerMileSq} onChange={this.handlecityPeoplePerMileSq} />
 							<p>Greater value implies denser cities</p>
 						</div>
@@ -217,14 +217,14 @@ export default class RegionForm extends React.Component<IRegionFormProp, RegionG
 							<p>Higher amounts imply fewer priests, and vice-versa</p>
 						</div>
 					</fieldset>
-					<h3>Population Settings</h3>
+					<h3>Population Density Settings</h3>
 					<fieldset>
 						<div>
-							<label htmlFor="regionPeoplePerSqMile">Region People per (Mile^2)</label>
-							<input type="number" id="regionPeoplePerSqMile" value={regionPeoplePerSqMile} onChange={this.handleRegionPeoplePerSqMile} />
+							<label htmlFor="averageFarmSizeAcres">Average Farm Size Acres</label>
+							<input type="number" id="averageFarmSizeAcres" value={averageFarmSizeAcres} onChange={this.handleAverageFarmSizeAcres} />
 							<p>
-								The average population density for the region as a whole. Higher densities imply much more friendly environments.
-								Generally, 30 people per sq mile is on the low side, 120 is on the high side.
+								The average farm size is normally between 20 to 40 acres. Higher farm sizes allow more urban density and less sprawl.
+								See <a href="https://rpg.stackexchange.com/questions/10123">here</a> for more details.
 							</p>
 						</div>
 						<div>
@@ -261,7 +261,7 @@ export default class RegionForm extends React.Component<IRegionFormProp, RegionG
 							<p>Medieval societies generally raised more fowl. Higher percentages imply more fowl. (Chickens, Turkeys, etc.)</p>
 						</div>
 						<div>
-							<label htmlFor="peoplePerFarmlandSqMiles">People Per Sq Mile Farmland</label>
+							<label htmlFor="peoplePerFarmlandSqMiles">People Per Mile² Farmland</label>
 							<input type="number" id="peoplePerFarmlandSqMiles" value={peoplePerFarmlandSqMiles} onChange={this.handlepeoplePerFarmlandSqMiles} />
 							<p>Greater values imply much more fertile farmland, and vice-versa. This accounts for common ailments such as plagues, droughts, etc.</p>
 						</div>
