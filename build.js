@@ -20,7 +20,7 @@ class BuildSystem {
 		const extension = "hbs";
 		const outDirectory = "www/dist/views";
 		const viewDir = "src/client/views";
-		const views = ["index", "resume", "components", "404", "dndaction", "worldbuilder"];
+		const views = ["index", "resume", "components", "404", "dndaction", "worldbuilder", "medievaldemo"];
 		const partials = ["footer", "header"];
 
 		for(const partial of partials) {

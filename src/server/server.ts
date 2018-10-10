@@ -51,6 +51,10 @@ export class HttpServer {
 			res.sendFile(Path.join(VIEWS_DIRECTORY, "worldbuilder.html"));
 			console.log("Worldbuilder Hit");
 		});
+		server.get("/medievaldemo", (req, res) => {
+			res.sendFile(Path.join(VIEWS_DIRECTORY, "medievaldemo.html"));
+			console.log("Medieval Demo Hit");
+		});
 		server.get("/dndaction", (req, res) => {
 			res.sendFile(Path.join(VIEWS_DIRECTORY, "dndaction.html"));
 			console.log("action econ Hit");
