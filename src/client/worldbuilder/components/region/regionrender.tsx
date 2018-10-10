@@ -17,8 +17,10 @@ export default class RegionRender extends React.Component<IRegionRenderProps, {}
 
 	public render() {
 		const settlements: Settlement[] = this.props.region.Cities.concat(this.props.region.Towns);
-		const farmland = settlements.map((x) => x.CountrysideMilesSq).reduce((a, b) => a + b, 0);
-		const urbanArea = settlements.map((x) => x.CityMilesSq).reduce((a, b) => a + b, 0);
+		const farmland = settlements.map((x) => x.CountrysideMilesSq).reduce(this.sum, 0);
+		const urbanArea = settlements.map((x) => x.CityMilesSq).reduce(this.sum, 0);
+		const cityDwellers = settlements.map((x) => x.CityPopulation).reduce(this.sum, 0);
+		const ruralDwellers = settlements.map((x) => x.CountrysidePopulation).reduce(this.sum, 0);
 
 		return (
 			<div className="laff-wb-region">
@@ -47,13 +49,13 @@ export default class RegionRender extends React.Component<IRegionRenderProps, {}
 							People: {this.props.region.Population.toLocaleString()}
 						</li>
 						<li>
-							Avg Population Density: N/A People / Mi²
+							Avg Population Density: { this.props.region.Population / this.props.region.AreaSqMiles } People / Mi²
 						</li>
 						<li>
-							City Dwellers: N/A	(X%)
+							City Dwellers: { cityDwellers }	({cityDwellers / this.props.region.Population}%)
 						</li>
 						<li>
-							Rural Dwellers: N/A (X%)
+							Rural Dwellers: { ruralDwellers } ({ruralDwellers / this.props.region.Population}%)
 						</li>
 					</ul>
 					<h3>Livestock</h3>
@@ -100,5 +102,9 @@ export default class RegionRender extends React.Component<IRegionRenderProps, {}
 				</div>
 			</div>
 		);
+	}
+
+	private sum(a: number, b: number): number {
+		return a + b;
 	}
 }
