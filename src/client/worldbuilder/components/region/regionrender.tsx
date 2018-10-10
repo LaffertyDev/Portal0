@@ -21,6 +21,7 @@ export default class RegionRender extends React.Component<IRegionRenderProps, {}
 		const urbanArea = settlements.map((x) => x.CityMilesSq).reduce(this.sum, 0);
 		const cityDwellers = settlements.map((x) => x.CityPopulation).reduce(this.sum, 0);
 		const ruralDwellers = settlements.map((x) => x.CountrysidePopulation).reduce(this.sum, 0);
+		const untamedWilderness = this.props.region.AreaSqMiles - (farmland + urbanArea);
 
 		return (
 			<div className="laff-wb-region">
@@ -34,13 +35,13 @@ export default class RegionRender extends React.Component<IRegionRenderProps, {}
 							Area: {this.props.region.AreaSqMiles.toLocaleString()} Miles^2
 						</li>
 						<li>
-							Urban Area: { urbanArea.toPrecision(3) } Miles^2
+							Urban Area: { urbanArea.toPrecision(3) } Miles^2 ({urbanArea / this.props.region.AreaSqMiles}%)
 						</li>
 						<li>
-							Farmland: { farmland.toPrecision(3) } Miles^2
+							Farmland: { farmland.toPrecision(3) } Miles^2 ({farmland / this.props.region.AreaSqMiles}%)
 						</li>
 						<li>
-							Untamed Wilderness: {(this.props.region.AreaSqMiles - (farmland + urbanArea)).toPrecision(3)} Miles^2
+							Untamed Wilderness: {(untamedWilderness).toPrecision(3)} Miles^2 ({untamedWilderness / this.props.region.AreaSqMiles}%)
 						</li>
 					</ul>
 					<h3>Population Stats</h3>
@@ -102,6 +103,10 @@ export default class RegionRender extends React.Component<IRegionRenderProps, {}
 				</div>
 			</div>
 		);
+	}
+
+	private stringify(val: number): string {
+		return parseFloat(val.toPrecision(3)).toLocaleString();
 	}
 
 	private sum(a: number, b: number): number {
