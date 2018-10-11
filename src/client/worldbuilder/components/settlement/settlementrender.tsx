@@ -23,6 +23,7 @@ export default class SettlementRender extends React.Component<ISettlementRenderP
 						<td>City Miles²</td>
 						<td>Countryside Population</td>
 						<td>Countryside Miles²</td>
+						<td>Villages</td>
 						<td>Services</td>
 						<td>Total Buildings</td>
 						<td>Noble Families</td>
@@ -49,6 +50,9 @@ export default class SettlementRender extends React.Component<ISettlementRenderP
 								</td>
 								<td>
 									{ settlement.CountrysideMilesSq.toPrecision(3).toLocaleString() } ({ countrysideDimensions}x{countrysideDimensions} miles)
+								</td>
+								<td>
+									{ settlement.SupportingVillages }
 								</td>
 								<td>
 									{ settlement.Services.length.toLocaleString() }

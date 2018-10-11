@@ -61,11 +61,6 @@ export class RegionModel {
 	 */
 	public Towns!: Settlement[];
 
-	/**
-	 * A list of small settlements in the region (code smell, size should be defined in the Settlement itself and this should be one array)
-	 */
-	public Villages!: number;
-
 	public GetBigSettlements(): Settlement[] {
 		return this.Cities.concat(this.Towns);
 	}

@@ -15,12 +15,15 @@ export default class Settlement {
 	public NobleFamilies: number;
 	public Priests: number;
 	public Services: Service[];
+	public SupportingVillages: number;
 	public TotalBuildings: number;
 
 	constructor(cityPopulation: number, advancedSettings: RegionGenConfig) {
 		this.CityPopulation = cityPopulation;
 
 		// we need to support the countryside with the countryside -- so account for it
+		// currently this DOES NOT account for "Supporting People" within Villages
+		// i.e. priests, noblefolk, and their retinue
 		const farmsPerMile = 640 / advancedSettings.AverageFarmSizeAcres;
 		const averageDensity = farmsPerMile * advancedSettings.HouseholdSize;
 		const supportingPopulationPerSqMile = advancedSettings.PeoplePerSqMileFarmland - averageDensity;
@@ -29,6 +32,7 @@ export default class Settlement {
 		
 		this.CountrysidePopulation = Math.floor(peopleFarmingToSupportCity);
 		this.CountrysideMilesSq = milesSqOfFarmlandToSupportCity;
+		this.SupportingVillages = Math.floor(this.CountrysidePopulation / 175);
 
 		this.CityMilesSq = cityPopulation / advancedSettings.CityPeoplePerSqMile;
 

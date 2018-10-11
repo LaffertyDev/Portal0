@@ -96,9 +96,6 @@ export default class RegionRender extends React.Component<IRegionRenderProps, {}
 						<li>
 							#Towns: {this.props.region.Towns.length.toLocaleString()}
 						</li>
-						<li>
-							#Villages: {this.props.region.Villages.toLocaleString()}
-						</li>
 					</ul>
 					<SettlementRender Settlements={settlements}></SettlementRender>
 				</div>

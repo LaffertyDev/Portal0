@@ -66,8 +66,15 @@ export class RegionGenerator {
 			totalCountrysidePopulation += settlement.CountrysidePopulation;
 		}
 
-		const AVERAGE_VILLAGE_POPULATION = 175; // average village population (20 - 1000, or 50 - 300)
-		region.Villages = Math.floor(totalCountrysidePopulation / AVERAGE_VILLAGE_POPULATION);
+		/**
+		 * Order goes:
+		 * 
+		 * 1. Metropolis(12,000+)
+		 * 2. City		(8,000 - 12,000)
+		 * 3. Town		(1,000 - 8,000)
+		 * 4. Village 	(100 - 1,000) (175)
+		 * 5. Hamlet	(cluster of farmhouses)
+		 */
 		return region;
 	}
 
