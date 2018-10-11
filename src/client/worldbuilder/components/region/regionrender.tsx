@@ -21,6 +21,7 @@ export default class RegionRender extends React.Component<IRegionRenderProps, {}
 		const urbanArea = settlements.map((x) => x.CityMilesSq).reduce(this.sum, 0);
 		const cityDwellers = settlements.map((x) => x.CityPopulation).reduce(this.sum, 0);
 		const ruralDwellers = settlements.map((x) => x.CountrysidePopulation).reduce(this.sum, 0);
+		const totalPopulation = ruralDwellers + cityDwellers;
 		const untamedWilderness = this.props.region.AreaSqMiles - (farmland + urbanArea);
 
 		return (
@@ -47,16 +48,16 @@ export default class RegionRender extends React.Component<IRegionRenderProps, {}
 					<h3>Population Stats</h3>
 					<ul>
 						<li>
-							People: {this.props.region.Population.toLocaleString()}
+							People: { cityDwellers + ruralDwellers }
 						</li>
 						<li>
-							Avg Population Density: { this.props.region.Population / this.props.region.AreaSqMiles } People / Mi²
+							City Dwellers: { cityDwellers }	({cityDwellers / totalPopulation}%)
 						</li>
 						<li>
-							City Dwellers: { cityDwellers }	({cityDwellers / this.props.region.Population}%)
+							Rural Dwellers: { ruralDwellers } ({ruralDwellers / totalPopulation}%)
 						</li>
 						<li>
-							Rural Dwellers: { ruralDwellers } ({ruralDwellers / this.props.region.Population}%)
+							Avg Population Density: { totalPopulation / this.props.region.AreaSqMiles } People / Mi²
 						</li>
 					</ul>
 					<h3>Livestock</h3>
@@ -96,7 +97,7 @@ export default class RegionRender extends React.Component<IRegionRenderProps, {}
 							#Towns: {this.props.region.Towns.length.toLocaleString()}
 						</li>
 						<li>
-							#Villages: {this.props.region.Villages.length.toLocaleString()}
+							#Villages: {this.props.region.Villages.toLocaleString()}
 						</li>
 					</ul>
 					<SettlementRender Settlements={settlements}></SettlementRender>

@@ -50,10 +50,6 @@ export class RegionModel {
 	 * The total number of fowl (Chickens) in the region
 	 */
 	public Fowl!: number;
-	/**
-	 * The amount of people in the region
-	 */
-	public Population!: number;
 
 	/**
 	 * The total amount of cultivated livestock in the region
@@ -68,7 +64,7 @@ export class RegionModel {
 	/**
 	 * A list of small settlements in the region (code smell, size should be defined in the Settlement itself and this should be one array)
 	 */
-	public Villages!: Settlement[];
+	public Villages!: number;
 
 	public GetBigSettlements(): Settlement[] {
 		return this.Cities.concat(this.Towns);

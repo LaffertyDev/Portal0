@@ -13,7 +13,6 @@ export class RegionGenerator {
 	 */
 	public generate(regionGenConfiguration: RegionGenConfig): RegionModel {
 		const region = new RegionModel();
-		region.Population = regionGenConfiguration.RegionPopulation;
 		region.AreaSqMiles = regionGenConfiguration.RegionSizeSqMiles;
 		region.Age = regionGenConfiguration.RegionAgeYears;
 
@@ -33,12 +32,11 @@ export class RegionGenerator {
 		// Generate Settlement Details
 		region.Cities = [];
 		region.Towns = [];
-		region.Villages = [];
-
 		// step 1, determine actual settlement population
 		// step 2, determine outskirts settlement population
 
 		let totalGeneratedPopulation = 0;
+		let totalCountrysidePopulation = 0;
 		let lastCityPopulation = Math.floor(Math.sqrt(regionGenConfiguration.RegionPopulation)) * (this.getRandomArbitraryInteger(2, 8) + 10);
 		const capitol = new Settlement(lastCityPopulation, regionGenConfiguration);
 		totalGeneratedPopulation += capitol.GetTotalPopulation();
@@ -50,6 +48,7 @@ export class RegionGenerator {
 			const populationReduction = this.getRandomArbitraryInteger(0.1, 0.4);
 			lastCityPopulation = lastCityPopulation * populationReduction;
 			totalGeneratedPopulation += city.GetTotalPopulation();
+			totalCountrysidePopulation += city.CountrysidePopulation;
 		}
 
 		const numTowns = region.Cities.length * this.getRandomArbitraryInteger(2, 16);
@@ -64,17 +63,11 @@ export class RegionGenerator {
 			const settlement = new Settlement(townPopulation, regionGenConfiguration);
 			region.Towns.push(settlement);
 			totalGeneratedPopulation += settlement.GetTotalPopulation();
+			totalCountrysidePopulation += settlement.CountrysidePopulation;
 		}
-
-		const totalVillagePopulation = regionGenConfiguration.RegionPopulation - totalGeneratedPopulation;
-		region.Villages = [];
 
 		const AVERAGE_VILLAGE_POPULATION = 175; // average village population (20 - 1000, or 50 - 300)
-		const numVillages = Math.floor(totalVillagePopulation / AVERAGE_VILLAGE_POPULATION);
-		for (let x = 0; x < numVillages; x++) {
-			region.Villages.push(new Settlement(Math.floor(totalVillagePopulation / numVillages), regionGenConfiguration));
-		}
-
+		region.Villages = Math.floor(totalCountrysidePopulation / AVERAGE_VILLAGE_POPULATION);
 		return region;
 	}
 
