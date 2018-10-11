@@ -36,6 +36,7 @@ export default class SettlementRender extends React.Component<ISettlementRenderP
 					{ this.props.Settlements.sort((a, b) => b.CityPopulation - a.CityPopulation).map((settlement) => {
 						const cityDimensions = Math.sqrt(settlement.CityMilesSq).toPrecision(3);
 						const countrysideDimensions = Math.sqrt(settlement.CountrysideMilesSq).toPrecision(3);
+						const avgVillagePop = Math.floor(settlement.CountrysidePopulation / settlement.SupportingVillages);
 
 						return (
 							<tr>
@@ -52,7 +53,7 @@ export default class SettlementRender extends React.Component<ISettlementRenderP
 									{ settlement.CountrysideMilesSq.toPrecision(3).toLocaleString() } ({ countrysideDimensions}x{countrysideDimensions} miles)
 								</td>
 								<td>
-									{ settlement.SupportingVillages }
+									{ settlement.SupportingVillages } ({ avgVillagePop } avg people)
 								</td>
 								<td>
 									{ settlement.Services.length.toLocaleString() }

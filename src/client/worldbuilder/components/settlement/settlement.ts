@@ -32,7 +32,9 @@ export default class Settlement {
 		
 		this.CountrysidePopulation = Math.floor(peopleFarmingToSupportCity);
 		this.CountrysideMilesSq = milesSqOfFarmlandToSupportCity;
-		this.SupportingVillages = Math.floor(this.CountrysidePopulation / 175);
+		this.SupportingVillages = Math.floor(this.CountrysideMilesSq / 3); // average one village every 3 sq miles
+		// village range from 100 - 1000
+		// village density was ~ 1 every square mile
 
 		this.CityMilesSq = cityPopulation / advancedSettings.CityPeoplePerSqMile;
 
