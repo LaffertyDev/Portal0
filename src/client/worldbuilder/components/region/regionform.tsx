@@ -185,22 +185,6 @@ export default class RegionForm extends React.Component<IRegionFormProp, RegionG
 							<p>Higher amounts imply fewer priests, and vice-versa</p>
 						</div>
 					</fieldset>
-					<h3>Population Density Settings</h3>
-					<fieldset>
-						<div>
-							<label htmlFor="averageFarmSizeAcres">Average Farm Size Acres</label>
-							<input type="number" id="averageFarmSizeAcres" value={averageFarmSizeAcres} onChange={this.handleAverageFarmSizeAcres} />
-							<p>
-								The average farm size is normally between 20 to 40 acres. Higher farm sizes allow more urban density and less sprawl.
-								See <a href="https://rpg.stackexchange.com/questions/10123">here</a> for more details.
-							</p>
-						</div>
-						<div>
-							<label htmlFor="householdSize">Household Size</label>
-							<input type="number" id="householdSize" value={householdSize} onChange={this.handleHouseholdSize} />
-							<p>Average people per household. Used in determining building counts for cities.</p>
-						</div>
-					</fieldset>
 					<h3>Castle Settings</h3>
 					<fieldset>
 						<div>
@@ -219,19 +203,32 @@ export default class RegionForm extends React.Component<IRegionFormProp, RegionG
 					<h3>Farming Settings</h3>
 					<fieldset>
 						<div>
+							<label htmlFor="peoplePerFarmlandSqMiles">People Per Mile² Farmland</label>
+							<input type="number" id="peoplePerFarmlandSqMiles" value={peoplePerFarmlandSqMiles} onChange={this.handlepeoplePerFarmlandSqMiles} />
+							<p>The viability of the farmable land itself, assuming maximum productivity. Higher numbers reduce sprawl, increase density</p>
+						</div>
+						<div>
+							<label htmlFor="averageFarmSizeAcres">Average Farm Size Acres</label>
+							<input type="number" id="averageFarmSizeAcres" value={averageFarmSizeAcres} onChange={this.handleAverageFarmSizeAcres} />
+							<p>
+								The productivity of a single farmer, and the amount of land they can work. Higher numbers reduce sprawl, increase density.
+								The average farm size is normally between 20 to 40 acres.
+							</p>
+						</div>
+						<div>
+							<label htmlFor="householdSize">Household Size</label>
+							<input type="number" id="householdSize" value={householdSize} onChange={this.handleHouseholdSize} />
+							<p>Average people per household. Higher numbers significantly increase sprawl, reduce density</p>
+						</div>
+						<div>
 							<label htmlFor="livestockPerPerson">Livestock per Person</label>
 							<input type="number" id="livestockPerPerson" value={livestockPerPerson} onChange={this.handleLivestockPerPerson} />
-							<p>Medieval societies had a lot of animals, for work and food resources. This includes Cows, Sheeps, Pigs, Chickens, etc.</p>
+							<p>Medieval societies had a lot of animals, mostly work animals. This includes Cows, Sheeps, Pigs, Chickens, etc.</p>
 						</div>
 						<div>
 							<label htmlFor="percentageOfLivestockIsFowl">Livestock Fowl Ratio</label>
 							<input type="number" id="percentageOfLivestockIsFowl" value={percentageOfLivestockIsFowl} onChange={this.handlePercentageOfLivestockIsFowl} />
 							<p>Medieval societies generally raised more fowl. Higher percentages imply more fowl. (Chickens, Turkeys, etc.)</p>
-						</div>
-						<div>
-							<label htmlFor="peoplePerFarmlandSqMiles">People Per Mile² Farmland</label>
-							<input type="number" id="peoplePerFarmlandSqMiles" value={peoplePerFarmlandSqMiles} onChange={this.handlepeoplePerFarmlandSqMiles} />
-							<p>Greater values imply much more fertile farmland, and vice-versa. This accounts for common ailments such as plagues, droughts, etc.</p>
 						</div>
 					</fieldset>
 					<button className="laff-btn laff-btn-primary" type="submit">Generate Region</button>
