@@ -44,13 +44,13 @@ export default class SettlementRender extends React.Component<ISettlementRenderP
 									{ settlement.CityPopulation }
 								</td>
 								<td>
-									{ settlement.CityMilesSq.toPrecision(3).toLocaleString() } ({ cityDimensions }x{ cityDimensions } miles)
+									{ settlement.CityMilesSq.toPrecision(3).toLocaleString() } ({ cityDimensions }² miles)
 								</td>
 								<td>
 									{ settlement.CountrysidePopulation.toLocaleString() }
 								</td>
 								<td>
-									{ settlement.CountrysideMilesSq.toPrecision(3).toLocaleString() } ({ countrysideDimensions}x{countrysideDimensions} miles)
+									{ settlement.CountrysideMilesSq.toPrecision(3).toLocaleString() } ({ countrysideDimensions}² miles)
 								</td>
 								<td>
 									{ settlement.SupportingVillages } ({ avgVillagePop } avg people)

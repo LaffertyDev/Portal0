@@ -159,7 +159,7 @@ export default class RegionForm extends React.Component<IRegionFormProp, RegionG
 						<div>
 							<label htmlFor="cityPeoplePerMileSq">City People per Miles²</label>
 							<input type="number" id="cityPeoplePerMileSq" value={cityPeoplePerMileSq} onChange={this.handlecityPeoplePerMileSq} />
-							<p>Greater value implies denser cities</p>
+							<p>Average density is ~40,000 per Mile². Lowering this will create larger (in area) cities</p>
 						</div>
 					</fieldset>
 					<h3>Profession Ratios</h3>
