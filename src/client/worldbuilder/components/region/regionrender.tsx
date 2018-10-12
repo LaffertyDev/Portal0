@@ -1,4 +1,5 @@
 import * as React from "react";
+import VUtils from "../../utils";
 import Settlement from "../settlement/settlement";
 import SettlementRender from "../settlement/settlementrender";
 import { RegionModel } from "./region";
@@ -17,10 +18,10 @@ export default class RegionRender extends React.Component<IRegionRenderProps, {}
 
 	public render() {
 		const settlements: Settlement[] = this.props.region.Cities.concat(this.props.region.Towns);
-		const farmland = settlements.map((x) => x.CountrysideMilesSq).reduce(this.sum, 0);
-		const urbanArea = settlements.map((x) => x.CityMilesSq).reduce(this.sum, 0);
-		const cityDwellers = settlements.map((x) => x.CityPopulation).reduce(this.sum, 0);
-		const ruralDwellers = settlements.map((x) => x.CountrysidePopulation).reduce(this.sum, 0);
+		const farmland = settlements.map((x) => x.CountrysideMilesSq).reduce(VUtils.sum, 0);
+		const urbanArea = settlements.map((x) => x.CityMilesSq).reduce(VUtils.sum, 0);
+		const cityDwellers = settlements.map((x) => x.CityPopulation).reduce(VUtils.sum, 0);
+		const ruralDwellers = settlements.map((x) => x.CountrysidePopulation).reduce(VUtils.sum, 0);
 		const totalPopulation = ruralDwellers + cityDwellers;
 		const untamedWilderness = this.props.region.AreaSqMiles - (farmland + urbanArea);
 
@@ -30,46 +31,48 @@ export default class RegionRender extends React.Component<IRegionRenderProps, {}
 					<h3>Region Info</h3>
 					<ul>
 						<li>
-							Age (Years): {this.props.region.Age.toLocaleString()}
+							Age (Years): { this.props.region.Age.toLocaleString() }
 						</li>
 						<li>
-							Area: {this.props.region.AreaSqMiles.toLocaleString()} Miles^2
+							Area: { this.props.region.AreaSqMiles.toLocaleString() } Miles^2
 						</li>
 						<li>
-							Urban Area: { urbanArea.toPrecision(3) } Miles^2 ({urbanArea / this.props.region.AreaSqMiles}%)
+							Urban Area: { VUtils.prettyPrintRounded(urbanArea) } Miles^2 ({ VUtils.prettyPrintPercent(urbanArea / this.props.region.AreaSqMiles) }%)
 						</li>
 						<li>
-							Farmland: { farmland.toPrecision(3) } Miles^2 ({farmland / this.props.region.AreaSqMiles}%)
+							Farmland: { VUtils.prettyPrintRounded(farmland) } Miles^2 ({ VUtils.prettyPrintPercent(farmland / this.props.region.AreaSqMiles) }%)
 						</li>
 						<li>
-							Untamed Wilderness: {(untamedWilderness).toPrecision(3)} Miles^2 ({untamedWilderness / this.props.region.AreaSqMiles}%)
+							Untamed Wilderness: 
+							{ VUtils.prettyPrintRounded(untamedWilderness) } Miles^2 (
+							{ VUtils.prettyPrintPercent(untamedWilderness / this.props.region.AreaSqMiles) }%)
 						</li>
 					</ul>
 					<h3>Population Stats</h3>
 					<ul>
 						<li>
-							People: { cityDwellers + ruralDwellers }
+							People: { (cityDwellers + ruralDwellers).toLocaleString() }
 						</li>
 						<li>
-							City Dwellers: { cityDwellers }	({cityDwellers / totalPopulation}%)
+							City Dwellers: { cityDwellers.toLocaleString() }	({ VUtils.prettyPrintPercent(cityDwellers / totalPopulation) }%)
 						</li>
 						<li>
-							Rural Dwellers: { ruralDwellers } ({ruralDwellers / totalPopulation}%)
+							Rural Dwellers: { ruralDwellers.toLocaleString() } ({ VUtils.prettyPrintPercent(ruralDwellers / totalPopulation) }%)
 						</li>
 						<li>
-							Avg Population Density: { totalPopulation / this.props.region.AreaSqMiles } People / Mi²
+							Avg Population Density: { Math.round(totalPopulation / this.props.region.AreaSqMiles).toLocaleString() } People / Mi²
 						</li>
 					</ul>
 					<h3>Livestock</h3>
 					<ul>
 						<li>
-							Total: {this.props.region.TotalLivestock.toLocaleString()}
+							Total: { this.props.region.TotalLivestock.toLocaleString() }
 						</li>
 						<li>
-							Fowl: {this.props.region.Fowl.toLocaleString()}
+							Fowl: { this.props.region.Fowl.toLocaleString() }
 						</li>
 						<li>
-							Cows, Sheep, &amp; Pigs: {this.props.region.BurdenBeasts.toLocaleString()}
+							Cows, Sheep, &amp; Pigs: { this.props.region.BurdenBeasts.toLocaleString() }
 						</li>
 					</ul>
 				</div>
@@ -77,13 +80,13 @@ export default class RegionRender extends React.Component<IRegionRenderProps, {}
 					<h3>Castle Info</h3>
 					<ul>
 						<li>
-							Total Castles: {this.props.region.CastlesTotal.toLocaleString()}
+							Total Castles: { this.props.region.CastlesTotal.toLocaleString() }
 						</li>
 						<li>
-							Active Castles: {this.props.region.CastlesActive.toLocaleString()}
+							Active Castles: { this.props.region.CastlesActive.toLocaleString() }
 						</li>
 						<li>
-							Ruined Castles: {this.props.region.CastlesRuined.toLocaleString()}
+							Ruined Castles: { this.props.region.CastlesRuined.toLocaleString() }
 						</li>
 					</ul>
 				</div>
@@ -91,23 +94,15 @@ export default class RegionRender extends React.Component<IRegionRenderProps, {}
 					<h3>Settlement Info</h3>
 					<ul>
 						<li>
-							#Cities: {this.props.region.Cities.length.toLocaleString()}
+							#Cities: { this.props.region.Cities.length.toLocaleString() }
 						</li>
 						<li>
-							#Towns: {this.props.region.Towns.length.toLocaleString()}
+							#Towns: { this.props.region.Towns.length.toLocaleString() }
 						</li>
 					</ul>
 					<SettlementRender Settlements={settlements}></SettlementRender>
 				</div>
 			</div>
 		);
-	}
-
-	private stringify(val: number): string {
-		return parseFloat(val.toPrecision(3)).toLocaleString();
-	}
-
-	private sum(a: number, b: number): number {
-		return a + b;
 	}
 }

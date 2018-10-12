@@ -1,4 +1,5 @@
 import * as React from "react";
+import VUtils from "../../utils";
 import Settlement from "./settlement";
 
 interface ISettlementRenderProps {
@@ -34,26 +35,26 @@ export default class SettlementRender extends React.Component<ISettlementRenderP
 				</thead>
 				<tbody>
 					{ this.props.Settlements.sort((a, b) => b.CityPopulation - a.CityPopulation).map((settlement) => {
-						const cityDimensions = Math.sqrt(settlement.CityMilesSq).toPrecision(3);
-						const countrysideDimensions = Math.sqrt(settlement.CountrysideMilesSq).toPrecision(3);
-						const avgVillagePop = Math.floor(settlement.CountrysidePopulation / settlement.SupportingVillages);
+						const cityDimensions = Math.sqrt(settlement.CityMilesSq).toPrecision(3).toLocaleString();
+						const countrysideDimensions = Math.sqrt(settlement.CountrysideMilesSq).toPrecision(3).toLocaleString();
+						const avgVillagePop = Math.floor(settlement.CountrysidePopulation / settlement.SupportingVillages).toLocaleString();
 
 						return (
 							<tr>
 								<td>
-									{ settlement.CityPopulation }
+									{ settlement.CityPopulation.toLocaleString() }
 								</td>
 								<td>
-									{ settlement.CityMilesSq.toPrecision(3).toLocaleString() } ({ cityDimensions }² miles)
+									{ VUtils.prettyPrintRounded(settlement.CityMilesSq) } ({ cityDimensions }² miles)
 								</td>
 								<td>
 									{ settlement.CountrysidePopulation.toLocaleString() }
 								</td>
 								<td>
-									{ settlement.CountrysideMilesSq.toPrecision(3).toLocaleString() } ({ countrysideDimensions}² miles)
+									{ VUtils.prettyPrintRounded(settlement.CountrysideMilesSq) } ({ countrysideDimensions}² miles)
 								</td>
 								<td>
-									{ settlement.SupportingVillages } ({ avgVillagePop } avg people)
+									{ settlement.SupportingVillages.toLocaleString() } ({ avgVillagePop.toLocaleString() } avg people)
 								</td>
 								<td>
 									{ settlement.Services.length.toLocaleString() }
