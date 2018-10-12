@@ -40,14 +40,14 @@ const worldbuilder = {
 		pureExternalModules: true,
 		propertyReadSideEffects: false
 	},
-	input: "cgi/worldbuilder/worldbuilder.js",
+	input: "node_modules/worldbuilder/dist/module.js",
 	external: [
 		// "react",
 		// "react-dom"
 	],
 	output: {
 		file: "www/dist/worldbuilder.bundle.js",
-		format: "cjs",
+		format: "es",
 		paths: {
 			//"three": "../node_modules/three/build/three.module.js"
 		},
