@@ -1,14 +1,14 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { RegionModel } from "./components/region/region";
-import RegionForm from "./components/region/regionform";
-import RegionRender from "./components/region/regionrender";
+import { RegionForm } from "./components/region/regionform";
+import { RegionRender } from "./components/region/regionrender";
 
 interface IWorldBuilderState {
 	regions: RegionModel[];
 }
 
-class WorldBuilder extends React.Component<{}, IWorldBuilderState> {
+export class WorldBuilder extends React.Component<{}, IWorldBuilderState> {
 	constructor(props: object) {
 		super(props);
 		this.state = {regions: []};

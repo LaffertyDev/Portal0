@@ -1,4 +1,4 @@
-import Settlement from "../settlement/settlement";
+import { Settlement } from "../settlement/settlement";
 
 /**
  * A region on a map, or a kingdom / nation / state

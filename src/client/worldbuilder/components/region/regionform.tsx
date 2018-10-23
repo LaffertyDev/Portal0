@@ -10,7 +10,7 @@ interface IRegionFormProp {
 /**
  * Form with configuration to set up and build a region. Will call an external function when the form is submitted with the generated region
  */
-export default class RegionForm extends React.Component<IRegionFormProp, RegionGenConfig> {
+export class RegionForm extends React.Component<IRegionFormProp, RegionGenConfig> {
 	public regionGenerator: RegionGenerator;
 
 	constructor(props: IRegionFormProp) {
@@ -138,15 +138,30 @@ export default class RegionForm extends React.Component<IRegionFormProp, RegionG
 							<p>Population affects the number of castles, villages, towns, and cities</p>
 						</div>
 						<div>
+							<label htmlFor="regionMilesSq">Region Area Size Miles²</label>
+							<input id="regionMilesSq" type="number" value={regionMilesSq} onChange={this.handleRegionSizeMilesSq} />
+							<p>Total size of the region, including inhospitable land</p>
+						</div>  
+					</fieldset>
+					<h3>Castle Settings</h3>
+					<fieldset>
+						<div>
 							<label htmlFor="regionAgeYears">Region Age Years</label>
 							<input id="regionAgeYears" type="number" value={regionAgeYears} onChange={this.handleRegionAgeYears}/>
 							<p>Older regions have more ruined / abandoned castles</p>
 						</div>
 						<div>
-							<label htmlFor="regionMilesSq">Region Area Size Miles²</label>
-							<input id="regionMilesSq" type="number" value={regionMilesSq} onChange={this.handleRegionSizeMilesSq} />
-							<p>Total size of the region, including inhospitable land</p>
-						</div>  
+							<label htmlFor="peoplePerCastle">People per Castle</label>
+							<input type="number" id="peoplePerCastle" value={peoplePerCastle} onChange={this.handlePeoplePerCastle} />
+						</div>
+						<div>
+							<label htmlFor="peoplePerRuinedCastle">People per Ruined Castle</label>
+							<input type="number" id="peoplePerRuinedCastle" value={peoplePerRuinedCastle} onChange={this.handlePeoplePerRuinedCastle} />
+						</div>
+						<div>
+							<label htmlFor="percentageOfCastlesInOutskirts">Castle % in outskirts</label>
+							<input type="number" id="percentageOfCastlesInOutskirts" value={percentageOfCastlesInOutskirts} onChange={this.handlePercentageOfCastlesInOutskirts} />
+						</div>
 					</fieldset>
 					<h3>City Settings</h3>
 					<fieldset>
@@ -160,44 +175,6 @@ export default class RegionForm extends React.Component<IRegionFormProp, RegionG
 							<label htmlFor="cityPeoplePerMileSq">City People per Miles²</label>
 							<input type="number" id="cityPeoplePerMileSq" value={cityPeoplePerMileSq} onChange={this.handlecityPeoplePerMileSq} />
 							<p>Average density is ~40,000 per Mile². Lowering this will create larger (in area) cities</p>
-						</div>
-					</fieldset>
-					<h3>Profession Ratios</h3>
-					<fieldset>
-						<div>
-							<label htmlFor="peoplePerNobleFamily">People per Noble Family</label>
-							<input type="number" id="peoplePerNobleFamily" value={peoplePerNobleFamily} onChange={this.handlePeoplePerNobleFamily} />
-							<p>Higher amounts imply fewer nobility, and vice-versa</p>
-						</div>
-						<div>
-							<label htmlFor="peoplePerOfficer">People per Officer</label>
-							<input type="number" id="peoplePerOfficer" value={peoplePerOfficer} onChange={this.handlePeoplePerOfficer} />
-							<p>Higher amounts imply fewer officers, and vice-versa</p>
-						</div>
-						<div>
-							<label htmlFor="peoplePerClergy">People per Clergy</label>
-							<input type="number" id="peoplePerClergy" value={peoplePerClergy} onChange={this.handlePeoplePerClergy} />
-							<p>Higher amounts imply fewer clergy, and vice-versa</p>
-						</div>
-						<div>
-							<label htmlFor="clergyPerPriest">Clergy per Priest</label>
-							<input type="number" id="clergyPerPriest" value={clergyPerPriest} onChange={this.handleClergyPerPriest} />
-							<p>Higher amounts imply fewer priests, and vice-versa</p>
-						</div>
-					</fieldset>
-					<h3>Castle Settings</h3>
-					<fieldset>
-						<div>
-							<label htmlFor="peoplePerCastle">People per Castle</label>
-							<input type="number" id="peoplePerCastle" value={peoplePerCastle} onChange={this.handlePeoplePerCastle} />
-						</div>
-						<div>
-							<label htmlFor="peoplePerRuinedCastle">People per Ruined Castle</label>
-							<input type="number" id="peoplePerRuinedCastle" value={peoplePerRuinedCastle} onChange={this.handlePeoplePerRuinedCastle} />
-						</div>
-						<div>
-							<label htmlFor="percentageOfCastlesInOutskirts">Castle % in outskirts</label>
-							<input type="number" id="percentageOfCastlesInOutskirts" value={percentageOfCastlesInOutskirts} onChange={this.handlePercentageOfCastlesInOutskirts} />
 						</div>
 					</fieldset>
 					<h3>Farming Settings</h3>
@@ -229,6 +206,29 @@ export default class RegionForm extends React.Component<IRegionFormProp, RegionG
 							<label htmlFor="percentageOfLivestockIsFowl">Livestock Fowl Ratio</label>
 							<input type="number" id="percentageOfLivestockIsFowl" value={percentageOfLivestockIsFowl} onChange={this.handlePercentageOfLivestockIsFowl} />
 							<p>Medieval societies generally raised more fowl. Higher percentages imply more fowl. (Chickens, Turkeys, etc.)</p>
+						</div>
+					</fieldset>
+					<h3>Profession Ratios</h3>
+					<fieldset>
+						<div>
+							<label htmlFor="peoplePerNobleFamily">People per Noble Family</label>
+							<input type="number" id="peoplePerNobleFamily" value={peoplePerNobleFamily} onChange={this.handlePeoplePerNobleFamily} />
+							<p>Higher amounts imply fewer nobility, and vice-versa</p>
+						</div>
+						<div>
+							<label htmlFor="peoplePerOfficer">People per Officer</label>
+							<input type="number" id="peoplePerOfficer" value={peoplePerOfficer} onChange={this.handlePeoplePerOfficer} />
+							<p>Higher amounts imply fewer officers, and vice-versa</p>
+						</div>
+						<div>
+							<label htmlFor="peoplePerClergy">People per Clergy</label>
+							<input type="number" id="peoplePerClergy" value={peoplePerClergy} onChange={this.handlePeoplePerClergy} />
+							<p>Higher amounts imply fewer clergy, and vice-versa</p>
+						</div>
+						<div>
+							<label htmlFor="clergyPerPriest">Clergy per Priest</label>
+							<input type="number" id="clergyPerPriest" value={clergyPerPriest} onChange={this.handleClergyPerPriest} />
+							<p>Higher amounts imply fewer priests, and vice-versa</p>
 						</div>
 					</fieldset>
 					<button className="laff-btn laff-btn-primary" type="submit">Generate Region</button>

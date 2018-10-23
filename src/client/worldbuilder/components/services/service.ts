@@ -4,7 +4,7 @@
  * 
  * Huge code smells here
  */
-export default class Service {	
+export class Service {	
 	constructor(public Name: string, public SupportValue: number) {
 
 	}

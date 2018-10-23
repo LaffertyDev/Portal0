@@ -1,7 +1,7 @@
 import * as React from "react";
-import VUtils from "../../utils";
-import Settlement from "../settlement/settlement";
-import SettlementRender from "../settlement/settlementrender";
+import { VUtils } from "../../utils";
+import { RegionSummary } from "../settlement/regionsummary";
+import { Settlement } from "../settlement/settlement";
 import { RegionModel } from "./region";
 
 interface IRegionRenderProps extends React.Props<RegionRender> {
@@ -11,7 +11,7 @@ interface IRegionRenderProps extends React.Props<RegionRender> {
 /**
  * The region component, which displays a region with all of its fields in a user-friendly format
  */
-export default class RegionRender extends React.Component<IRegionRenderProps, {}> {
+export class RegionRender extends React.Component<IRegionRenderProps, {}> {
 	constructor(props: IRegionRenderProps) {
 		super(props);
 	}
@@ -100,7 +100,7 @@ export default class RegionRender extends React.Component<IRegionRenderProps, {}
 							#Towns: { this.props.region.Towns.length.toLocaleString() }
 						</li>
 					</ul>
-					<SettlementRender Settlements={settlements}></SettlementRender>
+					<RegionSummary Settlements={settlements}></RegionSummary>
 				</div>
 			</div>
 		);

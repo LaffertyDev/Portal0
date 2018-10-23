@@ -1,4 +1,4 @@
-export default class VUtils {
+export class VUtils {
 
 	public static prettyPrintPercent(val: number): string {
 		return parseFloat((val * 100).toPrecision(3)).toLocaleString();

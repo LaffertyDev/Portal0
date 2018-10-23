@@ -1,10 +1,10 @@
 import { RegionGenConfig } from "../region/regiongenconfig";
-import Service from "../services/service";
+import { Service } from "../services/service";
 
 /**
  * A settlement where humanoids live
  */
-export default class Settlement {
+export class Settlement {
 
 	public CityMilesSq: number;
 	public CityPopulation: number;

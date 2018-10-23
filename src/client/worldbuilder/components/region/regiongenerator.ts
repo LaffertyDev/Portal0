@@ -1,4 +1,4 @@
-import Settlement from "../settlement/settlement";
+import { Settlement } from "../settlement/settlement";
 import { RegionModel } from "./region";
 import { RegionGenConfig } from "./regiongenconfig";
 
@@ -36,7 +36,6 @@ export class RegionGenerator {
 		// step 2, determine outskirts settlement population
 
 		let totalGeneratedPopulation = 0;
-		let totalCountrysidePopulation = 0;
 		let lastCityPopulation = Math.floor(Math.sqrt(regionGenConfiguration.RegionPopulation)) * (this.getRandomArbitraryInteger(2, 8) + 10);
 		const capitol = new Settlement(lastCityPopulation, regionGenConfiguration);
 		totalGeneratedPopulation += capitol.GetTotalPopulation();
@@ -48,7 +47,6 @@ export class RegionGenerator {
 			const populationReduction = this.getRandomArbitraryInteger(0.1, 0.4);
 			lastCityPopulation = lastCityPopulation * populationReduction;
 			totalGeneratedPopulation += city.GetTotalPopulation();
-			totalCountrysidePopulation += city.CountrysidePopulation;
 		}
 
 		const numTowns = region.Cities.length * this.getRandomArbitraryInteger(2, 16);
@@ -63,7 +61,6 @@ export class RegionGenerator {
 			const settlement = new Settlement(townPopulation, regionGenConfiguration);
 			region.Towns.push(settlement);
 			totalGeneratedPopulation += settlement.GetTotalPopulation();
-			totalCountrysidePopulation += settlement.CountrysidePopulation;
 		}
 
 		/**
@@ -76,17 +73,6 @@ export class RegionGenerator {
 		 * 5. Hamlet	(cluster of farmhouses)
 		 */
 		return region;
-	}
-
-	private buildCities(): void {
-		//
-	}
-
-	private buildRemainingVillages(): void {
-		//
-	}
-	private buildTowns(): void {
-		//
 	}
 
 	private getRandomArbitraryInteger(min: number, max: number) {
