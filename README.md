@@ -24,6 +24,7 @@ After generating the Keypair, however, I now needed to figure out how to get nod
 1. https://superuser.com/questions/232373/how-to-tell-git-which-private-key-to-use
 2. https://gist.github.com/zhujunsan/a0becf82ade50ed06115
 3. https://nerderati.com/2011/03/17/simplify-your-life-with-an-ssh-config-file/
+4. https://stackoverflow.com/questions/22768517/how-to-manage-one-only-key-per-each-git-repository
 
 I don't currently know how to have separate keys for Github, that node/npm can use, with the SSH config.
 
@@ -36,3 +37,5 @@ Reminders for myself on how to set this up again in the future:
 2. Setup remote origin on my dev machine to point to the prod server
 3. Setup deploy SSH keys on the server (with read access)
 4. Setup SSH Config so node resolves the SSH keys correctly
+5. On windows, don't forget to enable the `ssh-agent` windows service -- check services!
+6. On windows, don't forget to make a config identify file

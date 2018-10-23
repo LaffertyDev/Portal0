@@ -47,10 +47,7 @@ const worldbuilder = {
 	],
 	output: {
 		file: "www/dist/worldbuilder.bundle.js",
-		format: "cjs",
-		paths: {
-			//"three": "../node_modules/three/build/three.module.js"
-		},
+		format: "es",
 		sourcemap: true
 	},
 	plugins: [
@@ -68,8 +65,6 @@ const worldbuilder = {
 		replace({
 		  'process.env.NODE_ENV': JSON.stringify( 'production' )
 		}),
-		// Typescript outputs sourcemaps separately
-		// We want to bundle the chained-sourcemaps so the browser can debug correctly
 		sourcemaps()
 	]
 };
