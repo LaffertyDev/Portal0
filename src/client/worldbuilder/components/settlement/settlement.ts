@@ -1,5 +1,5 @@
 import { RegionGenConfig } from "../region/regiongenconfig";
-import { Service } from "../services/service";
+import { SettlementService } from "../settlementservices/settlementservice";
 
 /**
  * A settlement where humanoids live
@@ -14,7 +14,7 @@ export class Settlement {
 	public LawOfficers: number;
 	public NobleFamilies: number;
 	public Priests: number;
-	public Services: Service[];
+	public Services: SettlementService[];
 	public SupportingVillages: number;
 	public TotalBuildings: number;
 
@@ -48,11 +48,11 @@ export class Settlement {
 		this.TotalBuildings = Math.floor(cityPopulation / advancedSettings.HouseholdSize * advancedSettings.WarehousesPerBuildingMultiplier);
 		this.Services = [];
 
-		const potentialServices = Service.GetServices();
+		const potentialServices = SettlementService.GetServices();
 		for (const service of potentialServices) {
 			const numServices = Math.floor(this.CityPopulation / service.SupportValue);
 			for (let y = 0; y < numServices; y++) {
-				this.Services.push(new Service(service.Name, service.SupportValue));
+				this.Services.push(new SettlementService(service.Name, service.SupportValue));
 			}
 		}
 	}

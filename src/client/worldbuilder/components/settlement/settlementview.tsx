@@ -90,14 +90,15 @@ export class SettlementView extends React.Component<ISettlementProps, {}> {
 					</dd>
 				</dl>
 				<dl>
-					{this.props.Settlement.Services.map((service) => {
+					{ 
+						[...VUtils.groupBy(this.props.Settlement.Services, ((service) => service.Name))].map((service) => {
 						return (
 							<React.Fragment>
 								<dt>
-									{service.Name}
+									{ service[0] }
 								</dt>
 								<dd>
-									{service.SupportValue}
+									{ [service[1].length ]}
 								</dd>
 							</React.Fragment>
 						);
