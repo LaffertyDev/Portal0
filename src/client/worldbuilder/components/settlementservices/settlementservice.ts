@@ -11,7 +11,7 @@ export class SettlementService {
 
 	public static GetServices() {
 		const potentialServices = [];
-		potentialServices.push(new SettlementService("Showmakers", 150));
+		potentialServices.push(new SettlementService("Shoemakers", 150));
 		potentialServices.push(new SettlementService("Furriers", 250));
 		potentialServices.push(new SettlementService("Maidservants", 250));
 		potentialServices.push(new SettlementService("Tailors", 250));

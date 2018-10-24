@@ -32,7 +32,7 @@ export class SettlementView extends React.Component<ISettlementProps, {}> {
 						City Area Miles²
 					</dt>
 					<dd>
-						{VUtils.prettyPrintRounded(this.props.Settlement.CityMilesSq)} ({cityDimensions}² miles)
+						{`${VUtils.prettyPrintRounded(this.props.Settlement.CityMilesSq)} (${cityDimensions}² miles)` }
 					</dd>
 					<dt>
 						Countryside Population
@@ -44,13 +44,13 @@ export class SettlementView extends React.Component<ISettlementProps, {}> {
 						Countryside Area Miles²
 					</dt>
 					<dd>
-						{VUtils.prettyPrintRounded(this.props.Settlement.CountrysideMilesSq)} ({countrysideDimensions}² miles)
+						{`${VUtils.prettyPrintRounded(this.props.Settlement.CountrysideMilesSq)} (${countrysideDimensions}² miles)` }
 					</dd>
 					<dt>
 						Villages
 					</dt>
 					<dd>
-						{this.props.Settlement.SupportingVillages.toLocaleString()} ({avgVillagePop.toLocaleString()} avg people)
+						{ `${this.props.Settlement.SupportingVillages.toLocaleString()} (${avgVillagePop.toLocaleString()} avg people)` }
 					</dd>
 					<dt>
 						Services
@@ -98,7 +98,7 @@ export class SettlementView extends React.Component<ISettlementProps, {}> {
 									{ service[0] }
 								</dt>
 								<dd>
-									{ [service[1].length ]}
+									{ service[1].length }
 								</dd>
 							</React.Fragment>
 						);

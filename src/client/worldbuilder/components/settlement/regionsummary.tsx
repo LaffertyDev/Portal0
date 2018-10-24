@@ -81,11 +81,9 @@ export class RegionSummary extends React.Component<IRegionSummaryProps, {}> {
 					</tbody>
 				</table>
 				<hr />
-				<div>
-					{this.props.Settlements.map((settlement) => {
-						return <SettlementView Settlement={settlement}></SettlementView>;
-					})}
-				</div>
+				{this.props.Settlements.map((settlement) => {
+					return <SettlementView Settlement={settlement}></SettlementView>;
+				})}
 			</div>
 		);
 	}
