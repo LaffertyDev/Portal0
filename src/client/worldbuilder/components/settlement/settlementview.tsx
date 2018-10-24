@@ -91,7 +91,13 @@ export class SettlementView extends React.Component<ISettlementProps, {}> {
 				</dl>
 				<dl>
 					{ 
-						[...VUtils.groupBy(this.props.Settlement.Services, ((service) => service.Name))].map((service) => {
+						[...VUtils.groupBy(this.props.Settlement.Services, ((service) => service.Name))].sort((a, b) => {
+							if (a[0] < b[0]) {
+								return -1;
+							} else {
+								return 1;
+							}
+						}).map((service) => {
 						return (
 							<React.Fragment>
 								<dt>
