@@ -65,30 +65,6 @@ export class SettlementView extends React.Component<ISettlementProps, {}> {
 					<dd>
 						{this.props.Settlement.TotalBuildings.toLocaleString()}
 					</dd>
-					<dt>
-						Noble Families
-					</dt>
-					<dd>
-						{this.props.Settlement.NobleFamilies.toLocaleString()}
-					</dd>
-					<dt>
-						Clergy
-					</dt>
-					<dd>
-						{this.props.Settlement.Clergy.toLocaleString()}
-					</dd>
-					<dt>
-						Priests
-					</dt>
-					<dd>
-						{this.props.Settlement.Priests.toLocaleString()}
-					</dd>
-					<dt>
-						Guards
-					</dt>
-					<dd>
-						{this.props.Settlement.LawOfficers.toLocaleString()}
-					</dd>
 				</dl>
 				<h3>Town Professions</h3>
 				<dl>

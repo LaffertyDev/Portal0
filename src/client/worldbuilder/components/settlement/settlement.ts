@@ -8,12 +8,8 @@ export class Settlement {
 
 	public CityMilesSq: number;
 	public CityPopulation: number;
-	public Clergy: number;
 	public CountrysideMilesSq: number;
 	public CountrysidePopulation: number;
-	public LawOfficers: number;
-	public NobleFamilies: number;
-	public Priests: number;
 	public Services: SettlementService[];
 	public SupportingVillages: number;
 	public TotalBuildings: number;
@@ -38,12 +34,6 @@ export class Settlement {
 
 		this.CityMilesSq = cityPopulation / advancedSettings.CityPeoplePerSqMile;
 
-		// people stats
-		this.NobleFamilies = Math.floor(cityPopulation / advancedSettings.PeoplePerNobleFamily);
-		this.LawOfficers = Math.floor(cityPopulation / advancedSettings.PeoplePerOfficer);
-		this.Clergy = Math.floor(cityPopulation / advancedSettings.PeoplePerClergy);
-		this.Priests = Math.floor(this.Clergy / advancedSettings.ClergyPerPriest);
-		
 		// building stats
 		this.TotalBuildings = Math.floor(cityPopulation / advancedSettings.HouseholdSize * advancedSettings.WarehousesPerBuildingMultiplier);
 		this.Services = [];

@@ -6,15 +6,11 @@ export class RegionGenConfig {
 	
 	public AverageFarmSizeAcres: number; // 20 - 40
 	public CityPeoplePerSqMile: number;
-	public ClergyPerPriest: number;
 
 	public HouseholdSize: number;
 	public LivestockPerPerson: number;
 
 	public PeoplePerCastle: number;
-	public PeoplePerClergy: number;
-	public PeoplePerNobleFamily: number;
-	public PeoplePerOfficer: number;
 	public PeoplePerRuinedCastle: number;
 	public PeoplePerSqMileFarmland: number;
 	public PercentageOfCastlesInOutskirts: number;
@@ -34,11 +30,6 @@ export class RegionGenConfig {
 
 		this.PeoplePerSqMileFarmland = 180;
 		this.AverageFarmSizeAcres = 20; // 20 - 40
-
-		this.PeoplePerNobleFamily = 200;
-		this.PeoplePerOfficer = 150;
-		this.PeoplePerClergy = 40;
-		this.ClergyPerPriest = 25; // 25-30
 
 		this.HouseholdSize = 5;
 		this.WarehousesPerBuildingMultiplier = 1.4; // 1.0 - 1.4

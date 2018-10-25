@@ -11,6 +11,10 @@ export class SettlementService {
 
 	public static GetServices() {
 		const potentialServices = [];
+		potentialServices.push(new SettlementService("Noble Families", 200));
+		potentialServices.push(new SettlementService("Officers", 150));
+		potentialServices.push(new SettlementService("Clergy", 40));
+		potentialServices.push(new SettlementService("Priests", 1000));
 		potentialServices.push(new SettlementService("Shoemakers", 150));
 		potentialServices.push(new SettlementService("Furriers", 250));
 		potentialServices.push(new SettlementService("Maidservants", 250));
@@ -64,6 +68,7 @@ export class SettlementService {
 		potentialServices.push(new SettlementService("Woodcarvers", 2400));
 		potentialServices.push(new SettlementService("Booksellers", 6300));
 		potentialServices.push(new SettlementService("Illuminators", 3900));
+
 		return potentialServices;
 	}
 }

@@ -30,10 +30,6 @@ export class RegionForm extends React.Component<IRegionFormProp, RegionGenConfig
 		this.handlePercentageOfCastlesInOutskirts = this.handlePercentageOfCastlesInOutskirts.bind(this);
 		this.handlepeoplePerFarmlandSqMiles = this.handlepeoplePerFarmlandSqMiles.bind(this);
 		this.handleAverageFarmSizeAcres = this.handleAverageFarmSizeAcres.bind(this);
-		this.handlePeoplePerNobleFamily = this.handlePeoplePerNobleFamily.bind(this);
-		this.handlePeoplePerOfficer = this.handlePeoplePerOfficer.bind(this);
-		this.handlePeoplePerClergy = this.handlePeoplePerClergy.bind(this);
-		this.handleClergyPerPriest = this.handleClergyPerPriest.bind(this);
 		this.handleHouseholdSize = this.handleHouseholdSize.bind(this);
 		this.handleWarehousesPerBuildingMultiplier = this.handleWarehousesPerBuildingMultiplier.bind(this);
 		this.handlecityPeoplePerMileSq = this.handlecityPeoplePerMileSq.bind(this);
@@ -46,9 +42,6 @@ export class RegionForm extends React.Component<IRegionFormProp, RegionGenConfig
 	public handlecityPeoplePerMileSq(event: React.ChangeEvent<HTMLInputElement>) {
 		this.setState({CityPeoplePerSqMile: Number.parseInt(event.target.value, 10)});
 	}
-	public handleClergyPerPriest(event: React.ChangeEvent<HTMLInputElement>) {
-		this.setState({ClergyPerPriest: Number.parseInt(event.target.value, 10)});
-	}
 	public handleHouseholdSize(event: React.ChangeEvent<HTMLInputElement>) {
 		this.setState({HouseholdSize: Number.parseInt(event.target.value, 10)});
 	}
@@ -59,17 +52,8 @@ export class RegionForm extends React.Component<IRegionFormProp, RegionGenConfig
 	public handlePeoplePerCastle(event: React.ChangeEvent<HTMLInputElement>) {
 		this.setState({PeoplePerCastle: Number.parseInt(event.target.value, 10)});
 	}
-	public handlePeoplePerClergy(event: React.ChangeEvent<HTMLInputElement>) {
-		this.setState({PeoplePerClergy: Number.parseInt(event.target.value, 10)});
-	}
 	public handlepeoplePerFarmlandSqMiles(event: React.ChangeEvent<HTMLInputElement>) {
 		this.setState({PeoplePerSqMileFarmland: Number.parseInt(event.target.value, 10)});
-	}
-	public handlePeoplePerNobleFamily(event: React.ChangeEvent<HTMLInputElement>) {
-		this.setState({PeoplePerNobleFamily: Number.parseInt(event.target.value, 10)});
-	}
-	public handlePeoplePerOfficer(event: React.ChangeEvent<HTMLInputElement>) {
-		this.setState({PeoplePerOfficer: Number.parseInt(event.target.value, 10)});
 	}
 	public handlePeoplePerRuinedCastle(event: React.ChangeEvent<HTMLInputElement>) {
 		this.setState({PeoplePerRuinedCastle: Number.parseInt(event.target.value, 10)});
@@ -119,10 +103,6 @@ export class RegionForm extends React.Component<IRegionFormProp, RegionGenConfig
 		const percentageOfCastlesInOutskirts = this.state.PercentageOfCastlesInOutskirts;
 		const peoplePerFarmlandSqMiles = this.state.PeoplePerSqMileFarmland;
 		const averageFarmSizeAcres = this.state.AverageFarmSizeAcres;
-		const peoplePerNobleFamily = this.state.PeoplePerNobleFamily;
-		const peoplePerOfficer = this.state.PeoplePerOfficer;
-		const peoplePerClergy = this.state.PeoplePerClergy;
-		const clergyPerPriest = this.state.ClergyPerPriest;
 		const householdSize = this.state.HouseholdSize;
 		const warehousesPerBuildingMultiplier = this.state.WarehousesPerBuildingMultiplier;
 		const cityPeoplePerMileSq = this.state.CityPeoplePerSqMile;
@@ -206,29 +186,6 @@ export class RegionForm extends React.Component<IRegionFormProp, RegionGenConfig
 							<label htmlFor="percentageOfLivestockIsFowl">Livestock Fowl Ratio</label>
 							<input type="number" id="percentageOfLivestockIsFowl" value={percentageOfLivestockIsFowl} onChange={this.handlePercentageOfLivestockIsFowl} />
 							<p>Medieval societies generally raised more fowl. Higher percentages imply more fowl. (Chickens, Turkeys, etc.)</p>
-						</div>
-					</fieldset>
-					<h3>Profession Ratios</h3>
-					<fieldset>
-						<div>
-							<label htmlFor="peoplePerNobleFamily">People per Noble Family</label>
-							<input type="number" id="peoplePerNobleFamily" value={peoplePerNobleFamily} onChange={this.handlePeoplePerNobleFamily} />
-							<p>Higher amounts imply fewer nobility, and vice-versa</p>
-						</div>
-						<div>
-							<label htmlFor="peoplePerOfficer">People per Officer</label>
-							<input type="number" id="peoplePerOfficer" value={peoplePerOfficer} onChange={this.handlePeoplePerOfficer} />
-							<p>Higher amounts imply fewer officers, and vice-versa</p>
-						</div>
-						<div>
-							<label htmlFor="peoplePerClergy">People per Clergy</label>
-							<input type="number" id="peoplePerClergy" value={peoplePerClergy} onChange={this.handlePeoplePerClergy} />
-							<p>Higher amounts imply fewer clergy, and vice-versa</p>
-						</div>
-						<div>
-							<label htmlFor="clergyPerPriest">Clergy per Priest</label>
-							<input type="number" id="clergyPerPriest" value={clergyPerPriest} onChange={this.handleClergyPerPriest} />
-							<p>Higher amounts imply fewer priests, and vice-versa</p>
 						</div>
 					</fieldset>
 					<button className="laff-btn laff-btn-primary" type="submit">Generate Region</button>

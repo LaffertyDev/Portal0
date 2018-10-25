@@ -28,10 +28,6 @@ export class RegionSummary extends React.Component<IRegionSummaryProps, {}> {
 							<td>Villages</td>
 							<td>Services</td>
 							<td>Total Buildings</td>
-							<td>Noble Families</td>
-							<td>Clergy</td>
-							<td>Priests</td>
-							<td>Law Officers</td>
 						</tr>
 					</thead>
 					<tbody>
@@ -62,18 +58,6 @@ export class RegionSummary extends React.Component<IRegionSummaryProps, {}> {
 									</td>
 									<td>
 										{settlement.TotalBuildings.toLocaleString()}
-									</td>
-									<td>
-										{settlement.NobleFamilies.toLocaleString()}
-									</td>
-									<td>
-										{settlement.Clergy.toLocaleString()}
-									</td>
-									<td>
-										{settlement.Priests.toLocaleString()}
-									</td>
-									<td>
-										{settlement.LawOfficers.toLocaleString()}
 									</td>
 								</tr>
 							);
