@@ -2,12 +2,15 @@
     border-bottom: 3px solid $neutral-grey;
     background-color: $complementary-neutral-dark;
     color: $white;
-    padding: 0.5em;
-    display:flex;
-    align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .#{$namespace}-logo {
-    margin: 0px;
+    // I'm not really happy about this
+    // This is because I can't intsersect the logo's margin with the
+    // header's padding
+    // I can't change the header's padding because I want all headers to have an internal padding
+    // I still want spacing between the logo and the nav elements, though
+    margin: 0.5rem 0.5rem 0.5rem 0rem;
 }

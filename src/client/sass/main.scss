@@ -27,6 +27,12 @@ body {
     background-color: $complementary-neutral;
 }
 
+header, footer {
+    display:flex;
+    align-items: center;
+    padding: 0.5rem;
+}
+
 section {
     background-color: $white;
     width: 75%;
@@ -37,15 +43,13 @@ section {
     padding-bottom: 10px;
 
     & > header {
-        padding: 7px 15px;
         background-color: $complementary-neutral-light;
         font-size: 1.5em;
-        line-height: 2em;
+        line-height: 1.5em;
     }
 
     .#{$namespace}-section-copy {
-        padding-left: 15px;
-        padding-right: 15px;
+        margin: 0.5em;
     }
 }
 
@@ -109,7 +113,7 @@ td {
 
 thead {
     td {
-        font-weight: 700;
+        font-weight: bold;
     }
 }
 
