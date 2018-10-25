@@ -1,10 +1,13 @@
 .#{$namespace}-site-header {
-    border: 3px solid $neutral-grey;
-    border-left: 0;
-    border-top: 0;
-    border-right: 0;
-    margin-bottom: 1em;
-    line-height: 3em;
+    border-bottom: 3px solid $neutral-grey;
     background-color: $complementary-neutral-dark;
     color: $white;
+    padding: 0.5em;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.#{$namespace}-logo {
+    margin: 0px;
 }

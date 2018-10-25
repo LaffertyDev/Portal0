@@ -11,14 +11,19 @@ html {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+html, body {
+    height: 100%;
+}
+
 div {
     color: $black;
 }
 
 body {
-    position: relative;
+    display: grid;
+    grid-template-rows: max-content 1fr 50px;
+    grid-row-gap: 1rem;
     margin: 0em;
-    padding-bottom: 74px; //the exact size of the footer!
     background-color: $complementary-neutral;
 }
 
@@ -78,8 +83,8 @@ nav {
     ul {
         margin: 0em;
         padding: 0em;
-        padding-right: 5px;
         list-style: none;   
+
         li {
             display: inline-block;
             //margin-left: -4px;
@@ -87,8 +92,6 @@ nav {
             background-color: $primary-light;
             border-radius: 8px;
             line-height: 2em;
-
-            //emily recommends removing background & just having links
 
             a {
                 color: $white;
