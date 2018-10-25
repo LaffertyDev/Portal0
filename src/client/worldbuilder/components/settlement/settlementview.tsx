@@ -20,7 +20,7 @@ export class SettlementView extends React.Component<ISettlementProps, {}> {
 		const avgVillagePop = Math.floor(this.props.Settlement.CountrysidePopulation / this.props.Settlement.SupportingVillages).toLocaleString();
 
 		return (
-			<div>
+			<div className="laff-column">
 				<dl>
 					<dt>
 						Population

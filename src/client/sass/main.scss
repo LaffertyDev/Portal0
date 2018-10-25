@@ -112,9 +112,8 @@ thead {
 
 dl {
     display: grid;
-    grid-template-columns: max-content auto;
-    row-gap: 0.25rem;
-    column-gap: 1rem;
+    grid-template-columns: max-content max-content;
+    line-height: 1.6;
 }
   
 dt {
@@ -124,5 +123,4 @@ dt {
   
 dd {
     grid-column-start: 2;
-    margin: 0px; // reset margin
 }
