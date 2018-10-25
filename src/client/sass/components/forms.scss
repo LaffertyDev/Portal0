@@ -1,0 +1,12 @@
+form {
+    max-width: 50vw;
+}
+
+label + input {
+    margin-left: 5px;
+}
+
+input {
+    font-size: 0.85em;
+    padding: 0.25em;
+}

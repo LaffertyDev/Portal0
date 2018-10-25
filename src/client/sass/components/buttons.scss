@@ -1,4 +1,8 @@
-
+button {
+    &:hover {
+        cursor: pointer;
+    }
+}
 
 .#{$namespace}-btn-primary {
     background-color: $primary-colour;

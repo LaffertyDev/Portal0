@@ -1,3 +1,17 @@
+dl {
+    display: grid;
+    grid-template-columns: max-content max-content;
+    line-height: 1.6;
+}
+  
+dt {
+    grid-column-start: 1;
+    font-weight: bold;
+}
+  
+dd {
+    grid-column-start: 2;
+}
 
 .#{$namespace}-column {
 	column-width: 350px;
