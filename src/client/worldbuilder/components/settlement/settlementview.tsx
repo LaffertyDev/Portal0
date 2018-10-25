@@ -21,6 +21,7 @@ export class SettlementView extends React.Component<ISettlementProps, {}> {
 
 		return (
 			<div className="laff-column">
+				<h3>Town Stats</h3>
 				<dl>
 					<dt>
 						Population
@@ -89,6 +90,7 @@ export class SettlementView extends React.Component<ISettlementProps, {}> {
 						{this.props.Settlement.LawOfficers.toLocaleString()}
 					</dd>
 				</dl>
+				<h3>Town Professions</h3>
 				<dl>
 					{ 
 						[...VUtils.groupBy(this.props.Settlement.Services, ((service) => service.Name))].sort((a, b) => {
