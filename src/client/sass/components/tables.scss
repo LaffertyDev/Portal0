@@ -1,11 +1,15 @@
 
 table {
+	display: inline-block;
+	max-width: 100%;
+	overflow-x: auto;
 	border-spacing: 0px;
+	border-collapse: collapse;
 }
 
 td {
 	padding: 0.5em;
-	border: 1px solid $primary-neutral-light;
+	border: 1px solid $primary-neutral;
 }
 
 thead {
