@@ -140,7 +140,8 @@ export class RegionForm extends React.Component<IRegionFormProp, RegionGenConfig
 						</div>
 						<div>
 							<label htmlFor="percentageOfCastlesInOutskirts">Castle % in outskirts</label>
-							<input type="number" id="percentageOfCastlesInOutskirts" value={percentageOfCastlesInOutskirts} onChange={this.handlePercentageOfCastlesInOutskirts} />
+							<input type="number" id="percentageOfCastlesInOutskirts" 
+								value={percentageOfCastlesInOutskirts} onChange={this.handlePercentageOfCastlesInOutskirts} step="0.01"/>
 						</div>
 					</fieldset>
 					<h3>City Settings</h3>
@@ -148,7 +149,7 @@ export class RegionForm extends React.Component<IRegionFormProp, RegionGenConfig
 						<div>
 							<label htmlFor="warehousesPerBuildingMultiplier">Warehouses per Building Multiplier</label>
 							<input type="number" id="warehousesPerBuildingMultiplier" 
-								value={warehousesPerBuildingMultiplier} onChange={this.handleWarehousesPerBuildingMultiplier} />
+								value={warehousesPerBuildingMultiplier} onChange={this.handleWarehousesPerBuildingMultiplier} step="0.1" />
 							<p>Used in conjunction with people per household to determine storage requirements of the cities.</p>
 						</div>
 						<div>
@@ -179,12 +180,13 @@ export class RegionForm extends React.Component<IRegionFormProp, RegionGenConfig
 						</div>
 						<div>
 							<label htmlFor="livestockPerPerson">Livestock per Person</label>
-							<input type="number" id="livestockPerPerson" value={livestockPerPerson} onChange={this.handleLivestockPerPerson} />
+							<input type="number" id="livestockPerPerson" value={livestockPerPerson} onChange={this.handleLivestockPerPerson} step="0.1" />
 							<p>Medieval societies had a lot of animals, mostly work animals. This includes Cows, Sheeps, Pigs, Chickens, etc.</p>
 						</div>
 						<div>
 							<label htmlFor="percentageOfLivestockIsFowl">Livestock Fowl Ratio</label>
-							<input type="number" id="percentageOfLivestockIsFowl" value={percentageOfLivestockIsFowl} onChange={this.handlePercentageOfLivestockIsFowl} />
+							<input type="number" id="percentageOfLivestockIsFowl" 
+							value={percentageOfLivestockIsFowl} onChange={this.handlePercentageOfLivestockIsFowl} step="0.01" />
 							<p>Medieval societies generally raised more fowl. Higher percentages imply more fowl. (Chickens, Turkeys, etc.)</p>
 						</div>
 					</fieldset>
