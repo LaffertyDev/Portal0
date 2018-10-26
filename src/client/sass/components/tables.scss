@@ -1,0 +1,17 @@
+
+table {
+	border-spacing: 0px;
+}
+
+td {
+	padding: 0.5em;
+	border: 1px solid $primary-neutral-light;
+}
+
+thead {
+	background-color: $primary-neutral-light;
+
+    td {
+        font-weight: bold;
+    }
+}

@@ -4,6 +4,7 @@
 @import './components/wb-region';
 @import './components/forms';
 @import './components/lists';
+@import './components/tables.scss';
 
 .#{$namespace}-video {
     width: 320px;

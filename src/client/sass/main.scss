@@ -27,20 +27,24 @@ body {
     background-color: $complementary-neutral;
 }
 
+main {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1024px;
+}
+
 header, footer {
     display:flex;
     align-items: center;
+    flex-wrap: wrap;
     padding: 0.5rem;
 }
 
 section {
     background-color: $white;
-    width: 75%;
-    margin-left: 12.5%;
-    margin-right: 12.5%;
-    margin-bottom: 25px;
+    margin-bottom: 2rem;
     box-shadow: 1px 2px 3px 0 rgba(0,0,0,0.3);
-    padding-bottom: 10px;
 
     & > header {
         background-color: $complementary-neutral-light;
@@ -66,14 +70,4 @@ code {
 
 img {
     overflow: scroll;
-}
-
-td {
-    padding: 5px;
-}
-
-thead {
-    td {
-        font-weight: bold;
-    }
 }
