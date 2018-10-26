@@ -1,12 +1,9 @@
-form {
-    max-width: 50vw;
-}
-
-label + input {
-    margin-left: 5px;
+label {
+    margin-right: 0.5em;
 }
 
 input {
-    font-size: 0.85em;
-    padding: 0.25em;
+    font-size: 16px;
+	padding: 0.3em;
+	margin: 0.5em 0;
 }
