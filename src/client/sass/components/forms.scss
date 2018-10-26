@@ -3,7 +3,7 @@ label {
 }
 
 input {
-    font-size: 16px;
+	font-size: 100%; // font-size on mobile, if less than 16px, will "Zoom In" when the input is selected
 	padding: 0.3em;
 	margin: 0.5em 0;
 }
