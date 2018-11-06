@@ -39,3 +39,14 @@ Reminders for myself on how to set this up again in the future:
 4. Setup SSH Config so node resolves the SSH keys correctly
 5. On windows, don't forget to enable the `ssh-agent` windows service -- check services!
 6. On windows, don't forget to make a config identify file
+
+## Adding a View
+
+Too hands on, can automate this.
+
+1. Add `.hbs` file in `/views` directory
+2. Add link to URL in the `header.hbs` file
+3. Add route to express in `server.ts`
+4. Add compilation file to `build.js` file
+
+All of this could 100% be automated away.
