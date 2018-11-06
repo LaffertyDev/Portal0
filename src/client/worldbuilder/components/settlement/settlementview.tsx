@@ -19,6 +19,24 @@ export class SettlementView extends React.Component<ISettlementProps, {}> {
 		const countrysideDimensions = Math.sqrt(this.props.Settlement.CountrysideMilesSq).toPrecision(3).toLocaleString();
 		const avgVillagePop = Math.floor(this.props.Settlement.CountrysidePopulation / this.props.Settlement.SupportingVillages).toLocaleString();
 
+		const cityAreaRadius = VUtils.GetRadiusFromArea(this.props.Settlement.CityMilesSq);
+		const regionAreaRadius = VUtils.GetRadiusFromArea(this.props.Settlement.CountrysideMilesSq);
+		const villageCoordinates = [];
+		const villageDimension = Math.sqrt(this.props.Settlement.CountrysideMilesSq / this.props.Settlement.SupportingVillages);
+		const villagesPerRow = Math.ceil(Math.sqrt(this.props.Settlement.SupportingVillages));
+		let y = 0;
+		for (let x = 0; x < this.props.Settlement.SupportingVillages; x++) {
+			if (x !== 0 && x % villagesPerRow === 0) {
+				y++;
+			}
+
+			villageCoordinates.push({
+				R: 0.1,
+				X: (x % villagesPerRow) * villageDimension,
+				Y: y * villageDimension,
+			});
+		}
+
 		return (
 			<div className="laff-column">
 				<h3>Town Stats</h3>
@@ -88,6 +106,14 @@ export class SettlementView extends React.Component<ISettlementProps, {}> {
 						);
 					})}
 				</dl>
+				<svg viewBox="0 0 100 100">
+					<circle cx={regionAreaRadius} cy={regionAreaRadius} r={regionAreaRadius} stroke="red" stroke-width="0" fill="green"/>
+					<circle cx={regionAreaRadius} cy={regionAreaRadius} r={cityAreaRadius} stroke="black" stroke-width="0" fill="black"/>
+					{villageCoordinates.map((coord) => {
+						return <circle cx={coord.X} cy={coord.Y} r={coord.R} fill="blue" />;
+					})		
+					}
+				</svg>
 			</div>
 		);
 	}

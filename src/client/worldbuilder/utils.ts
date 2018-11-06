@@ -13,6 +13,10 @@ export class VUtils {
 		return a + b;
 	}
 
+	public static GetRadiusFromArea(area: number): number {
+		return Math.sqrt(area / Math.PI);
+	}
+
 	public static groupBy<T>(list: T[], keyGetter: (arg: T) => string): Map<string, T[]> {
 		const map = new Map<string, T[]>();
 		list.forEach((item) => {
