@@ -10,7 +10,7 @@ export interface ITravelSettings {
 }
 
 export class TimeDistance {
-	private isChangingDistance: boolean = true;
+	private previouslyChangedDistance: boolean = true;
 
 	constructor() {
 		const form = document.getElementById("travelform") as HTMLFormElement;
@@ -69,12 +69,12 @@ export class TimeDistance {
 
 		// If user changes days travelled, but distance remained the same
 		if ((change.target as HTMLInputElement).name === "timeinput" || 
-			((change.target as HTMLInputElement).name !== "distanceinput" && this.isChangingDistance)) {
+			((change.target as HTMLInputElement).name !== "distanceinput" && this.previouslyChangedDistance)) {
 			parsedDistance =  calculator.ComputeDistanceFromTime(parsedDaysTravelled, kmPerDay);
-			this.isChangingDistance = true;
+			this.previouslyChangedDistance = true;
 		} else {
 			parsedDaysTravelled = calculator.ComputeTimeFromDistance(parsedDistance, kmPerDay);
-			this.isChangingDistance = false;
+			this.previouslyChangedDistance = false;
 		}
 
 		if (!isKm) {
