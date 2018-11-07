@@ -1,5 +1,5 @@
 import { ModifierMapping } from "./enums";
-import { ITravelSettings } from "./timedistance.wc";
+import { ITravelSettings } from "./timedistance";
 
 export class TimeDistanceCalculator {
 	constructor() {

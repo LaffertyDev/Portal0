@@ -1,5 +1,5 @@
 import { Load, Terrain, TravellingMethod, TravellingPace, Weather } from "./enums";
-import { ITravelSettings } from "./timedistance.wc";
+import { ITravelSettings } from "./timedistance";
 import { TimeDistanceCalculator } from "./timedistancecalculator";
 
 describe("time distance calculator", () => {

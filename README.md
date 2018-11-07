@@ -48,5 +48,6 @@ Too hands on, can automate this.
 2. Add link to URL in the `header.hbs` file
 3. Add route to express in `server.ts`
 4. Add compilation file to `build.js` file
+5. (If Javascript) Add compilation info to Rollup
 
 All of this could 100% be automated away.

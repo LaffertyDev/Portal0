@@ -23,6 +23,7 @@
   "license": "GPL-3.0",
   "dependencies": {
     "express": "^4.16.4",
+    "lit-html": "^0.12.0",
     "react": "^16.5.2",
     "react-dom": "^16.5.2"
   },
