@@ -10,6 +10,8 @@ export interface ITravelSettings {
 }
 
 export class TimeDistance {
+	private isChangingDistance: boolean = true;
+
 	constructor() {
 		const form = document.getElementById("travelform") as HTMLFormElement;
 		const formInputs = form.querySelectorAll("input");
@@ -21,7 +23,8 @@ export class TimeDistance {
 	private HandleFormChange(change: Event) {
 		const formData = new FormData(document.getElementById("travelform") as HTMLFormElement);
 		const isKm = formData.get("distancemeasurement") === "Kilometers";
-		const isDeterminingDistance = true;
+		const distance = formData.get("distanceinput");
+		const daysTravelled = formData.get("timeinput");
 		const weather = formData.get("travelweather");
 		const method = formData.get("travelmethod");
 		const load = formData.get("travelcapacity");
@@ -61,22 +64,24 @@ export class TimeDistance {
 
 		const kmPerDay = ModifierMapping.GetMethodRange(parsedMethod).GetResult() * modifier;
 
-		let distance: number;
-		let daysTravelled: number;
+		let parsedDistance: number = Number.parseFloat(distance as string);
+		let parsedDaysTravelled: number = Number.parseFloat(daysTravelled as string);
 
-		if (isDeterminingDistance) {
-			daysTravelled = Number.parseFloat(formData.get("timeinput") as string);
-			distance =  calculator.ComputeDistanceFromTime(daysTravelled, kmPerDay);
+		// If user changes days travelled, but distance remained the same
+		if ((change.target as HTMLInputElement).name === "timeinput" || 
+			((change.target as HTMLInputElement).name !== "distanceinput" && this.isChangingDistance)) {
+			parsedDistance =  calculator.ComputeDistanceFromTime(parsedDaysTravelled, kmPerDay);
+			this.isChangingDistance = true;
 		} else {
-			distance = Number.parseFloat(formData.get("distancemeasurement") as string);
-			daysTravelled = calculator.ComputeTimeFromDistance(distance, kmPerDay);
+			parsedDaysTravelled = calculator.ComputeTimeFromDistance(parsedDistance, kmPerDay);
+			this.isChangingDistance = false;
 		}
 
 		if (!isKm) {
-			distance = distance * 0.621371; // KM to mile conversion
+			parsedDistance = parsedDistance * 0.621371; // KM to mile conversion
 		}
-		
-		this.synchronizedistancetime(distance, daysTravelled);
+
+		this.synchronizedistancetime(parsedDistance, parsedDaysTravelled);
 	}
 
 	private synchronizedistancetime(distance: number, time: number): void {
