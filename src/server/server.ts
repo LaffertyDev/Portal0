@@ -36,17 +36,10 @@ export class HttpServer {
 			res.sendFile(Path.join(VIEWS_DIRECTORY, "index.html"));
 			console.log("Index Hit");
 		});
-
-		server.get("/resume", (req, res) => {
-			res.sendFile(Path.join(VIEWS_DIRECTORY, "resume.html"));
-			console.log("Resume Hit");
-		});
-
 		server.get("/components", (req, res) => {
 			res.sendFile(Path.join(VIEWS_DIRECTORY, "components.html"));
 			console.log("Components Hit");
 		});
-
 		server.get("/worldbuilder", (req, res) => {
 			res.sendFile(Path.join(VIEWS_DIRECTORY, "worldbuilder.html"));
 			console.log("Worldbuilder Hit");
@@ -54,10 +47,6 @@ export class HttpServer {
 		server.get("/medievaldemo", (req, res) => {
 			res.sendFile(Path.join(VIEWS_DIRECTORY, "medievaldemo.html"));
 			console.log("Medieval Demo Hit");
-		});
-		server.get("/dndaction", (req, res) => {
-			res.sendFile(Path.join(VIEWS_DIRECTORY, "dndaction.html"));
-			console.log("action econ Hit");
 		});
 		server.get("/timedistance", (req, res) => {
 			res.sendFile(Path.join(VIEWS_DIRECTORY, "timedistance.html"));

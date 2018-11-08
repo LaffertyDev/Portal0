@@ -9,7 +9,7 @@ describe("time distance calculator", () => {
 			Load: Load.Medium,
 			Method: TravellingMethod.Walking,
 			Pace: TravellingPace.Normal,
-			Terrain: Terrain.Medium,
+			Terrain: Terrain.TravelledPath,
 			Weather: Weather.BlueSkies,
 		};
 

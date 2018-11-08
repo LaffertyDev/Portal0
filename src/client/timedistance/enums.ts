@@ -28,11 +28,14 @@ export class ModifierMapping {
 	public static GetMethodRange(method: TravellingMethod): NumericRange {
 		switch (method) {
 			case TravellingMethod.Walking:
-				return new NumericRange(10, 15);
+				// https://writemedieval.livejournal.com/4706.html
+				// assuming average of 2-3 mph for 8 hours a day
+				// people DID NOT travel at night
+				return new NumericRange(15, 25);
 			case TravellingMethod.Horseback:
-				return new NumericRange(20, 30);
+				return new NumericRange(25, 35);
 			case TravellingMethod.HorsebackFreshHorses:
-				return new NumericRange(30, 45);
+				return new NumericRange(30, 50);
 			case TravellingMethod.Boat:
 				return new NumericRange(24, 48);
 		}
@@ -40,13 +43,13 @@ export class ModifierMapping {
 
 	public static GetTerrainModifier(terrain: Terrain): number {
 		switch (terrain) {
-			case Terrain.Easy:
+			case Terrain.PavedRoad:
 				return 1;
-			case Terrain.Medium:
+			case Terrain.TravelledPath:
 				return 0.9;
-			case Terrain.Hard:
+			case Terrain.Wilderness:
 				return 0.8;
-			case Terrain.Extreme:
+			case Terrain.Mountainous:
 				return 0.5;
 		}
 	}
@@ -56,14 +59,14 @@ export class ModifierMapping {
 			case Weather.BlueSkies:
 				return 1;
 			case Weather.Rain:
-				return 0.9;
+				return 0.7;
 			case Weather.Snow:
-				return 0.66;
+				// snow is both very difficult to traverse in AND it reduces active daylight significantly
+				return 0.5;
 			case Weather.Extreme:
-				return 0.50;
+				return 0.333;
 		}
 	}
-
 }
 
 export enum TravellingPace {
@@ -105,22 +108,22 @@ export enum Terrain {
 	 * Extremely well travelled road, calm seas
 	 * -0%
 	 */
-	Easy,
+	PavedRoad,
 	/**
 	 * Some wilderness travel, less calm seas
 	 * -10%
 	 */
-	Medium,
+	TravelledPath,
 	/**
 	 * Mostly wilderness travel, stormy seas
 	 * -33%
 	 */
-	Hard,
+	Wilderness,
 	/**
 	 * Mountain traversal, hurricane seas
 	 * -50%
 	 */
-	Extreme,
+	Mountainous,
 }
 
 export enum TravellingMethod {
