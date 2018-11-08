@@ -110,8 +110,8 @@ export class RegionForm extends React.Component<IRegionFormProp, RegionGenConfig
 		return (
 			<div>
 				<form action="javascript:void(0);" onSubmit={this.handleSubmit}>
-					<h3>Region Parameters</h3>
 					<fieldset>
+						<legend>Region Parameters</legend>
 						<div>
 							<label htmlFor="regionPop">Region Total Population</label>
 							<input id="regionPop" type="number" min="0" 
@@ -125,8 +125,8 @@ export class RegionForm extends React.Component<IRegionFormProp, RegionGenConfig
 							<p>Total size of the region, including inhospitable land</p>
 						</div>  
 					</fieldset>
-					<h3>Castle Settings</h3>
 					<fieldset>
+						<legend>Castle Settings</legend>
 						<div>
 							<label htmlFor="regionAgeYears">Region Age Years</label>
 							<input id="regionAgeYears" type="number" min="0" 
@@ -149,8 +149,8 @@ export class RegionForm extends React.Component<IRegionFormProp, RegionGenConfig
 								value={percentageOfCastlesInOutskirts} onChange={this.handlePercentageOfCastlesInOutskirts}/>
 						</div>
 					</fieldset>
-					<h3>City Settings</h3>
 					<fieldset>
+						<legend>City Settings</legend>
 						<div>
 							<label htmlFor="warehousesPerBuildingMultiplier">Warehouses per Building Multiplier</label>
 							<input type="number" id="warehousesPerBuildingMultiplier" min="0" step="0.1"
@@ -164,8 +164,8 @@ export class RegionForm extends React.Component<IRegionFormProp, RegionGenConfig
 							<p>Average density is ~40,000 per Mile². Lowering this will create larger (in area) cities</p>
 						</div>
 					</fieldset>
-					<h3>Farming Settings</h3>
 					<fieldset>
+						<legend>Farming Settings</legend>
 						<div>
 							<label htmlFor="peoplePerFarmlandSqMiles">People Per Mile² Farmland</label>
 							<input type="number" id="peoplePerFarmlandSqMiles" min="0"
