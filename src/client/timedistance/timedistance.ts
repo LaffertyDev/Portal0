@@ -1,3 +1,4 @@
+import { VUtils } from "../worldbuilder/utils";
 import { Load, ModifierMapping, Terrain, TravellingMethod, TravellingPace, Weather } from "./enums";
 import { TimeDistanceCalculator } from "./timedistancecalculator";
 
@@ -10,18 +11,19 @@ export interface ITravelSettings {
 }
 
 export class TimeDistance {
-	private previouslyChangedDistance: boolean = true;
-
 	constructor() {
 		const form = document.getElementById("travelform") as HTMLFormElement;
 		const formInputs = form.querySelectorAll("input");
 		for (const formInput of formInputs) {
 			formInput.addEventListener("change", this.HandleFormChange.bind(this));
 		}
+
+		this.HandleFormChange();
 	}
 
-	private HandleFormChange(change: Event) {
+	private HandleFormChange() {
 		const formData = new FormData(document.getElementById("travelform") as HTMLFormElement);
+		const isDeterminingDistance = formData.get("timedistancepicker") !== "Distance";
 		const isKm = formData.get("distancemeasurement") === "Kilometers";
 		const distance = formData.get("distanceinput");
 		const daysTravelled = formData.get("timeinput");
@@ -47,6 +49,20 @@ export class TimeDistance {
 			throw new Error();
 		}
 
+		const timeInput = document.getElementById("timeinput") as HTMLElement;
+		const distanceInput = document.getElementById("distanceinput") as HTMLElement;
+		if (isDeterminingDistance) {
+			// We know time, hide the distance input
+			timeInput.style.display = null;
+			distanceInput.style.display = "none";
+		} else {
+			// hide distance output
+			timeInput.style.display = "none";
+			distanceInput.style.display = null;
+		}
+		const distanceUnitSpan = document.getElementById("distance_unit") as HTMLElement;
+		distanceUnitSpan.innerText = isKm ? "km" : "miles";
+
 		const parsedWeather = Number.parseInt(weather as string, 10) as Weather;
 		const parsedMethod = Number.parseInt(method as string, 10) as TravellingMethod;
 		const parsedLoad = Number.parseInt(load as string, 10) as Load;
@@ -64,31 +80,25 @@ export class TimeDistance {
 
 		const kmPerDay = ModifierMapping.GetMethodRange(parsedMethod).GetResult() * modifier;
 
-		let parsedDistance: number = Number.parseFloat(distance as string);
-		let parsedDaysTravelled: number = Number.parseFloat(daysTravelled as string);
-
-		// If user changes days travelled, but distance remained the same
-		if ((change.target as HTMLInputElement).name === "timeinput" || 
-			((change.target as HTMLInputElement).name !== "distanceinput" && this.previouslyChangedDistance)) {
+		let parsedDistance: number;
+		let parsedDaysTravelled: number;
+		if (isDeterminingDistance) {
+			parsedDaysTravelled = Number.parseFloat(daysTravelled as string);
 			parsedDistance =  calculator.ComputeDistanceFromTime(parsedDaysTravelled, kmPerDay);
-			this.previouslyChangedDistance = true;
 		} else {
+			parsedDistance = Number.parseFloat(distance as string);
 			parsedDaysTravelled = calculator.ComputeTimeFromDistance(parsedDistance, kmPerDay);
-			this.previouslyChangedDistance = false;
 		}
 
-		if (!isKm) {
-			parsedDistance = parsedDistance * 0.621371; // KM to mile conversion
-		}
-
-		this.synchronizedistancetime(parsedDistance, parsedDaysTravelled);
+		this.synchronizedistancetime(parsedDistance, isKm, parsedDaysTravelled);
 	}
 
-	private synchronizedistancetime(distance: number, time: number): void {
-		const distanceInput = document.getElementById("distanceinput") as HTMLInputElement;
-		distanceInput.value = TimeDistance.prettyPrintRounded(distance, 1);
-		const timeInput = document.getElementById("timeinput") as HTMLInputElement;
-		timeInput.value = TimeDistance.prettyPrintRounded(time, 1);
+	private synchronizedistancetime(distanceKm: number, isMetric: boolean, time: number): void {
+		const standardizedDistance = VUtils.prettyPrintRounded(isMetric ? distanceKm : distanceKm * 0.621371);
+		const outputElement = document.getElementById("tdoutput") as HTMLOutputElement;
+		const standardizedTime = VUtils.prettyPrintRounded(time);
+		outputElement.innerText = `
+			My destination is ${ standardizedDistance } ${ isMetric ? "km" : "miles" } away and it will take ${ standardizedTime } days to get there.`;
 	}
 
 	public static prettyPrintRounded(val: number, decimalPrecision: number = 3): string {

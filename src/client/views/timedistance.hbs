@@ -26,19 +26,24 @@
 				<legend>Time or Distance</legend>
 				<ul>
 					<li>
-						<label for="distanceinput">
-							How far is your destination?
+						<label for="timedistancepicker_distance">
+							<input type="radio" name="timedistancepicker" id="timedistancepicker_distance" value="Distance" checked="checked"/>
+							I know how far away my destination is
 						</label>
-						<input name="distanceinput" id="distanceinput" type="number" placeholder="Enter a Distance" step="0.1" min="0"
-						 value="80" />
 					</li>
 					<li>
-						<label for="timeinput">
-							How long does it take to get there?
+						<label for="timedistancepicker_time">
+							<input type="radio" name="timedistancepicker" id="timedistancepicker_time" value="Time" />
+							I know how long I want it to take to get there
 						</label>
-						<input name="timeinput" id="timeinput" type="number" placeholder="Enter a Time" step="0.1" min="0" value="4" />
 					</li>
 				</ul>
+				<p id="distanceinput">
+					My destination is <input name="distanceinput" type="number" placeholder="Enter a Distance" step="0.1" min="0" value="80" /> <span id="distance_unit">km</span> away					
+				</p>
+				<p id="timeinput">
+					It takes <input name="timeinput" type="number" placeholder="Enter a Time" step="0.1" min="0" value="4" /> days to get to my destination
+				</p>
 			</fieldset>
 			<fieldset>
 				<legend>How are you travelling?</legend>
@@ -179,6 +184,9 @@
 					</li>
 				</ul>
 			</fieldset>
+			<output id="tdoutput">
+				
+			</output>
 		</form>
 	</div>
 </section>
