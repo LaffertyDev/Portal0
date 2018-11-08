@@ -80,22 +80,22 @@ export class TimeDistance {
 
 		const kmPerDay = ModifierMapping.GetMethodRange(parsedMethod).GetResult(false) * modifier;
 
-		let parsedDistance: number;
+		let parsedDistanceKM: number;
 		let parsedDaysTravelled: number;
 		if (isDeterminingDistance) {
 			parsedDaysTravelled = Number.parseFloat(daysTravelled as string);
-			parsedDistance =  calculator.ComputeDistanceFromTime(parsedDaysTravelled, kmPerDay);
+			parsedDistanceKM =  calculator.ComputeDistanceFromTime(parsedDaysTravelled, kmPerDay);
 		} else {
-			parsedDistance = Number.parseFloat(distance as string);
+			parsedDistanceKM = Number.parseFloat(distance as string);
 			if (!isKm) {
 				// user typed in miles, but we treat base is km
 				// so convert their mile input to KM
-				parsedDistance = parsedDistance * 1.609;
+				parsedDistanceKM = parsedDistanceKM * 1.609;
 			}
-			parsedDaysTravelled = calculator.ComputeTimeFromDistance(parsedDistance, kmPerDay);
+			parsedDaysTravelled = calculator.ComputeTimeFromDistance(parsedDistanceKM, kmPerDay);
 		}
 
-		this.synchronizedistancetime(parsedDistance, isKm, parsedDaysTravelled);
+		this.synchronizedistancetime(parsedDistanceKM, isKm, parsedDaysTravelled);
 	}
 
 	private synchronizedistancetime(distanceKm: number, isMetric: boolean, time: number): void {
