@@ -78,7 +78,7 @@ export class TimeDistance {
 			Weather: parsedWeather,
 		});
 
-		const kmPerDay = ModifierMapping.GetMethodRange(parsedMethod).GetResult() * modifier;
+		const kmPerDay = ModifierMapping.GetMethodRange(parsedMethod).GetResult(false) * modifier;
 
 		let parsedDistance: number;
 		let parsedDaysTravelled: number;

@@ -5,7 +5,11 @@ export class NumericRange {
 		}
 	}
 
-	public GetResult(): number {
-		return (this.Max - this.Min) * Math.random() + this.Min;
+	public GetResult(useRandom: boolean): number {
+		if (useRandom) {
+			return (this.Max - this.Min) * Math.random() + this.Min;
+		} else {
+			return (this.Max + this.Min) / 2;
+		}
 	}
 }
