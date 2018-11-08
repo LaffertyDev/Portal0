@@ -87,6 +87,11 @@ export class TimeDistance {
 			parsedDistance =  calculator.ComputeDistanceFromTime(parsedDaysTravelled, kmPerDay);
 		} else {
 			parsedDistance = Number.parseFloat(distance as string);
+			if (!isKm) {
+				// user typed in miles, but we treat base is km
+				// so convert their mile input to KM
+				parsedDistance = parsedDistance * 1.609;
+			}
 			parsedDaysTravelled = calculator.ComputeTimeFromDistance(parsedDistance, kmPerDay);
 		}
 
