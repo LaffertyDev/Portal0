@@ -37,6 +37,12 @@ form {
 	}
 }
 
+.form-condensed {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+	grid-column-gap: 1em;
+}
+
 output {
 	border: 1px solid $primary-neutral;
 	background-color: $primary-neutral-light;

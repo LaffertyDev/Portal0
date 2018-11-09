@@ -6,24 +6,7 @@
 			value! You can also specify things like how fast you want to be travelling or how hard the weather is. This is meant
 			to be used for Fantasy Roleplaying Games.
 		</p>
-		<form id="travelform">
-			<fieldset>
-				<legend>Unit of Measurement</legend>
-				<ul>
-					<li>
-						<input name="distancemeasurement" id="milesunit" type="radio" value="Miles" />
-						<label for="milesunit">
-							Miles
-						</label>
-					</li>
-					<li>
-						<input name="distancemeasurement" id="kilometersunit" type="radio" value="Kilometers" checked="checked" />
-						<label for="kilometersunit">
-							Kilometers
-						</label>
-					</li>
-				</ul>
-			</fieldset>
+		<form id="travelform" class="form-condensed">
 			<fieldset>
 				<legend>Time or Distance</legend>
 				<ul>
@@ -47,6 +30,23 @@
 				<p id="timeinput">
 					My destination is <input name="timeinput" type="number" placeholder="Enter a Time" step="0.1" min="0" value="4" /> days away
 				</p>
+			</fieldset>
+			<fieldset>
+				<legend>Unit of Measurement</legend>
+				<ul>
+					<li>
+						<input name="distancemeasurement" id="milesunit" type="radio" value="Miles" />
+						<label for="milesunit">
+							Miles
+						</label>
+					</li>
+					<li>
+						<input name="distancemeasurement" id="kilometersunit" type="radio" value="Kilometers" checked="checked" />
+						<label for="kilometersunit">
+							Kilometers
+						</label>
+					</li>
+				</ul>
 			</fieldset>
 			<fieldset>
 				<legend>Method</legend>
@@ -187,10 +187,10 @@
 					</li>
 				</ul>
 			</fieldset>
-			<output id="tdoutput">
-
-			</output>
 		</form>
+		<output id="tdoutput" for="travelform">
+
+		</output>
 	</div>
 </section>
 <section>
