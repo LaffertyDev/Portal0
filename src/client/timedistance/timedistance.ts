@@ -11,23 +11,25 @@ export interface ITravelSettings {
 }
 
 export class TimeDistance {
-	constructor() {
+	public static Init() {
 		const form = document.getElementById("travelform") as HTMLFormElement;
 		const formInputs = form.querySelectorAll("input");
 		for (const formInput of formInputs) {
-			formInput.addEventListener("change", this.HandleFormChange.bind(this));
+			formInput.addEventListener("change", TimeDistance.HandleFormChange);
 		}
 
-		this.HandleFormChange();
+		TimeDistance.HandleFormChange();
 	}
 
-	public HandleFormChange() {
+	public static HandleFormChange() {
 		const formData = new FormData(document.getElementById("travelform") as HTMLFormElement);
 		const isKm = formData.get("distancemeasurement") === "Kilometers";
 		const isDeterminingDistance = formData.get("timedistancepicker") !== "Distance";
 
-		const travelSettings = this.GetTravelSettingsFromForm(formData);
-		const kmPerDay = this.GetKmPerDay(travelSettings);
+		const travelSettings = TimeDistance.GetTravelSettingsFromForm(formData);
+
+		// everything below this is pure
+		const kmPerDay = TimeDistance.GetKmPerDay(travelSettings);
 
 		let parsedDistanceKM: number;
 		let parsedDaysTravelled: number;
@@ -46,15 +48,15 @@ export class TimeDistance {
 			parsedDaysTravelled = TimeDistanceCalculator.ComputeTimeFromDistance(parsedDistanceKM, kmPerDay);
 		}
 
-		this.synchronizedistancetime(parsedDistanceKM, isKm, parsedDaysTravelled, isDeterminingDistance);
+		// everything above is pure
+		TimeDistance.synchronizedistancetime(parsedDistanceKM, isKm, parsedDaysTravelled, isDeterminingDistance);
 	}
 
-	private GetKmPerDay(travelSettings: ITravelSettings): number {
-		const modifier = TimeDistanceCalculator.ComputeRangeModifier(travelSettings);
-		return ModifierMapping.GetMethodRange(travelSettings.Method).GetResult(false) * modifier;
+	private static GetKmPerDay(travelSettings: ITravelSettings): number {
+		return ModifierMapping.GetMethodRange(travelSettings.Method).GetResult(false) * TimeDistanceCalculator.ComputeRangeModifier(travelSettings);
 	}
 
-	private GetTravelSettingsFromForm(formData: FormData): ITravelSettings {
+	private static GetTravelSettingsFromForm(formData: FormData): ITravelSettings {
 		const weather = formData.get("travelweather");
 		const method = formData.get("travelmethod");
 		const load = formData.get("travelcapacity");
@@ -92,7 +94,7 @@ export class TimeDistance {
 		};
 	}
 
-	private synchronizedistancetime(distanceKm: number, isMetric: boolean, timeDays: number, isDeterminingDistance: boolean): void {
+	private static synchronizedistancetime(distanceKm: number, isMetric: boolean, timeDays: number, isDeterminingDistance: boolean): void {
 		// synchronize km / miles
 		const distanceUnitSpan = document.getElementById("distance_unit") as HTMLElement;
 		distanceUnitSpan.innerText = isMetric ? "km" : "miles";
@@ -124,4 +126,4 @@ export class TimeDistance {
 	}
 }
 
-const td = new TimeDistance();
+TimeDistance.Init();
