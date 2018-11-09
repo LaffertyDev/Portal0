@@ -13,10 +13,7 @@ export interface ITravelSettings {
 export class TimeDistance {
 	public static Init() {
 		const form = document.getElementById("travelform") as HTMLFormElement;
-		const formInputs = form.querySelectorAll("input");
-		for (const formInput of formInputs) {
-			formInput.addEventListener("change", TimeDistance.HandleFormChange);
-		}
+		form.addEventListener("input", TimeDistance.HandleFormChange);
 
 		TimeDistance.HandleFormChange();
 	}
