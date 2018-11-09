@@ -46,6 +46,10 @@ header, footer {
     align-items: center;
     flex-wrap: wrap;
     padding: 1.5rem;
+
+	@media (max-width: 600px) {
+		padding: 1rem;
+	}
 }
 
 section {
@@ -61,6 +65,10 @@ section {
 
     .#{$namespace}-section-copy {
         padding: 1.5em;
+
+        @media (max-width: 600px) {
+            padding: 1rem;
+        }
     }
 }
 
