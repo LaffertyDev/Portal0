@@ -102,8 +102,8 @@ export class TimeDistance {
 		const standardizedDistance = VUtils.prettyPrintRounded(isMetric ? distanceKm : distanceKm * 0.621371);
 		const outputElement = document.getElementById("tdoutput") as HTMLOutputElement;
 		const standardizedTime = VUtils.prettyPrintRounded(time);
-		outputElement.innerText = `
-			My destination is ${ standardizedDistance } ${ isMetric ? "km" : "miles" } away and it will take ${ standardizedTime } days to get there.`;
+		// tslint:disable-next-line:max-line-length
+		outputElement.innerHTML = `My destination is <strong>${ standardizedDistance } ${ isMetric ? "km" : "miles" }</strong> away and it will take <strong>${ standardizedTime } days</strong> to get there.`;
 	}
 
 	public static prettyPrintRounded(val: number, decimalPrecision: number = 3): string {

@@ -36,3 +36,10 @@ form {
 		padding: 0;
 	}
 }
+
+output {
+	border: 1px solid $primary-neutral;
+	background-color: $primary-neutral-light;
+	padding: 1.5em;
+	display: block;
+}
