@@ -13,9 +13,8 @@ describe("time distance calculator", () => {
 			Weather: Weather.BlueSkies,
 		};
 
-		const tdc = new TimeDistanceCalculator();
 		// act
-		const kmPerDay = tdc.ComputeRangeModifier(settings);
+		const kmPerDay = TimeDistanceCalculator.ComputeRangeModifier(settings);
 
 		// assert
 		expect(kmPerDay).toBe(0.81);
@@ -26,9 +25,8 @@ describe("time distance calculator", () => {
 		const distanceKm = 20;
 		const kmPerDay = 10;
 
-		const tdc = new TimeDistanceCalculator();
 		// act
-		const daysTravelled = tdc.ComputeTimeFromDistance(distanceKm, kmPerDay);
+		const daysTravelled = TimeDistanceCalculator.ComputeTimeFromDistance(distanceKm, kmPerDay);
 
 		// assert
 		expect(daysTravelled).toBe(2);
@@ -39,9 +37,8 @@ describe("time distance calculator", () => {
 		const daysTravelling = 6;
 		const kmPerDay = 10;
 
-		const tdc = new TimeDistanceCalculator();
 		// act
-		const distanceKm = tdc.ComputeDistanceFromTime(daysTravelling, kmPerDay);
+		const distanceKm = TimeDistanceCalculator.ComputeDistanceFromTime(daysTravelling, kmPerDay);
 
 		// assert
 		expect(distanceKm).toBe(60);
