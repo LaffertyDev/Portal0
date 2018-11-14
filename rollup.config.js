@@ -2,6 +2,7 @@ import commonjs from "rollup-plugin-commonjs";
 import resolve from "rollup-plugin-node-resolve";
 import replace from "rollup-plugin-replace";
 import sourcemaps from 'rollup-plugin-sourcemaps';
+import ClockModule from "./src/client/components/clock/rollup.config";
 
 // `npm run build` -> `production` is true
 // `npm run dev` -> `production` is false
@@ -96,5 +97,6 @@ const timedistance = {
 export default [
 	appBundle,
 	worldbuilder,
-	timedistance
+	timedistance,
+	ClockModule
 ];

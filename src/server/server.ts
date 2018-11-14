@@ -52,6 +52,10 @@ export class HttpServer {
 			res.sendFile(Path.join(VIEWS_DIRECTORY, "timedistance.html"));
 			console.log("TD App Hit");
 		});
+		server.get("/blades", (req, res) => {
+			res.sendFile(Path.join(VIEWS_DIRECTORY, "bladesclock.html"));
+			console.log("blades clock App Hit");
+		});
 
 		// taken from http://stackoverflow.com/a/9802006/2383477
 		server.use((req, res, next) => {
