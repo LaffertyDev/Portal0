@@ -24,7 +24,15 @@ Running:
 3. Run `npm run build`
 4. Run `npm run dev`
 
-## Deployment
+## Deploying
+
+Add the remote to your local git.
+
+`git remote add prod ssh://lafferty@lafferty.dev/opt/website-node/prod/prod.git`
+
+Then just do `git push prod master` to deploy.
+
+## Deployment Explained
 
 Deploying the Server isn't too complex, but it does have a lot of interlinked parts. At its core, we're using Git, NPM, and SSH for deploying. Most of it is pretty magical.
 
