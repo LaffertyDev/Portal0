@@ -8,6 +8,22 @@ Domain is registered through Namecheap.
 
 Hosting is through Digital Ocean
 
+## Developing
+
+Pre-reqs:
+
+1. NPM
+2. Node
+3. Typescript
+4. an SSL keypair so we can have a local server on https (required for javascript modules).
+
+Running:
+
+1. Clone the repository
+2. Run `npm install`
+3. Run `npm run build`
+4. Run `npm run dev`
+
 ## Deployment
 
 Deploying the Server isn't too complex, but it does have a lot of interlinked parts. At its core, we're using Git, NPM, and SSH for deploying. Most of it is pretty magical.

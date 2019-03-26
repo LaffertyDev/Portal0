@@ -11,7 +11,7 @@
     "build:html": "node build.js html",
     "build:lint": "tslint --project tsconfig.json",
     "clean": "rimraf ./server/cgi & rimraf ./www/dist && rimraf ./cgi",
-    "dev": "node ./server/cgi/server/app.js dev",
+    "dev": "node ./server/cgi/app.js dev",
     "start": "node ./server/cgi/app.js",
     "test": "jest"
   },
