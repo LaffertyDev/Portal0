@@ -6,10 +6,10 @@ class BuildSystem {
 	BuildCSS() {
 		var result = sass.renderSync({
 			file: "src/client/sass/main.scss",
-			outFile: "www/dist/bundle.css"
+			outFile: "www/bundle.css"
 		});
 
-		fs.writeFile("www/dist/bundle.css", result.css, function (err) {
+		fs.writeFile("www/bundle.css", result.css, function (err) {
 			if (!err) {
 				//file written on disk
 			}
@@ -18,7 +18,7 @@ class BuildSystem {
 
 	BuildHTML() {
 		const extension = "hbs";
-		const outDirectory = "www/dist/views";
+		const outDirectory = "www";
 		const viewDir = "src/client/views";
 		const views = ["index", "components", "404", "worldbuilder", "medievaldemo", "timedistance","bladesclock"];
 		const partials = ["footer", "header"];
@@ -32,12 +32,6 @@ class BuildSystem {
 		const layout = "_layout.hbs";
 		const filepath = fs.readFileSync(`${viewDir}/${layout}`, "utf8");
 		const layoutTemplate = handlebars.compile(filepath);
-
-		if (!fs.existsSync("www/dist"))
-		{
-			fs.mkdirSync("www/dist");
-			console.log("Created dist directory");
-		}
 
 		if (!fs.existsSync(outDirectory)) {
 			fs.mkdirSync(outDirectory);

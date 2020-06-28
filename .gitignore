@@ -1,5 +1,7 @@
 cgi/
 dist/
+www/*.html
+www/*.css
 www/dist/
 .rnd
 cert.pem
