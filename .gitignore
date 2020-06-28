@@ -6,3 +6,4 @@ cert.pem
 key.pem
 openssl.conf
 node_modules/
+npm-debug.log
