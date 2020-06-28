@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npm run build:lint && npm run clean && npm run build:compile && npm run build:bundle && npm run build:css && npm run build:html",
     "build:bundle": "rollup -c",
-    "build:compile": "tsc -p ./src/client/tsconfig.json && tsc -p ./src/server/tsconfig.json",
+    "build:compile": "tsc -p ./src/client/tsconfig.json",
     "build:css": "node build.js css",
     "build:html": "node build.js html",
     "build:lint": "tslint --project tsconfig.json",
