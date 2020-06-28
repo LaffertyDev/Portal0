@@ -1,7 +1,8 @@
 {
-  "name": "base_project_template",
+  "name": "personal_website",
   "version": "1.0.0",
-  "description": "FILL ME IN",
+  "description": "See Github",
+  "private": true,
   "main": "app.ts",
   "scripts": {
     "build": "npm run build:lint && npm run clean && npm run build:compile && npm run build:bundle && npm run build:css && npm run build:html",
@@ -20,7 +21,6 @@
     "url": "https://github.com/Ha1fDead/Portal0.git"
   },
   "author": "Nathan Lafferty",
-  "license": "GPL-3.0",
   "dependencies": {
     "npm-check-updates": "^7.0.1",
     "react": "^16.13.1",
