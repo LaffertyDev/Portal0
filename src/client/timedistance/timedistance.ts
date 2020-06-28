@@ -101,17 +101,17 @@ export class TimeDistance {
 		const distanceInput = document.getElementById("distanceinput") as HTMLElement;
 		if (isDeterminingDistance) {
 			// We know time, hide the distance input
-			timeInput.style.display = null;
+			timeInput.style.display = "";
 			distanceInput.style.display = "none";
 		} else {
 			// hide distance output
 			timeInput.style.display = "none";
-			distanceInput.style.display = null;
+			distanceInput.style.display = "";
 		}
 
 		const outputElement = document.getElementById("tdoutput") as HTMLOutputElement;
 		if (!isNaN(distanceKm) && !isNaN(timeDays) && distanceKm >= 0 && timeDays >= 0) {
-			outputElement.style.visibility = null;
+			outputElement.style.visibility = "";
 			// synchronize output
 			const standardizedDistance = VUtils.prettyPrintRounded(isMetric ? distanceKm : distanceKm * 0.621371);
 			const standardizedTime = VUtils.prettyPrintRounded(timeDays);
