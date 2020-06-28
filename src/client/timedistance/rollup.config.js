@@ -3,7 +3,7 @@ import sourcemaps from 'rollup-plugin-sourcemaps';
 
 const TimeDistanceModule = {
 	treeshake: {
-		pureExternalModules: true,
+		moduleSideEffects: false,
 		propertyReadSideEffects: false
 	},
 	input: "cgi/timedistance/timedistance.js",
@@ -18,7 +18,6 @@ const TimeDistanceModule = {
 	},
 	plugins: [
 		resolve({
-			module: true,
 			modulesOnly: true
 		}),
 		sourcemaps()

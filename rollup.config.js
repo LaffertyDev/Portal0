@@ -6,7 +6,7 @@ import WorldbuilderModule from "./src/client/worldbuilder/rollup.config";
 
 const appBundle = {
 	treeshake: {
-		pureExternalModules: true,
+		moduleSideEffects: false,
 		propertyReadSideEffects: false
 	},
 	input: "cgi/app.js",
@@ -23,7 +23,6 @@ const appBundle = {
 	},
 	plugins: [
 		resolve({
-			module: true,
 			modulesOnly: true
 		}),
 		// Typescript outputs sourcemaps separately

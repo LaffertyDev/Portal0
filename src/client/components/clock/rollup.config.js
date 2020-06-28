@@ -3,7 +3,7 @@ import sourcemaps from 'rollup-plugin-sourcemaps';
 
 const ClockModule = {
 	treeshake: {
-		pureExternalModules: true,
+		moduleSideEffects: true,
 		propertyReadSideEffects: false
 	},
 	input: "cgi/components/clock/module.js",
@@ -14,7 +14,6 @@ const ClockModule = {
 	},
 	plugins: [
 		resolve({
-			module: true,
 			modulesOnly: true
 		}),
 		sourcemaps()

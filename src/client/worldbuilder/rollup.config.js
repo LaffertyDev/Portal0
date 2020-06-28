@@ -9,7 +9,7 @@ const production = !process.env.ROLLUP_WATCH;
 
 const WorldbuilderModule = {
 	treeshake: {
-		pureExternalModules: true,
+		moduleSideEffects: false,
 		propertyReadSideEffects: false
 	},
 	input: "cgi/worldbuilder/worldbuilder.js",
@@ -24,7 +24,6 @@ const WorldbuilderModule = {
 	},
 	plugins: [
 		resolve({
-			module: true,
 			modulesOnly: false
 		}),
 		commonjs({
