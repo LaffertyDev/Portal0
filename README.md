@@ -17,6 +17,10 @@ Pre-reqs:
 3. Typescript
 4. an SSL keypair so we can have a local server on https (required for javascript modules).
 
+- need a build process to compile `sass`
+- need a build process to compile `.hbs`
+- need a build process to compile `typescript`
+
 Running:
 
 1. Clone the repository
