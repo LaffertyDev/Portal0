@@ -33,6 +33,12 @@ class BuildSystem {
 		const filepath = fs.readFileSync(`${viewDir}/${layout}`, "utf8");
 		const layoutTemplate = handlebars.compile(filepath);
 
+		if (!fs.existsSync("www/dist"))
+		{
+			fs.mkdirSync("www/dist");
+			console.log("Created dist directory");
+		}
+
 		if (!fs.existsSync(outDirectory)) {
 			fs.mkdirSync(outDirectory);
 			console.log("Created view directory");
