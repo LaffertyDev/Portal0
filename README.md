@@ -12,17 +12,15 @@ Hosting is through Digital Ocean
 
 Pre-reqs:
 
-1. NPM
-2. Node
-3. Typescript
-4. an SSL keypair so we can have a local server on https (required for javascript modules).
+1. NPM and NodeJS
+2. Python3
 
 Running:
 
 1. Clone the repository
 2. Run `npm install`
 3. Run `npm run build`
-4. Run `npm run dev`
+4. Server the `www` directory as the root directory of a webserver (`python3 -m http.server`)
 
 ## Deploying
 
@@ -70,8 +68,7 @@ Too hands on, can automate this.
 
 1. Add `.hbs` file in `/views` directory
 2. Add link to URL in the `header.hbs` file
-3. Add route to express in `server.ts`
-4. Add compilation file to `build.js` file
-5. (If Javascript) Add compilation info to Rollup
+3. Add compilation file to `build.js` file
+4. (If Javascript) Add compilation info to Rollup
 
 All of this could 100% be automated away.
