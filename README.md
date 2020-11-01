@@ -22,6 +22,8 @@ Running:
 3. Run `npm run build`
 4. Server the `www` directory as the root directory of a webserver (`python3 -m http.server`)
 
+Unfortunately, the SimpleHTTPServer doesn't trivially know how to map extensionless requests to `.html` files by default.
+
 ## Deploying
 
 Deploying is done through Github Actions. Explained:

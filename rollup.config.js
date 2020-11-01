@@ -1,6 +1,7 @@
 import resolve from "rollup-plugin-node-resolve";
 import sourcemaps from 'rollup-plugin-sourcemaps';
 import ClockModule from "./src/client/components/clock/rollup.config";
+import WineModule from "./src/client/components/wine/rollup.config";
 import TimeDistanceModule from "./src/client/timedistance/rollup.config";
 import WorldbuilderModule from "./src/client/worldbuilder/rollup.config";
 
@@ -35,5 +36,6 @@ export default [
 	appBundle,
 	WorldbuilderModule,
 	TimeDistanceModule,
-	ClockModule
+	ClockModule,
+	WineModule
 ];
